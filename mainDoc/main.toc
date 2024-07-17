@@ -1,0 +1,14 @@
+\babel@toc {nil}{}\relax 
+\contentsline {section}{\numberline {1}Motivation (talk about different types of spin qubits)}{3}{section.1}%
+\contentsline {section}{\numberline {2}Theoretical background}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Coulomb blockade}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The SET and charge sensing}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}RF reflectometry}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Kinetic inductance and his nonlinearity}{4}{subsection.2.4}%
+\contentsline {section}{\numberline {3}The parallel RLC resonator}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Resonant frequency and effective impedance}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Contrast and it's optimization}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}The parallel kinetic RLC resonator}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Impact of the nonlinearity in the contrast}{8}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Simulations of the models}{9}{section.5}%
+\contentsline {section}{\numberline {6}Conclusions}{10}{section.6}%

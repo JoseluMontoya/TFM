@@ -1,0 +1,106 @@
+\documentclass{article}
+
+% %Basics
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{enumitem}
+% \usepackage[spanish, es-noquoting]{babel}
+\usepackage[]{babel}
+
+% % Visual flare and structure
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage[pagestyles, explicit]{titlesec}
+% \usepackage{multicol}
+\usepackage{abstract}
+\usepackage{appendix}
+\usepackage{lipsum}
+
+% % Math
+\usepackage{bm}
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\usepackage[makeroom]{cancel}
+\usepackage{empheq}
+\usepackage{physics}
+\usepackage{siunitx}
+
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+
+% % Links
+\usepackage[linktocpage]{hyperref}
+\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cerulean,
+    filecolor=magenta,
+    urlcolor=cyan,
+    % pdftitle={Overleaf Example},
+    % pdfpagemode=FullScreen,
+    }
+
+% % Subfiles
+\usepackage{subfiles}
+
+% % Tikz libraries
+\usetikzlibrary{babel}
+\usetikzlibrary{calc}
+\usetikzlibrary{math}
+
+\parskip=1em
+
+
+\title{
+\textbf{SET readout using RF reflectometry and kinetic inductance nonlinearity}
+}
+\author{Jose Luis Montoya Agull\'o}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\lipsum[1-1]
+\end{abstract}
+
+
+\newpage
+\tableofcontents{}
+
+\newpage
+\section{Motivation (talk about different types of spin qubits)}
+\subfile{sections/Introduction.tex}
+
+\newpage
+\section{Theoretical background}
+\subfile{sections/Theory.tex}
+
+\newpage
+\section{The parallel RLC resonator}
+\subfile{sections/RLC.tex}
+
+\newpage
+\section{The parallel kinetic RLC resonator}
+\subfile{sections/KineticRLC.tex}
+
+\newpage
+\section{Simulations of the models}
+\subfile{sections/Simulations.tex}
+
+\newpage
+\section{Conclusions}
+\subfile{sections/Conclusions.tex}
+
+% \newpage
+% \appendix \appendixpage \addappheadtotoc
+%
+% \section{Cuentas}
+% \subfile{sections/Ap_1}
+
+\end{document}
+

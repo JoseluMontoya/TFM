@@ -1,0 +1,133 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+Now that we have a good theoretical context of all the parts of the problem,
+we will start by analyzing the resonator with a non-kinetic inductance.
+
+\begin{figure}
+\centering
+\begin{circuitikz}[]
+    \draw (-0.5,0) to[short]
+          (0,0) to[generic, l=\(Z_0\)]
+          (1.5,0) to[capacitor, l=\(C_c\)]
+          (3,0) to[short]
+          (6,0);
+    \draw (3,0) to[L, l=\(L\)]
+          (3,-2);
+    \draw (4.5,0) to[capacitor, l=\(C_p\)]
+          (4.5,-2);
+    \draw (6,0) to[R, l=\({R = R_{SET} \parallel R_p}\)]
+          (6,-2);
+    \draw (3,-2) to[short]
+          (6,-2) node[ground]{};
+\end{circuitikz}
+\caption{Topology of the resonator that we are going to use. \(C_{p}\) and
+\(R_{p}\) are a virtual capacitor and resistance used to model losses in the
+circuit, while \(R_{SET}\) is the resistance of the SET in any state. That
+leaves \(C_{c}\) and \(L\) as the degrees of freedom in our system.}
+\label{fig:RLC}
+\end{figure}
+
+\subsection{Resonant frequency and effective impedance}
+Our analysis begins with obtaining expressions for the resonant frequency and
+the effective impedance of our resonator. It's easy to see that the impedance
+of our resonator in figure \ref{fig:RLC} is
+
+\begin{equation}
+\label{eq:ImpParallel}
+    Z = \frac{1}{j \omega C_{p} + \frac{1}{j \omega L} + \frac{1}{R}}
+        + \frac{1}{j \omega C_{c}}
+\end{equation}
+
+Which after a little massaging turns into
+
+\begin{equation}
+\label{eq:ImpParallelBinomial}
+    Z = \frac{\omega^2 L^2 R}{R^2(1-\omega^2C_{p}L)^2 + \omega^2 L^2} +
+        j \left(
+            \frac{\omega^2 L^2 R}{R^2(1-\omega^2C_{p}L)^2 + \omega^2 L^2}
+            - \frac{1}{\omega C_{c}}
+          \right)
+\end{equation}
+
+The resonant frequency \(\omega_{r}\) that makes \(\Im Z = 0\) is
+
+\begin{equation}
+\label{eq:ExactWr}
+    \omega_{r}^2 = \frac{1}{L(C_{c} + C_{p})}
+    \left(
+        1 + \frac{C_{c}}{2C_{p}} - \frac{L}{2 R^2 C_{p}} \pm
+        \sqrt{\left(1 + \frac{C_{c}}{2C_{p}} - \frac{L}{2 R^2 C_{p}}\right)^2
+        - 1 - \frac{C_{c}}{C_{p}}}
+    \right)
+\end{equation}
+
+Choosing \(C_{c}\) and \(L\) such that
+\(\frac{C_{c}}{C_{p}}, \frac{L}{R^2 C_{p}} \ll 1\), leaves us with the
+approximate expression for the resonant frequency
+
+\begin{equation}
+\label{eq:Wr}
+\omega_{r} \approx \frac{1}{\sqrt{L (C_{c} + C_{p})}}
+\end{equation}
+
+Finally, to obtain the effective impedance we use this expression in \(\Re Z\)
+
+\begin{equation}
+\label{eq:ExactZeff}
+    Z_{eff} = \Re Z(\omega_{r}) =
+    \frac{\omega_{r}^2 L^2 R}{R^2(1-\omega_{r}^2C_{p}L)^2 + \omega_{r}^2 L^2}
+    \approx \frac{L (C_{c} + C_{p})}{R C_{c}^2}
+      \left(1 + \frac{L (C_{c} + C_{p})}{R^2 C_{c}^2}\right)^{-1}
+\end{equation}
+
+And by, again, choosing \(L\) and \(C_{c}\) such that
+\(\frac{L (C_{c} + C_{p})}{R^2 C_{c}^2} \ll 1\) we arrive to our expression for
+the effective impedance
+
+\begin{equation}
+\label{eq:Zeff}
+    Z_{eff} \approx \frac{L (C_{c} + C_{p})}{R C_{c}^2}
+\end{equation}
+
+In future sections we will be using quite a lot of expressions obtained via
+approximations in non-approximated systems, only to do more approximations
+with them. Due to this, it is really important to have a clear picture of
+the regimes we are working in to ensure that our results work in the
+state-of-the-art technology, and that's why after each result we are going to
+recontextualize our approximations.
+
+In this case, the approximations to obtain \(\omega_{r}\) are clear and
+straight forward:
+
+\begin{gather}
+    \frac{C_{c}}{C_{p}} \ll 1 \label{eq:ApproxCcWr}\\
+    \frac{L}{R^2 C_{p}} \ll 1 \label{eq:ApproxLWr}
+\end{gather}
+
+But the approximation for \(Z_{eff}\) needs a little bit of extra work. If we
+multiply \((C_{c} / C_{p})^2\) in both sides, it turns into
+
+\begin{equation}
+\label{eq:ProtoZeffCond}
+    \frac{L}{R^2 C_{p}} \left(1 + \frac{C_{c}}{C_{p}}\right) \ll
+    \left(\frac{C_{c}}{C_{p}}\right)^2
+\end{equation}
+
+And since we used equation \ref{eq:Wr} to arrive here, it must hold
+the approximation \ref{eq:ApproxCcWr}, turning the previous expression into
+
+\begin{equation}
+\label{eq:ApproximationZeff}
+    \frac{L}{R^2 C_{p}} \ll \left(\frac{C_{c}}{C_{p}}\right)^2
+\end{equation}
+
+While approximations \ref{eq:ApproxCcWr} and \ref{eq:ApproxLWr} impose a
+\textbf{general condition} in our degrees of freedom, approximation
+\ref{eq:ApproximationZeff} imposes a \textbf{relative condition} between
+the previous two.
+
+\subsection{Contrast and it's optimization}
+\lipsum[1-1]
+\end{document}
