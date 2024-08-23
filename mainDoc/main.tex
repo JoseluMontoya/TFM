@@ -14,6 +14,9 @@
 \usepackage{graphicx}
 \usepackage[a4paper]{geometry}
 \usepackage[pagestyles, explicit]{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{soul}
 % \usepackage{multicol}
 \usepackage{abstract}
 \usepackage{appendix}
@@ -53,8 +56,11 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{math}
 
+\renewcommand{\CancelColor}{\color{red}}
+
 \parskip=1em
 
+\graphicspath{{./../code/img/}}
 
 \title{
 \textbf{SET readout using RF reflectometry and kinetic inductance nonlinearity}

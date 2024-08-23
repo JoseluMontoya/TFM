@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {3}The parallel RLC resonator}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Resonant frequency and effective impedance}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Contrast and it's optimization}{7}{subsection.3.2}%
-\contentsline {section}{\numberline {4}The parallel kinetic RLC resonator}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Impact of the nonlinearity in the contrast}{8}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Simulations of the models}{9}{section.5}%
-\contentsline {section}{\numberline {6}Conclusions}{10}{section.6}%
+\contentsline {section}{\numberline {4}The parallel kinetic RLC resonator}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Impact of the nonlinearity in the contrast}{13}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Simulations of the models}{14}{section.5}%
+\contentsline {section}{\numberline {6}Conclusions}{15}{section.6}%
