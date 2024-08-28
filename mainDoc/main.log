@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  22 AUG 2024 23:33
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  29 AUG 2024 00:14
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -839,30 +839,30 @@ File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 71.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 71.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 76.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 71.
-LaTeX Font Info:    ... okay on input line 71.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count352
@@ -919,7 +919,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 71.
+Package hyperref Info: Link coloring ON on input line 76.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 
@@ -930,46 +930,58 @@ Package hyperref Info: Link coloring ON on input line 71.
 \tf@toc=\write5
 
 \openout5 = main.toc
- [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex) [4] (./sections/RLC.tex [5] [6]
-<./../code/img/RLCParallel/ReflecCoeff.png, id=139, 421.45454pt x 335.45325pt>
+ [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6]) [7] (./sections/RLC.tex [8] [9]
+<./../code/img/RLCParallel/ReflecCoeff.png, id=177, 421.45454pt x 335.45325pt>
 File: ./../code/img/RLCParallel/ReflecCoeff.png Graphic file (type png)
 <use ./../code/img/RLCParallel/ReflecCoeff.png>
-Package luatex.def Info: ./../code/img/RLCParallel/ReflecCoeff.png  used on input line 151.
+Package luatex.def Info: ./../code/img/RLCParallel/ReflecCoeff.png  used on input line 150.
 (luatex.def)             Requested size: 209.12683pt x 166.45166pt.
-<./../code/img/RLCParallel/ReflecPhase.png, id=140, 417.7206pt x 314.8563pt>
+<./../code/img/RLCParallel/ReflecPhase.png, id=178, 417.7206pt x 314.8563pt>
 File: ./../code/img/RLCParallel/ReflecPhase.png Graphic file (type png)
 <use ./../code/img/RLCParallel/ReflecPhase.png>
-Package luatex.def Info: ./../code/img/RLCParallel/ReflecPhase.png  used on input line 155.
+Package luatex.def Info: ./../code/img/RLCParallel/ReflecPhase.png  used on input line 154.
 (luatex.def)             Requested size: 209.12683pt x 157.62473pt.
- [7<./../code/img/RLCParallel/ReflecCoeff.png><./../code/img/RLCParallel/ReflecPhase.png>] [8] [9] [10] [11]
-<./../code/img/RLCParallel/OptContrComparison.png, id=218, 658.3797pt x 231.9867pt>
+ [10<./../code/img/RLCParallel/ReflecCoeff.png><./../code/img/RLCParallel/ReflecPhase.png>] [11] [12] [13] [14]
+<./../code/img/RLCParallel/OptContrComparison.png, id=255, 658.3797pt x 231.9867pt>
 File: ./../code/img/RLCParallel/OptContrComparison.png Graphic file (type png)
 <use ./../code/img/RLCParallel/OptContrComparison.png>
-Package luatex.def Info: ./../code/img/RLCParallel/OptContrComparison.png  used on input line 455.
+Package luatex.def Info: ./../code/img/RLCParallel/OptContrComparison.png  used on input line 454.
 (luatex.def)             Requested size: 418.25368pt x 147.37361pt.
-) [12<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex) [13] (./sections/Simulations.tex) [14] (./sections/Conclusions.tex) [15] (./main.aux)
+) [15<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [16] [17]
+<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=283, 925.056pt x 388.0899pt>
+File: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png Graphic file (type png)
+<use ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>
+Package luatex.def Info: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png  used on input line 155.
+(luatex.def)             Requested size: 418.25368pt x 175.4738pt.
+ [18<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
+<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=292, 925.056pt x 307.8702pt>
+File: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png Graphic file (type png)
+<use ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>
+Package luatex.def Info: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png  used on input line 224.
+(luatex.def)             Requested size: 418.25368pt x 139.20267pt.
+) [19<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [20] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EDCC4E803891C2D508BD4B9028895BA9;2705.
+(rerunfilecheck)             Checksum: 6D9B120532EB7B319DF0DAF8DDC06674;3031.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48272 strings out of 476603
+ 48951 strings out of 476603
  125027,1977958 words of node,token memory allocated
- 3631 words of node memory still in use:
-   92 hlist, 12 vlist, 11 rule, 14 math, 79 glue, 45 kern, 105 glyph, 195 attribute, 65 glue_spec, 99 attribute_list, 2 write nodes
-   avail lists: 2:2582,3:834,4:110,5:477,6:41,7:4315,8:78,9:1458,10:18,11:327
- 69217 multiletter control sequences out of 65536+600000
- 70 fonts using 4408007 bytes
- 102i,29n,101p,441b,1083s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
-Output written on main.pdf (15 pages, 874098 bytes).
+ 13118 words of node memory still in use:
+   420 hlist, 68 vlist, 31 rule, 100 math, 278 glue, 118 kern, 362 glyph, 727 attribute, 65 glue_spec, 365 attribute_list, 2 write, 24 pdf_colorstack nodes
+   avail lists: 2:4610,3:1862,4:86,5:465,6:41,7:6779,8:90,9:1275,10:18,11:327
+ 69866 multiletter control sequences out of 65536+600000
+ 73 fonts using 4636111 bytes
+ 102i,29n,101p,564b,1161s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
+Output written on main.pdf (20 pages, 1144853 bytes).
 
-PDF statistics: 305 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 131072)
+PDF statistics: 384 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 131072)
  120 words of extra memory for PDF output out of 10000 (max. 100000000)
 

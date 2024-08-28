@@ -8,12 +8,232 @@
 % \lipsum[1-1]
 
 \subsection{RF reflectometry}
+Radio frequency reflectometry is a method to measure change in an impedance
+connected to a transmission line via the reflection of a radio signal.
+
+Usual lumped element treatment of AC circuits assumes that the size of the
+circuit is small with respect to the wavelength of the voltage,
+but with radio frequency voltages we can't do that. The main consequences for
+us are that now voltage and current are dependent on how far along the circuit
+you are due to how fast it changes with respect to the size of the circuit itself
+(\(V(t), I(t) \rightarrow V(x, t), I(x, t)\)) and that the intrinsic
+inductance and capacitance per unit length of a long connection cannot be
+ignored. In such cases those connections are made with what is known as a
+transmission line, which is a cable designed to minimize the radiation of
+power via that inductance and capacitance, and includes a signal and a
+ground connection in one package. One example of a transmission line would be a
+coaxial cable, in which the central conductor is the signal and the outer jacket
+ground.
+
+\begin{figure}[t]
+\centering
+\begin{circuitikz}[]
+    \newcommand{\lenghOfTransmissionLine}{6}
+    \draw (0,0) node[ground]{};
+    \draw (0,0) to[sV] ++(0,1.5) to[short] ++(1.5,0);
+    \draw (1.5,0) to[capacitor] ++(0,1.5) to[L] ++(1.5,0) to[short] ++(0.5,0);
+    \foreach \i in {2,...,\lenghOfTransmissionLine}{
+        \draw (2*\i - 0.5,0) to[capacitor] ++(0,1.5) to[L] ++(1.5,0) to[short] ++(0.5,0);
+    }
+    \draw ({2*(1+\lenghOfTransmissionLine)-0.5},0) node[ground]{};
+    \draw ({2*(1+\lenghOfTransmissionLine)-0.5},1.5) to[generic, l=\(Z\)] ++(0,-1.5);
+    \draw (0,0) to[short] ++({2*(1+\lenghOfTransmissionLine)-0.5},0);
+    \draw[dashed] (0.93,-0.15) rectangle ++(2,2);
+    \draw [latexslim-latexslim] (2.93,-0.35) -- node[below] {\(\Delta x\)} ++(-2,0);
+\end{circuitikz}
+\caption{Lumped element model of a lossless transmission line connected to a
+    generic impedance \(Z\). In order to model the relevant
+    impedance per unit length of the transmission line at radio frequencies,
+    we represent it via sections with inductors in series and capacitors
+    in parallel. Each periodic section like the one inside the dashed rectangle
+    represents a segment of length \(\Delta x\) of the transmission line.}
+\label{fig:LumpedTransmisionLine}
+\end{figure}
+
+Even though a transmission line minimizes that radiation of power, it doesn't
+erase it, and we need to take it into account in our calculations. To model this
+inductance and capacitance per unit length (\(L_{l}\) and \(C_{l}\) respectively),
+we will discretize it via a lumped element representation like in figure
+\ref{fig:LumpedTransmisionLine}, ignoring the lossess by not including any
+resistance  in our circuit.
+Each pair inductor-capacitor will occur along a length \(\Delta x\) of the
+transmission line, so their inductance and capacitance in that stretch will be
+\(L = \Delta x \cdot L_{l}\) and \(C = \Delta x \cdot C_{l}\). Applying Kirchhoff
+at a point \(x\) in the transmission line and the limit \(\Delta x \to 0\) gives
+us the telegraph equations for a lossless transmission line
+
+\begin{equation}
+\begin{split}
+\label{eq:TelegraphEq}
+    \frac{\partial V}{\partial x} = - L_{l}\frac{\partial I}{\partial t}\\
+    \frac{\partial I}{\partial x} = - C_{l}\frac{\partial V}{\partial t}\\
+\end{split}
+\end{equation}
+
+Their solution is
+
+\begin{align}
+\begin{split}
+    \label{eq:TelegraphSol}
+    V(x,t) &= V_{+}(t - x/v_{p}) + V_{-}(t + x/v_{p})))\\
+    I(x,t) &= \frac{1}{Z_{0}}(V_{+}(t - x/v_{p}) - V_{-}(t + x/v_{p}))
+\end{split}
+\end{align}
+
+Where \(v_{p} = \frac{1}{\sqrt{L_{l}C_{l}}}\) is the phase velocity of the wave,
+\(Z_{0} = \sqrt{\frac{L_{l}}{C_{l}}}\) is the characteristic impedance of the
+line and \(V_{+}\) and \(V_{-}\) are generic functions that describe a right
+and left traveling wave respectively. Since we'll be choosing our reference
+frame such that our signal will be always traveling from left to right, the
+appearance of \(V_{-}\) in our calculations will mean a reflection.
+
+If we add a generic impedance \(Z\) at the end of the transmission line, we
+add the boundary condition
+
+\begin{equation}
+\label{eq:RfBoundCond}
+    \frac{V(x_{\text{End}},\omega)}{I(x_{\text{End}},\omega)} = Z(\omega)
+\end{equation}
+
+With \(V(x,\omega)\) and \(I(x,\omega)\) being the time Fourier transforms of
+\(V(x,t)\) and \(I(x,t)\) respectively. Choosing \(x=x_{\text{End}}=0\) to
+simplify and using the time Fourier transforms of expressions
+\ref{eq:TelegraphEq}, we get
+
+\begin{equation}
+\label{eq:TelegraphEqFourierWithBound}
+    \frac{V(0,\omega)}{I(0,\omega)} =
+    Z_{0}\frac{V_{+}(\omega) + V_{-}(\omega)}
+    {V_{+}(\omega) - V_{-}(\omega)} = Z(\omega)
+\end{equation}
+
+As we can see, the only way in which \(Z_{0} = Z(\omega)\) is if
+\(V_{+,-}(\omega)=0\), or in other words, the only way to not get a reflection
+is to match \(Z_{0}\) to \(Z(\omega)\). A useful parameter to define is the
+reflection coefficient \(\Gamma = \frac{V_{-}(\omega)}{V_{+}(\omega)}\), and
+with equality \ref{eq:TelegraphEqFourierWithBound} has the form
+
 \begin{equation}
 \label{eq:ReflecCoeff}
-    \Gamma = \frac{Z - Z_{0}}{Z + Z_{0}}
+    \Gamma = \frac{Z(\omega) - Z_{0}}{Z(\omega) + Z_{0}}
 \end{equation}
-% \lipsum[1-1]
+
+Through this is how we are going to measure \(Z(\omega)\), in our case
+\(R_{\text{SET}}\), since there is a 1 to 1 mapping between \(\Gamma\) and
+\(Z(\omega)\).
+
+The quality of our measurement will be determined by the signal-to-noise ratio
+(SNR) of the measurement
+
+\begin{equation}
+\label{eq:SNR}
+\text{SNR} = |\Delta\Gamma|^2\frac{P_{0}}{P_{N}}
+\end{equation}
+
+With \(P_{0}\) and \(P_{N}\) the power of the signal and noise respectively and
+\(\Delta\Gamma = \Gamma_{B} - \Gamma_{A}\) the difference in reflection
+coefficients between the two states to measure. Its modulus is what we will
+call the contrast and our objective will be first to optimize it by designing
+a matching network\footnote{A circuit build around our impedance with the
+objective of increasing the sensibility to its changes. We will talk more
+about it in section \ref{sec:ParallelRLC}} for our SET, and then try to improve
+it by adding a kinetic inductor, whose inductance changes with the current that
+goes through it.
+
+% A typical transmission line has a characteristic impedance of
+% \(50\unit{\ohm}\), which is a lot greater than the lowest resistance of an
+% SET, so a matching circuit around the SET will be needed in order to stay in
+% an area in which
 
 \subsection{Kinetic inductance and his nonlinearity}
-% \lipsum[1-1]
+Due to the high mobility of the charge carriers in a super conductor, a phenomenon
+known as kinetic inductance emerges. This name comes from the fact that as opposed
+to a usual inductor, which functions by storing energy in the magnetic field
+generated by the charge carriers, it is stored as the kinetic energy of the
+charge carriers themselves.
+
+With this simple definition of the kinetic inductance and a little bit of
+Drude and Ginzburg-Landau theory, we have all we need to derive the property
+that interests us the most: it's nonlinearity.
+
+The energy stored by an inductor of inductance \(L\) is
+
+\begin{equation}
+\label{eq:InductiveEnergy}
+    E = \frac{1}{2}LI^2
+\end{equation}
+
+So, in the case of the kinetic inductance of length \(l\) and cross-section \(S\)
+
+\begin{equation}
+\label{eq:KineticInductiveEnergy}
+    E_{k} = \frac{1}{2}L_{k}I^2 = \frac{1}{2}m(nlS)v^2
+\end{equation}
+
+With \(n\), \(m\) and \(v\) the volumetric density, the mass and the speed of
+the charge carriers. By solving for \(L_{k}\) and defining the volumetric
+current density as \(j=nqv\) with \(q\) the charge of the charge carriers
+we arrive at the following expression
+
+\begin{equation}
+\label{eq:LkOfn}
+    L_{k} = \frac{mlj^2}{nq^2Sj^2} = \frac{ml}{q^2S}\frac{1}{n}
+\end{equation}
+
+Now, using the Ginzburg-Landau expression for the volumetric density of supercharge
+carriers
+
+\begin{equation}
+\label{eq:GLn}
+    n(v) = |\Psi|^2 = \frac{1}{\beta}\left[|\alpha| - \frac{1}{2}m v^2\right]
+\end{equation}
+
+And doing a second order approximation of \(L_{k}\) at \(v \approx 0\), we arrive
+at our desired expression
+
+\begin{equation}
+\label{eq:KineticNonLineality}
+    L_{k} = L_{k0}\left(1 + \frac{j^2}{j_{*}^2} + \dots\right)
+\end{equation}
+
+With \(L_{k0} = \frac{ml}{q^2Sn(v=0)}\) and \(j_{*}^2 =
+\frac{2q^2|\alpha|^3}{m\beta^2}\). If we compare \(j_{*}\)
+to the critical current \(j_{c}\), which is the maximum current that
+the system can withstand and can be calculated by obtaining the maximum of
+\(j\) with respect to \(v\), we get that
+
+\begin{equation}
+\label{eq:NonLinearityConstant}
+    j_{*} = \sqrt{\frac{27}{4}}j_{c}
+\end{equation}
+
+With this we can not only see that the kinetic inductance has a quadratic
+dependence with the current, but that the sensibility of that dependence it's
+given by the critical current of the material. And these properties are the
+ones that we what to use to improve the reading quality for our qubits.
+
+But, to read the qubits with RF reflectometry we send an AC pulse to the
+resonator, and in that case our kinetic inductance would be varying constantly.
+How can we use the kinetic inductor then?
+
+The solution is to introduce a DC bias to the circuit, with an intensity much
+greater than the maximum of the AC current, but still small enough to not break
+superconductivity and to use an AC current much smaller than the critical current.
+With it, we can have an inductor that changes inductance along with the resistance
+of the SET, since the effects of the AC current can be ignored.
+
+\begin{align}
+\begin{split}
+\label{eq:KineticNonLinealityACDC}
+L_{k} &= L_{k0}\left(1 + \frac{(j_{AC} + j_{DC})^2}{j_{*}^2} + \dots\right)\\
+      &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \frac{j_{DC}j_{AC}}{j_{*}^2} + 
+      \frac{j_{AC}^2}{j_{*}^2} + \dots\right)\\
+      &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + (\frac{j_{DC}}{j_{*}} + 
+      \frac{j_{AC}}{j_{*}})\frac{j_{AC}}{j_{*}} + \dots\right)\\
+      &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \dots\right)
+      \text{ since \(j_{DC} < j_{c}\) and \(j_{AC} \ll j_{c}\)}
+\end{split}
+\end{align}
+
+
 \end{document}

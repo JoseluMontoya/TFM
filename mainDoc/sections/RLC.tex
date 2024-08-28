@@ -17,8 +17,7 @@ we will start by analyzing the resonator with a non-kinetic inductance.
           (3,-2);
     \draw (4.5,0) to[capacitor, l=\(C_p\)]
           (4.5,-2);
-    % \draw (6,0) to[R, l=\({R = R_{SET} \parallel R_p}\)]
-    \draw (6,0) to[R, l=\(R\)]
+    \draw (6,0) to[vR, l=\({R = R_{SET} \parallel R_p}\)]
           (6,-2);
     \draw (3,-2) to[short]
           (6,-2) node[ground]{};
@@ -144,7 +143,7 @@ dip to zero at a frequency of \(1.00654 \unit{\giga\hertz}\), which is what we
 see in the black line figure \ref{fig:ReflexCoeffAndPhase}.
 
 
-\begin{figure}[htb]
+\begin{figure}[t]
 \centering
 \begin{subfigure}[T]{.5\textwidth}
   \centering
@@ -168,7 +167,7 @@ With an expression for the effective impedance of the system in resonance and
 (more importantly) an expression for the resonant frequency, now we ask
 ourselves the question: What are the values of \(L\) and \(C_{c}\) that
 maximize the contrast
-\(|\Delta\Gamma| = |\Gamma(R_{\text{Off}}) - \Gamma(R_{\text{On}})|\)?
+\(|\Delta\Gamma| = |\Gamma(\ROff) - \Gamma(\ROn)|\)?
 
 Since on the lab the sizes of \(L\) and \(C_{p}\) are on the order of the ones used to
 produce figure \ref{fig:ReflexCoeffAndPhase}, is easy to see that \(\omega_{r}\)
@@ -244,9 +243,9 @@ And this one for the contrast
 
 \begin{equation}
 \label{eq:ParallelContr}
-    |\Delta\Gamma| = |\Gamma(R=R_{\text{Off}}) - \Gamma(R=R_{\text{On}})|
+    |\Delta\Gamma| = |\Gamma(R=\ROff) - \Gamma(R=\ROn)|
                    \approx 2Y_{0}\left|\frac{1}{
-                   R_{\text{Off}}S^2 + Y_{0}} - \frac{1}{R_{\text{On}}S^2 + Y_{0}
+                   \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
                }\right|
 \end{equation}
 
@@ -256,16 +255,16 @@ to \(C_{c}\) and equate to \(0\). Doing this we arrive at the equation
 
 \begin{equation}
 \label{eq:ParallelContrOptS2NonRho}
-    S^2 = \frac{Y_{0}}{\sqrt{R_{\text{Off}}R_{\text{On}}}}
+    S^2 = \frac{Y_{0}}{\sqrt{\ROff\ROn}}
 \end{equation}
 
 And solving it for \(C_{c}\), we get the single solution
-(for \(R_{\text{On}}, R_{\text{Off}}, Y_{0}, L, C_{p}, C_{c} \geq 0\))
+(for \(\ROn, \ROff, Y_{0}, L, C_{p}, C_{c} \geq 0\))
 
 \begin{equation}
 \label{eq:ParallelContrOptCcNonRho}
-C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{R_{\text{Off}}R_{\text{On}}}}
-\left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{R_{\text{Off}}R_{\text{On}}}}{LY_{0}}}\right)
+C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\ROff\ROn}}
+\left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\ROff\ROn}}{LY_{0}}}\right)
 \end{equation}
 
 We could simply plug this result into a simulation and call it a day, but with
@@ -277,7 +276,7 @@ a ratio parameter
 
 \begin{equation}
 \label{eq:RhoDef}
-    \rho = \frac{R_{\text{Off}}}{R_{\text{On}}}
+    \rho = \frac{\ROff}{\ROn}
 \end{equation}
 
 With it our expressions \ref{eq:ParallelContrOptS2NonRho} and
@@ -285,13 +284,13 @@ With it our expressions \ref{eq:ParallelContrOptS2NonRho} and
 
 \begin{equation}
 \label{eq:ParallelContrOptS2}
-    S^2 = \frac{Y_{0}}{\sqrt{\rho}R_{\text{On}}}
+    S^2 = \frac{Y_{0}}{\sqrt{\rho}\ROn}
 \end{equation}
 
 \begin{equation}
 \label{eq:ParallelContrOptCc}
-C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\rho}R_{\text{On}}}
-\left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\rho}R_{\text{On}}}{LY_{0}}}\right)
+C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\rho}\ROn}
+\left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\rho}\ROn}{LY_{0}}}\right)
 \end{equation}
 
 Then, by using the definition of \(S\) from \ref{eq:ImpParallelResonant} and
@@ -299,7 +298,7 @@ using impedance, we can rearrange \ref{eq:ParallelContrOptS2} to
 
 \begin{equation}
 \label{eq:ParallelTunning}
-Z_{0} = \frac{L(C_{c}+C_{p})}{\sqrt{\rho}R_{\text{On}}C_{c}^2}
+Z_{0} = \frac{L(C_{c}+C_{p})}{\sqrt{\rho}\ROn C_{c}^2}
 \end{equation}
 
 This might remind you of the expression \ref{eq:ApproximationZeff}, and it's
@@ -309,9 +308,9 @@ can find a \(L\) and \(C_{c}\) (in the confines that the restrictions
 that will make \ref{eq:ApproximationZeff} equal to \(Z_{0}\) and make \(\Gamma\)
 equal to \(0\). For the contrast is the exact same, except that for that given
 \(R\) it maximizes it instead of making it \(0\), and that we have 2 values
-of \(R\), \(R_{\text{On}}\) and \(R_{\text{Off}} = \rho R_{\text{On}}\), so
+of \(R\), \(\ROn\) and \(\ROff = \rho \ROn\), so
 which one do we use? Well it turns out that neither is the correct choice,
-it is \(\sqrt{R_{\text{Off}}R_{\text{On}}} = \sqrt{\rho}R_{\text{On}}\),
+it is \(\sqrt{\ROff\ROn} = \sqrt{\rho}\ROn\),
 the geometric mean of the resistances.
 
 In addition to this insight, we can also use \ref{eq:ParallelContrOptS2} in
@@ -322,7 +321,7 @@ that has a maximum value of 2, which is expected:
 \begin{equation}
 \label{eq:OptimumParallelContr}
     |\Delta\Gamma| \approx 2Y_{0}\left|\frac{1}{
-                   R_{\text{Off}}S^2 + Y_{0}} - \frac{1}{R_{\text{On}}S^2 + Y_{0}
+                   \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
                }\right|
                    = 2\left|
                    \frac{1}{\sqrt\rho + 1} - \frac{\sqrt\rho}{1 + \sqrt\rho}
@@ -341,17 +340,17 @@ holds. Using \ref{eq:ParallelContrOptS2} we have
 
 \begin{equation}
     (RS^2 + Y_{0})^2 \gg S^2 \rightarrow
-    \left(\frac{R Y_{0}}{\sqrt\rho R_{\text{On}}} + Y_{0}\right)^2 \gg
-    \frac{Y_{0}}{\sqrt\rho R_{\text{On}}}
+    \left(\frac{R Y_{0}}{\sqrt\rho \ROn} + Y_{0}\right)^2 \gg
+    \frac{Y_{0}}{\sqrt\rho \ROn}
 \end{equation}
 
-Now, considering \(R = R_{\text{On}}\) since it's the worst case scenario and
+Now, considering \(R = \ROn\) since it's the worst case scenario and
 returning to the use of impedance instead of admittance, the condition turns to
 
 \begin{equation}
 \label{eq:ProtoOptParallelContrApprox}
     \left(\frac{1}{\sqrt\rho} + 1\right)^2 \gg
-    \frac{Z_{0}}{\sqrt\rho R_{\text{On}}}
+    \frac{Z_{0}}{\sqrt\rho \ROn}
 \end{equation}
 
 Since by definition \(\rho \leq 1\), we can take a stricter version for this
@@ -359,7 +358,7 @@ approximation but still achievable
 
 \begin{equation}
 \label{eq:OptParallelContrApprox}
-    R_{\text{On}} \gg Z_{0}
+    \ROn \gg Z_{0}
 \end{equation}
 
 This is clearly true in our case. In theory. Because you see, we've been
@@ -374,31 +373,31 @@ Thankfully is easy to add it back retroactively (that's why we've ignored it
 up until now): we just need to do the following substitutions
 
 \begin{align*}
-    R_{\text{On}}& \rightarrow R^{\prime}_{\text{On}}
-    = R_{\text{On}} \parallel R_{p}
-    = \frac{R_{\text{On}}R_{p}}{R_{\text{On}} + R_{p}}\\
-    R_{\text{Off}}& \rightarrow R^{\prime}_{\text{Off}}
-    = R_{\text{Off}} \parallel R_{p}
-    = \frac{R_{\text{Off}}R_{p}}{R_{\text{Off}} + R_{p}}\\
+    \ROn& \rightarrow R^{\prime}_{\text{On}}
+    = \ROn \parallel R_{p}
+    = \frac{\ROn R_{p}}{\ROn + R_{p}}\\
+    \ROff& \rightarrow R^{\prime}_{\text{Off}}
+    = \ROff \parallel R_{p}
+    = \frac{\ROff R_{p}}{\ROff + R_{p}}\\
     \rho& \rightarrow \rho^{\prime} 
-    = \frac{R^{\prime}_{\text{Off}}}{R^{\prime}_{\text{On}}}
+    = \frac{\ROff^{\prime}}{\ROn^{\prime}}
 \end{align*}
 
-If we give the same treatment to \(R_{p}\) as to \(R_{\text{Off}}\) by
+If we give the same treatment to \(R_{p}\) as to \(\ROff\) by
 introducing a ratio parameter
 
 \begin{equation}
 \label{eq:PiDef}
-    \pi = \frac{R_{p}}{R_{\text{On}}}
+    \pi = \frac{R_{p}}{\ROn}
 \end{equation}
 
 Then the substitutions are
 
 \begin{align*}
-    R_{\text{On}}& \rightarrow R^{\prime}_{\text{On}}
-    = \frac{\pi}{1 + \pi} R_{\text{On}}\\
-    R_{\text{Off}}& \rightarrow R^{\prime}_{\text{Off}}
-    = \frac{\rho\pi}{\rho + \pi}R_{\text{On}}\\
+    \ROn& \rightarrow R^{\prime}_{\text{On}}
+    = \frac{\pi}{1 + \pi} \ROn\\
+    \ROff& \rightarrow R^{\prime}_{\text{Off}}
+    = \frac{\rho\pi}{\rho + \pi}\ROn\\
     \rho& \rightarrow \rho^{\prime} 
     = \frac{\rho(1 + \pi)}{\rho + \pi}
 \end{align*}
@@ -408,17 +407,17 @@ Taking this even further beyond with the fact that in an SET
 the substitutions are
 
 \begin{align*}
-    R_{\text{On}}& \rightarrow R^{\prime}_{\text{On}}
-    = \frac{\pi}{1 + \pi} R_{\text{On}}\\
-    R_{\text{Off}}& \rightarrow R^{\prime}_{\text{Off}}
-    = \pi R_{\text{On}}\\
+    \ROn& \rightarrow R^{\prime}_{\text{On}}
+    = \frac{\pi}{1 + \pi} \ROn\\
+    \ROff& \rightarrow R^{\prime}_{\text{Off}}
+    = \pi \ROn\\
     \rho& \rightarrow \rho^{\prime} 
     = 1 + \pi
 \end{align*}
 
-The introduction of the parasitic resistance and an infinite \(R_{\text{Off}}\)
+The introduction of the parasitic resistance and an infinite \(\ROff\)
 doesn't change much, in the sense that for most of the expressions is better
-to simply use the prime versions of \(\rho\) and \(R_{\text{On}}\) for clarity.
+to simply use the prime versions of \(\rho\) and \(\ROn\) for clarity.
 Most. Because for two results in specific it helps: in
 \ref{eq:OptimumParallelContr}
 
@@ -434,11 +433,11 @@ And in \ref{eq:OptParallelContrApprox}
 
 \begin{equation}
 \label{eq:OptParallelContrApproxOfPi}
-\frac{\pi}{1 + \pi}R_{\text{On}} \gg Z_{0} \rightarrow
-\pi \gg \frac{Z_{0}}{R_{\text{On}} - Z_{0}}
+\frac{\pi}{1 + \pi}\ROn \gg Z_{0} \rightarrow
+\pi \gg \frac{Z_{0}}{\ROn - Z_{0}}
 \end{equation}
 
-Using the values of \(Z_{0}\) and \(R_{\text{On}}\) that we have been considering
+Using the values of \(Z_{0}\) and \(\ROn\) that we have been considering
 up until now (\(50\unit{\ohm}\) and \(50\unit{\kilo\ohm}\) respectively) we can
 see that for \ref{eq:OptParallelContrApprox} to work in a worse case scenario,
 \(\pi\) must be a lot greater than \(10^{-3}\). It probably would
@@ -450,13 +449,13 @@ Finally, we check our results by comparing them against the numerically
 calculated optimum contrast via a simulation that searches the optimum
 value of \(C_{c}\) for a given value of \(\pi\).
 
-\begin{figure}[htb]
+\begin{figure}[t]
 \centering
   \includegraphics[width=\linewidth]{RLCParallel/OptContrComparison.png}
   \caption{Numerical optimum contrast and our formula (\ref{eq:OptimumParallelContrOfPi})
   with the difference between them.
 \(L = 180\unit{\nano\henry}\), \(C_{p} = 500\unit{\femto\farad}\),
-\(Z_{0} = 50\unit{\ohm}\), \(R_{\text{On}} = 50\unit{\kilo\ohm}\),
+\(Z_{0} = 50\unit{\ohm}\), \(\ROn = 50\unit{\kilo\ohm}\),
 \(\rho = 2\cdot10^{-6}\).}
 \label{fig:ParallelContrComparison}
 \end{figure}

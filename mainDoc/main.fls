@@ -320,10 +320,12 @@ INPUT ./sections/Introduction.tex
 INPUT ./sections/Theory.tex
 INPUT ./sections/Theory.tex
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT ./sections/RLC.tex
-INPUT ./sections/RLC.tex
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr8.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr6.tfm
+INPUT ./sections/RLC.tex
+INPUT ./sections/RLC.tex
 INPUT ./../code/img/RLCParallel/ReflecCoeff.png
 INPUT ./../code/img/RLCParallel/ReflecCoeff.png
 INPUT ./../code/img/RLCParallel/ReflecCoeff.png
@@ -335,8 +337,13 @@ INPUT ./../code/img/RLCParallel/OptContrComparison.png
 INPUT ./../code/img/RLCParallel/OptContrComparison.png
 INPUT ./sections/KineticRLC.tex
 INPUT ./sections/KineticRLC.tex
-INPUT ./sections/Simulations.tex
-INPUT ./sections/Simulations.tex
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
+INPUT ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png
+INPUT ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png
+INPUT ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png
+INPUT ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png
+INPUT ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png
+INPUT ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png
 INPUT ./sections/Conclusions.tex
 INPUT ./sections/Conclusions.tex
 INPUT ./main.aux
@@ -350,6 +357,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
@@ -357,5 +365,8 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb
