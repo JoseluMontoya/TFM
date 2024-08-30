@@ -25,7 +25,8 @@ def maxdGammaOfLambda(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wContrl):
             maxdGammaOfLambdaV[lambdaI] = np.max(dGammaOfLambdaAndCcV)
     elif tunning == 1:
         for lambdaI in prange(len(lamb)):
-            lambt = (4*lamb[lambdaI])/(wContrl*(sqrt(lamb[lambdaI]) - 1) + 1 + sqrt(lamb[lambdaI]))**2
+            # lambt = (4*lamb[lambdaI])/(wContrl*(sqrt(lamb[lambdaI]) - 1) + 1 + sqrt(lamb[lambdaI]))**2
+            lambt = sqrt(lamb[lambdaI])**(1-wContrl)
             for ccI in prange(len(cc)):
                 dGammaOfLambdaAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb[lambdaI], pi, cc[ccI]))
             maxdGammaOfLambdaV[lambdaI] = np.max(dGammaOfLambdaAndCcV)
@@ -49,7 +50,8 @@ def maxdGammaOfPi(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wContrl):
                 dGammaOfPiAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi[piI], cc[ccI]))
             maxdGammaOfPiV[piI] = np.max(dGammaOfPiAndCcV)
     elif tunning == 1:
-        lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        # lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        lambt = sqrt(lamb)**(1-wContrl)
         for piI in prange(len(pi)):
             for ccI in prange(len(cc)):
                 dGammaOfPiAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi[piI], cc[ccI]))
@@ -71,7 +73,8 @@ def dGammaOfCc(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wContrl):
         for ccI in prange(len(cc)):
             dGammaOfCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi, cc[ccI]))
     elif tunning == 1:
-        lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        # lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        lambt = sqrt(lamb)**(1-wContrl)
         for ccI in prange(len(cc)):
             dGammaOfCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi, cc[ccI]))
     elif tunning == 2:
@@ -93,7 +96,8 @@ def maxComplexdGammaOfLambda(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wCont
             maxdGammaOfLambdaV[lambdaI] = dGamma(z0, cp, ron, li, rhoi, lambt, lamb[lambdaI], pi, cc[np.argmax(dGammaOfLambdaAndCcV)])
     elif tunning == 1:
         for lambdaI in prange(len(lamb)):
-            lambt = (4*lamb[lambdaI])/(wContrl*(sqrt(lamb[lambdaI]) - 1) + 1 + sqrt(lamb[lambdaI]))**2
+            # lambt = (4*lamb[lambdaI])/(wContrl*(sqrt(lamb[lambdaI]) - 1) + 1 + sqrt(lamb[lambdaI]))**2
+            lambt = sqrt(lamb[lambdaI])**(1-wContrl)
             for ccI in prange(len(cc)):
                 dGammaOfLambdaAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb[lambdaI], pi, cc[ccI]))
             maxdGammaOfLambdaV[lambdaI] = dGamma(z0, cp, ron, li, rhoi, lambt, lamb[lambdaI], pi, cc[np.argmax(dGammaOfLambdaAndCcV)])
@@ -117,7 +121,8 @@ def maxComplexdGammaOfPi(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wContrl):
                 dGammaOfPiAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi[piI], cc[ccI]))
             maxdGammaOfPiV[piI] = dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi[piI], cc[np.argmax(dGammaOfPiAndCcV)])
     elif tunning == 1:
-        lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        # lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        lambt = sqrt(lamb)**(1-wContrl)
         for piI in prange(len(pi)):
             for ccI in prange(len(cc)):
                 dGammaOfPiAndCcV[ccI] = abs(dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi[piI], cc[ccI]))
@@ -139,7 +144,8 @@ def complexdGammaOfCc(z0, cp, ron, li, rhoi, lamb, tunning, pi, cc, wContrl):
         for ccI in prange(len(cc)):
             dGammaOfCcV[ccI] = dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi, cc[ccI])
     elif tunning == 1:
-        lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        # lambt = (4*lamb)/(wContrl*(sqrt(lamb) - 1) + 1 + sqrt(lamb))**2
+        lambt = sqrt(lamb)**(1-wContrl)
         for ccI in prange(len(cc)):
             dGammaOfCcV[ccI] = dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi, cc[ccI])
     elif tunning == 2:

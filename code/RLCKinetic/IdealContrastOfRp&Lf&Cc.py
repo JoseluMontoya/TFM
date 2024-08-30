@@ -10,6 +10,7 @@ z0 = 50.0 # Ohm
 cp = 0.5e-12 # Farad
 
 ri = 50e3 # Ohm
+# ri = 4e3 # Ohm
 rho = 2e6
 
 li = 180e-9 # Henry
@@ -155,9 +156,9 @@ lambdaT_slider = Slider(
     valmin=-1,
     valmax=1,
     valinit=lambdaTI,
-    valstep=0.01,
+    valstep=0.001,
     )
-lambdaT_slider.valtext.set_text('{:.2e}'.format((4*lambdaV[lambdaI])/(lambdaT_slider.val*(np.sqrt(lambdaV[lambdaI]) - 1) + 1 + np.sqrt(lambdaV[lambdaI]))**2))
+lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1 - lambdaTI)))
 
 
 
@@ -168,7 +169,7 @@ def update(val):
 
     pi_slider.valtext.set_text('{:.2e}'.format(piV[piI]))
     lambda_slider.valtext.set_text('{:.2e}'.format(lambdaV[lambdaI]))
-    lambdaT_slider.valtext.set_text('{:.2e}'.format((4*lambdaV[lambdaI])/(lambdaT_slider.val*(np.sqrt(lambdaV[lambdaI]) - 1) + 1 + np.sqrt(lambdaV[lambdaI]))**2))
+    lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1-lambdaTI)))
 
     contrLi0.set_ydata(dGLLiF(piV[piI]))
     contrLf0.set_ydata(dGLLfF(piV[piI]))
@@ -204,7 +205,7 @@ def updateW(val):
     lambdaI = int(lambda_slider.val)
     lambdaTI = lambdaT_slider.val
 
-    lambdaT_slider.valtext.set_text('{:.2e}'.format((4*lambdaV[lambdaI])/(lambdaT_slider.val*(np.sqrt(lambdaV[lambdaI]) - 1) + 1 + np.sqrt(lambdaV[lambdaI]))**2))
+    lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1-lambdaTI)))
 
     contrMid0.set_ydata(dGLMidF(piV[piI], lambdaTI))
     contrMid1.set_ydata(dGPMidF(lambdaV[lambdaI], lambdaTI))
