@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1724883297 "main.tex" "main.pdf" "main" 1724883302 0
+["pdflatex"] 1725036719 "main.tex" "main.pdf" "main" 1725036724 0
   "../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png" 1723985219 106570 1a63b2cff7d872892e7e3e267a22b32e ""
   "../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png" 1724726004 106513 fc94a9df7e0da728c0d82535cc9df35d ""
   "../code/img/RLCParallel/OptContrComparison.png" 1724360499 32986 fb838d28ceb81c054798aa7829dafa5b ""
@@ -308,15 +308,15 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1699398157 4713444 afc53393b8fb987355921390cce90e5b ""
   "/usr/local/texlive/2023/texmf-var/tex/generic/config/language.dat" 1678822458 6627 dc320a7c13e00300e5a0f696ef4294be ""
   "/usr/local/texlive/2023/texmf-var/web2c/luahbtex/lualatex.fmt" 1699398320 12242877 42277d53db9314bd25346deb6847dee8 ""
-  "main.aux" 1724883302 10300 8086fb64e62b50020bbd7680d1879117 "pdflatex"
-  "main.out" 1724883302 3031 6d9b120532eb7b319df0daf8ddc06674 "pdflatex"
-  "main.tex" 1724881859 2309 759c581e3ae2655efa1e62a6dc4e01b3 ""
-  "main.toc" 1724883302 1279 734e4cdebdad2eb0ada830d19bfa6f73 "pdflatex"
+  "main.aux" 1725036724 10342 4c31690f026de8eed4b574de75a41606 "pdflatex"
+  "main.out" 1725036724 2969 201bb5bcf2b1c07585f17e61d3c1b986 "pdflatex"
+  "main.tex" 1725003593 2427 6586edaedd6571518c273a1ab479e1ad ""
+  "main.toc" 1725036724 1261 174c2d4f03dee3066395e94131b34b7b "pdflatex"
   "sections/Conclusions.tex" 1721034848 86 d522cbdeb8fdca48a1de6034b3334c3d ""
   "sections/Introduction.tex" 1721034820 86 d522cbdeb8fdca48a1de6034b3334c3d ""
   "sections/KineticRLC.tex" 1724734101 12594 782b897ffd024ad4e52acdceac5b3ce9 ""
   "sections/RLC.tex" 1724723109 17675 4056deaac8a274cb49938ba3a1c70e4e ""
-  "sections/Theory.tex" 1724883296 10283 5fe70bcf75b3849a8b7419ab7c91cfef ""
+  "sections/Theory.tex" 1725036718 13072 75c79a5bd0b281476a5bd4c121467475 ""
   (generated)
   "main.aux"
   "main.log"

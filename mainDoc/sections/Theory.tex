@@ -1,11 +1,48 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Coulomb blockade}
-% \lipsum[1-1]
+\subsection{The SET for charge sensing}
 
-\subsection{The SET and charge sensing}
-% \lipsum[1-1]
+\hl{Hola Fernando, creo que he terminado de entender lo suficientemente bien
+como para escribir esta seccion el Coulomb blockade y el SET. El problema
+es que estoy escribiendo esto a las 18:06, asi que voy a escribirlo primero
+a grandes rasgos para que me puedas decir si conceptualmente lo entiendo bien,
+y una vez que eso este subido iré añadiendo las cosas de forma mas rigurosa.}
+
+Let's imagine a conducting island on capacitance \(C\) and without excess charges.
+Due to it's capacitance, some energy will be required to add a charge to this
+island, and due to Coulomb repulsion each aditional charge will require even more
+energy than the last. Since this aditional energy is also proportional to
+\(1/C\), with a small enough island and with small enough thermal energy,
+the energy spectrum of these charges will be discretized, blocking all charges
+from entrance unless they have enough energy to arrive to the next empty
+energy state. It's like the quatization of the energy spectra of the 1D infinite
+square well, but from classical properties.
+
+A SET is a conducting island connected to 2 voltages via tunnel junctions
+and to a third one via a capacitor. The tunnel junctions are modeled via
+a capacitor, to simulate the charge acumulation at the walls of the tunnel
+juction, and a resistance in parallel to simulate the current flowing due to 
+tunneling. This resistance must be high enough so that each tunneling event is
+well defined, and the way to ensure that is to plug the energy required to
+introduce an electron to the capacitor, and the RC time of the tunnel junction
+(in other context the RC time of a circuit is the time it takes to charge a
+capacitor through a resistance, but in this one would be the average time
+it takes a charge to tunnel through the barrier). By doing this we get
+that \(R \gg 4.1\unit{\kilo\ohm}\), but a more careful analysis with
+tunneling rates[REFERENCE HERE] gives us a more restrictive condition
+\(R \gg 25.8\unit{\kilo\ohm}\). The voltage connected via a capacitor (the
+gate voltage) would increase and decrease the electrostatic energy of the
+island, allowing us to move the next avariable energy state inside it. The
+idea is to have a small enough voltage difference between the voltages connected
+via tunnel barrier, such that we can add a gate voltage that will let a current
+flow by encouraging a single electron transport from one voltage to the next
+through the islan, but that a small variation of the gate voltage breaks this
+electron transmission and cuts the conductance of the SET
+(being right above the edges of the Coulomb diamonts). This charge sensing
+can be turned into spin sensing by making the source of the gate voltage be
+an electron (or the lack of one) in another quantum dot, and making the
+existance (or lack of) an electron in said quantum dot dependent on it's spin.
 
 \subsection{RF reflectometry}
 Radio frequency reflectometry is a method to measure change in an impedance

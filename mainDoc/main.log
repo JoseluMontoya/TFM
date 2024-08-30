@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  29 AUG 2024 00:14
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  30 AUG 2024 18:51
  restricted system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -930,58 +930,58 @@ Package hyperref Info: Link coloring ON on input line 76.
 \tf@toc=\write5
 
 \openout5 = main.toc
- [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6]) [7] (./sections/RLC.tex [8] [9]
-<./../code/img/RLCParallel/ReflecCoeff.png, id=177, 421.45454pt x 335.45325pt>
+ [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6] [7]) [8] (./sections/RLC.tex [9] [10]
+<./../code/img/RLCParallel/ReflecCoeff.png, id=180, 421.45454pt x 335.45325pt>
 File: ./../code/img/RLCParallel/ReflecCoeff.png Graphic file (type png)
 <use ./../code/img/RLCParallel/ReflecCoeff.png>
 Package luatex.def Info: ./../code/img/RLCParallel/ReflecCoeff.png  used on input line 150.
 (luatex.def)             Requested size: 209.12683pt x 166.45166pt.
-<./../code/img/RLCParallel/ReflecPhase.png, id=178, 417.7206pt x 314.8563pt>
+<./../code/img/RLCParallel/ReflecPhase.png, id=181, 417.7206pt x 314.8563pt>
 File: ./../code/img/RLCParallel/ReflecPhase.png Graphic file (type png)
 <use ./../code/img/RLCParallel/ReflecPhase.png>
 Package luatex.def Info: ./../code/img/RLCParallel/ReflecPhase.png  used on input line 154.
 (luatex.def)             Requested size: 209.12683pt x 157.62473pt.
- [10<./../code/img/RLCParallel/ReflecCoeff.png><./../code/img/RLCParallel/ReflecPhase.png>] [11] [12] [13] [14]
-<./../code/img/RLCParallel/OptContrComparison.png, id=255, 658.3797pt x 231.9867pt>
+ [11<./../code/img/RLCParallel/ReflecCoeff.png><./../code/img/RLCParallel/ReflecPhase.png>] [12] [13] [14] [15]
+<./../code/img/RLCParallel/OptContrComparison.png, id=258, 658.3797pt x 231.9867pt>
 File: ./../code/img/RLCParallel/OptContrComparison.png Graphic file (type png)
 <use ./../code/img/RLCParallel/OptContrComparison.png>
 Package luatex.def Info: ./../code/img/RLCParallel/OptContrComparison.png  used on input line 454.
 (luatex.def)             Requested size: 418.25368pt x 147.37361pt.
-) [15<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [16] [17]
-<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=283, 925.056pt x 388.0899pt>
+) [16<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [17] [18]
+<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=286, 925.056pt x 388.0899pt>
 File: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png Graphic file (type png)
 <use ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>
 Package luatex.def Info: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png  used on input line 155.
 (luatex.def)             Requested size: 418.25368pt x 175.4738pt.
- [18<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
-<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=292, 925.056pt x 307.8702pt>
+ [19<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
+<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=295, 925.056pt x 307.8702pt>
 File: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png Graphic file (type png)
 <use ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>
 Package luatex.def Info: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png  used on input line 224.
 (luatex.def)             Requested size: 418.25368pt x 139.20267pt.
-) [19<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [20] (./main.aux)
+) [20<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [21] [22] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6D9B120532EB7B319DF0DAF8DDC06674;3031.
+(rerunfilecheck)             Checksum: 201BB5BCF2B1C07585F17E61D3C1B986;2969.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48951 strings out of 476603
+ 48954 strings out of 476603
  125027,1977958 words of node,token memory allocated
  13118 words of node memory still in use:
    420 hlist, 68 vlist, 31 rule, 100 math, 278 glue, 118 kern, 362 glyph, 727 attribute, 65 glue_spec, 365 attribute_list, 2 write, 24 pdf_colorstack nodes
-   avail lists: 2:4610,3:1862,4:86,5:465,6:41,7:6779,8:90,9:1275,10:18,11:327
- 69866 multiletter control sequences out of 65536+600000
+   avail lists: 2:4624,3:1819,4:521,5:628,6:41,7:7046,8:90,9:1275,10:18,11:327
+ 69867 multiletter control sequences out of 65536+600000
  73 fonts using 4636111 bytes
- 102i,29n,101p,564b,1161s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,29n,101p,564b,1165s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
-Output written on main.pdf (20 pages, 1144853 bytes).
+Output written on main.pdf (22 pages, 1150659 bytes).
 
-PDF statistics: 384 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 131072)
+PDF statistics: 392 PDF objects out of 1000 (max. 8388607)
+ 331 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 131072)
  120 words of extra memory for PDF output out of 10000 (max. 100000000)
 
