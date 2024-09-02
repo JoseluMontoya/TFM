@@ -1,5 +1,5 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  30 AUG 2024 18:51
- restricted system commands enabled.
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  2 SEP 2024 06:48
+ system commands enabled.
  file:line:error style messages enabled.
 **main.tex
 (./main.tex
@@ -551,7 +551,54 @@ Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
 \l__lipsum_a_int=\count303
 \l__lipsum_b_int=\count304
 
-(/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
+(/usr/local/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2023/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 368.
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks44
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/ifplatform/ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+ (/usr/local/texlive/2023/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+runsystem(uname -s > "main.w18")...executed.
+ (./main.w18)
+runsystem(rm -- "main.w18")...executed.
+)
+\c@svg@param@lastpage=\count305
+\svg@box=\box68
+\c@svg@param@currpage=\count306
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent.sty
+Package: transparent 2022-10-27 v1.5 Transparency with color stacks
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
+Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+))) (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2023/07/08 v1.2f Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup4
 \symboldletters=\mathgroup5
@@ -567,7 +614,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks44
+\@emptytoks=\toks45
 \ex@=\dimen303
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -576,19 +623,19 @@ LaTeX Info: Redefining \boldsymbol on input line 28.
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count305
+\inf@bad=\count307
 LaTeX Info: Redefining \frac on input line 236.
-\uproot@=\count306
-\leftroot@=\count307
+\uproot@=\count308
+\leftroot@=\count309
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count308
-\DOTSCASE@=\count309
+\classnum@=\count310
+\DOTSCASE@=\count311
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box68
-\strutbox@=\box69
+\Mathstrutbox@=\box69
+\strutbox@=\box70
 LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
@@ -596,31 +643,31 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen305
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count310
+\macc@depth=\count312
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count311
+\c@MaxMatrixCols=\count313
 \dotsspace@=\muskip16
-\c@parentequation=\count312
-\dspbrk@lvl=\count313
-\tag@help=\toks45
-\row@=\count314
-\column@=\count315
-\maxfields@=\count316
-\andhelp@=\toks46
+\c@parentequation=\count314
+\dspbrk@lvl=\count315
+\tag@help=\toks46
+\row@=\count316
+\column@=\count317
+\maxfields@=\count318
+\andhelp@=\toks47
 \eqnshift@=\dimen306
 \alignsep@=\dimen307
 \tagshift@=\dimen308
 \tagwidth@=\dimen309
 \totwidth@=\dimen310
 \lineht@=\dimen311
-\@envbody=\toks47
+\@envbody=\toks48
 \multlinegap=\skip60
 \multlinetaggap=\skip61
-\mathdisplay@stack=\toks48
+\mathdisplay@stack=\toks49
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/cancel/cancel.sty
@@ -633,18 +680,18 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count317
-\calc@Bcount=\count318
+\calc@Acount=\count319
+\calc@Bcount=\count320
 \calc@Adimen=\dimen312
 \calc@Bdimen=\dimen313
 \calc@Askip=\skip62
 \calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count319
+\calc@Ccount=\count321
 \calc@Cskip=\skip64
 )
-\g_MT_multlinerow_int=\count320
+\g_MT_multlinerow_int=\count322
 \l_MT_multwidth_dim=\dimen314
 \origjot=\skip65
 \l_MT_shortvdotswithinadjustabove_dim=\dimen315
@@ -653,82 +700,73 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \l_MT_below_intertext_sep=\dimen318
 \l_MT_above_shortintertext_sep=\dimen319
 \l_MT_below_shortintertext_sep=\dimen320
-\xmathstrut@box=\box70
+\xmathstrut@box=\box71
 \xmathstrut@dim=\dimen321
 )
-\l_EQ_equationtype_int=\count321
-\l_EQ_alignmentmode_int=\count322
+\l_EQ_equationtype_int=\count323
+\l_EQ_alignmentmode_int=\count324
 \l_EQ_totalwidth_dim=\dimen322
 \l_EQ_displaywidth_dim=\dimen323
 \l_EQ_temp_linewidth_dim=\dimen324
 \l_EQ_linewidth_dim=\dimen325
 \EmphEqdelimitershortfall=\dimen326
-\EmphEqdelimiterfactor=\count323
+\EmphEqdelimiterfactor=\count325
 \g_EQ_toptag_height_dim=\dimen327
 \g_EQ_bottomtag_depth_dim=\dimen328
 \g_EQ_toprow_height_dim=\dimen329
 \g_EQ_bottomrow_depth_dim=\dimen330
 \g_EQ_widesttag_dim=\dimen331
-\EQ_mathdisplay_box=\box71
-\EQ_tag_box=\box72
-\g_EQ_temprow_int=\count324
+\EQ_mathdisplay_box=\box72
+\EQ_tag_box=\box73
+\g_EQ_temprow_int=\count326
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/physics/physics.sty
 Package: physics 
  (/usr/local/texlive/2023/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2023-10-10 L3 Experimental document command parser
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2023-10-07 v3.3.7 A comprehensive (SI) units package
-\l__siunitx_number_uncert_offset_int=\count325
-\l__siunitx_number_exponent_fixed_int=\count326
-\l__siunitx_number_min_decimal_int=\count327
-\l__siunitx_number_min_integer_int=\count328
-\l__siunitx_number_round_precision_int=\count329
-\l__siunitx_number_lower_threshold_int=\count330
-\l__siunitx_number_upper_threshold_int=\count331
-\l__siunitx_number_group_first_int=\count332
-\l__siunitx_number_group_size_int=\count333
-\l__siunitx_number_group_minimum_int=\count334
+\l__siunitx_number_uncert_offset_int=\count327
+\l__siunitx_number_exponent_fixed_int=\count328
+\l__siunitx_number_min_decimal_int=\count329
+\l__siunitx_number_min_integer_int=\count330
+\l__siunitx_number_round_precision_int=\count331
+\l__siunitx_number_lower_threshold_int=\count332
+\l__siunitx_number_upper_threshold_int=\count333
+\l__siunitx_number_group_first_int=\count334
+\l__siunitx_number_group_size_int=\count335
+\l__siunitx_number_group_minimum_int=\count336
 \l__siunitx_angle_tmp_dim=\dimen332
-\l__siunitx_angle_marker_box=\box73
-\l__siunitx_angle_unit_box=\box74
-\l__siunitx_compound_count_int=\count335
+\l__siunitx_angle_marker_box=\box74
+\l__siunitx_angle_unit_box=\box75
+\l__siunitx_compound_count_int=\count337
  (/usr/local/texlive/2023/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count336
-) (/usr/local/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks49
+\etb@tempcnta=\count338
 ))
-\l__siunitx_table_tmp_box=\box75
+\l__siunitx_table_tmp_box=\box76
 \l__siunitx_table_tmp_dim=\dimen333
 \l__siunitx_table_column_width_dim=\dimen334
-\l__siunitx_table_integer_box=\box76
-\l__siunitx_table_decimal_box=\box77
-\l__siunitx_table_uncert_box=\box78
-\l__siunitx_table_before_box=\box79
-\l__siunitx_table_after_box=\box80
+\l__siunitx_table_integer_box=\box77
+\l__siunitx_table_decimal_box=\box78
+\l__siunitx_table_uncert_box=\box79
+\l__siunitx_table_before_box=\box80
+\l__siunitx_table_after_box=\box81
 \l__siunitx_table_before_dim=\dimen335
 \l__siunitx_table_carry_dim=\dimen336
-\l__siunitx_unit_tmp_int=\count337
-\l__siunitx_unit_position_int=\count338
-\l__siunitx_unit_total_int=\count339
+\l__siunitx_unit_tmp_int=\count339
+\l__siunitx_unit_position_int=\count340
+\l__siunitx_unit_total_int=\count341
  (/usr/local/texlive/2023/texmf-dist/tex/latex/tools/array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen337
-\ar@mcellbox=\box81
+\ar@mcellbox=\box82
 \extrarowheight=\dimen338
 \NC@list=\toks50
 \extratabsurround=\skip66
 \backup@length=\skip67
-\ar@cellbox=\box82
+\ar@cellbox=\box83
 )) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
  (/usr/local/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -741,8 +779,6 @@ Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-10-05 v2.54 Cross-referencing by name of section
  (/usr/local/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
@@ -752,18 +788,17 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count340
+\c@section@level=\count342
 )
 \@linkdim=\dimen339
-\Hy@linkcounter=\count341
-\Hy@pagecounter=\count342
-
-(/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+\Hy@linkcounter=\count343
+\Hy@pagecounter=\count344
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-10-27 v7.01d Hyperref: PDFDocEncoding definition (HO)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count343
+\Hy@SavedSpaceFactor=\count345
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-10-27 v7.01d Hyperref: PDF Unicode definition (HO)
 )
@@ -775,8 +810,9 @@ Package hyperref Info: Plain pages OFF on input line 4183.
 Package hyperref Info: Backreferencing OFF on input line 4188.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4435.
-\c@Hy@tempcnt=\count344
- (/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
+\c@Hy@tempcnt=\count346
+
+(/usr/local/texlive/2023/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -787,7 +823,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count345
+\Fld@menulength=\count347
 \Field@Width=\dimen341
 \Fld@charsize=\dimen342
 Package hyperref Info: Hyper figures OFF on input line 6052.
@@ -801,9 +837,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6082.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count346
-\c@Item=\count347
-\c@Hfootnote=\count348
+\Hy@abspage=\count348
+\c@Item=\count349
+\c@Hfootnote=\count350
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/hyperref/hluatex.def
@@ -814,8 +850,8 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count349
-\c@bookmark@seq@number=\count350
+\Fld@listcount=\count351
+\c@bookmark@seq@number=\count352
  (/usr/local/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -825,7 +861,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip68
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 49.
+Package hyperref Info: Option `colorlinks' set `true' on input line 50.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
@@ -833,48 +869,52 @@ Package: import 2020/04/01  v 6.2
 )) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex
-\tikz@math@for@depth=\count351
+\tikz@math@for@depth=\count353
 \tikz@math@dimen=\dimen343
 \tikz@math@toks=\toks51
+) (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box84
+\pgf@layerboxsaved@background=\box85
 ) (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 76.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 78.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
-LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count352
+\scratchcounter=\count354
 \scratchdimen=\dimen344
-\scratchbox=\box83
-\nofMPsegments=\count353
-\nofMParguments=\count354
+\scratchbox=\box86
+\nofMPsegments=\count355
+\nofMParguments=\count356
 \everyMPshowfont=\toks52
-\MPscratchCnt=\count355
+\MPscratchCnt=\count357
 \MPscratchDim=\dimen345
-\MPnumerator=\count356
-\makeMPintoPDFobject=\count357
+\MPnumerator=\count358
+\makeMPintoPDFobject=\count359
 \everyMPtoPDFconversion=\toks53
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -919,7 +959,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 76.
+Package hyperref Info: Link coloring ON on input line 78.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 
@@ -930,58 +970,63 @@ Package hyperref Info: Link coloring ON on input line 76.
 \tf@toc=\write5
 
 \openout5 = main.toc
- [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6] [7]) [8] (./sections/RLC.tex [9] [10]
-<./../code/img/RLCParallel/ReflecCoeff.png, id=180, 421.45454pt x 335.45325pt>
-File: ./../code/img/RLCParallel/ReflecCoeff.png Graphic file (type png)
-<use ./../code/img/RLCParallel/ReflecCoeff.png>
-Package luatex.def Info: ./../code/img/RLCParallel/ReflecCoeff.png  used on input line 150.
-(luatex.def)             Requested size: 209.12683pt x 166.45166pt.
-<./../code/img/RLCParallel/ReflecPhase.png, id=181, 417.7206pt x 314.8563pt>
-File: ./../code/img/RLCParallel/ReflecPhase.png Graphic file (type png)
-<use ./../code/img/RLCParallel/ReflecPhase.png>
-Package luatex.def Info: ./../code/img/RLCParallel/ReflecPhase.png  used on input line 154.
-(luatex.def)             Requested size: 209.12683pt x 157.62473pt.
- [11<./../code/img/RLCParallel/ReflecCoeff.png><./../code/img/RLCParallel/ReflecPhase.png>] [12] [13] [14] [15]
-<./../code/img/RLCParallel/OptContrComparison.png, id=258, 658.3797pt x 231.9867pt>
+ [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6] [7] [8] [9] [10] [11]) [12] (./sections/RLC.tex [13] [14]
+Package svg Info: Last page of `./svg-inkscape/ReflecCoeff_svg-tex.pdf' is 1 on input line 150.
+ (./svg-inkscape/ReflecCoeff_svg-tex.pdf_tex
+<./svg-inkscape/ReflecCoeff_svg-tex.pdf, id=212, page=1, 462.52798pt x 359.24153pt>
+File: ./svg-inkscape/ReflecCoeff_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ReflecCoeff_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ReflecCoeff_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 209.12683pt x 162.43008pt.
+)
+Package svg Info: Last page of `./svg-inkscape/ReflecPhase_svg-tex.pdf' is 1 on input line 154.
+ (./svg-inkscape/ReflecPhase_svg-tex.pdf_tex
+<./svg-inkscape/ReflecPhase_svg-tex.pdf, id=214, page=1, 462.52798pt x 346.89601pt>
+File: ./svg-inkscape/ReflecPhase_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ReflecPhase_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ReflecPhase_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 209.12683pt x 156.8481pt.
+) [15<./svg-inkscape/ReflecCoeff_svg-tex.pdf><./svg-inkscape/ReflecPhase_svg-tex.pdf>] [16] [17] [18] [19]
+<./../code/img/RLCParallel/OptContrComparison.png, id=319, 658.3797pt x 231.9867pt>
 File: ./../code/img/RLCParallel/OptContrComparison.png Graphic file (type png)
 <use ./../code/img/RLCParallel/OptContrComparison.png>
 Package luatex.def Info: ./../code/img/RLCParallel/OptContrComparison.png  used on input line 454.
 (luatex.def)             Requested size: 418.25368pt x 147.37361pt.
-) [16<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [17] [18]
-<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=286, 925.056pt x 388.0899pt>
+) [20<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [21] [22]
+<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=346, 925.056pt x 388.0899pt>
 File: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png Graphic file (type png)
 <use ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>
 Package luatex.def Info: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png  used on input line 155.
 (luatex.def)             Requested size: 418.25368pt x 175.4738pt.
- [19<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
-<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=295, 925.056pt x 307.8702pt>
+ [23<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
+<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=355, 925.056pt x 307.8702pt>
 File: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png Graphic file (type png)
 <use ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>
 Package luatex.def Info: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png  used on input line 224.
 (luatex.def)             Requested size: 418.25368pt x 139.20267pt.
-) [20<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [21] [22] (./main.aux)
+) [24<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [25] [26] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 201BB5BCF2B1C07585F17E61D3C1B986;2969.
+(rerunfilecheck)             Checksum: A0F1D44A131BAB1EA0187A8606AB9559;2959.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48954 strings out of 476603
- 125027,1977958 words of node,token memory allocated
- 13118 words of node memory still in use:
-   420 hlist, 68 vlist, 31 rule, 100 math, 278 glue, 118 kern, 362 glyph, 727 attribute, 65 glue_spec, 365 attribute_list, 2 write, 24 pdf_colorstack nodes
-   avail lists: 2:4624,3:1819,4:521,5:628,6:41,7:7046,8:90,9:1275,10:18,11:327
- 69867 multiletter control sequences out of 65536+600000
+ 50356 strings out of 476603
+ 125027,2373549 words of node,token memory allocated
+ 13137 words of node memory still in use:
+   420 hlist, 68 vlist, 31 rule, 100 math, 279 glue, 118 kern, 362 glyph, 731 attribute, 65 glue_spec, 367 attribute_list, 2 write, 24 pdf_colorstack nodes
+   avail lists: 2:4662,3:1840,4:131,5:465,6:41,7:6816,8:90,9:1275,10:18,11:327
+ 71100 multiletter control sequences out of 65536+600000
  73 fonts using 4636111 bytes
- 102i,29n,101p,564b,1165s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
-Output written on main.pdf (22 pages, 1150659 bytes).
+ 102i,29n,101p,564b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
+Output written on main.pdf (26 pages, 735272 bytes).
 
-PDF statistics: 392 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 88 named destinations out of 1000 (max. 131072)
+PDF statistics: 460 PDF objects out of 1000 (max. 8388607)
+ 381 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 131072)
  120 words of extra memory for PDF output out of 10000 (max. 100000000)
 
