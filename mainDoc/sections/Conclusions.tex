@@ -1,5 +1,31 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-% \lipsum[1-1]
+We have been able to optimize the matching network attached to an SET. It turns
+out that for an optimum measurement, we need to tune the network for the
+geometric mean of the two resistances of the SET. These finding could prove
+extremely useful since, to my knowledge, analytical expressions for the
+optimum contrast and for the parameters that enabled that contrast were not
+derived up until now.
+
+In addition to this, we showed that the use of a kinetic inductor improves
+greatly the quality of measurements, with the only recommendations for the
+implementation being:
+\begin{itemize}
+    \item The larger the variation in inductance, the better
+    \item The best tuning to use will depend on your restrictions:
+        \(\LOn\) tuning will be best if you need the lowest possible frequency,
+        and you have some losses. If your concern is that you need a greater
+        value of \(C_{c}\), the middle tuning is perfect because, even though
+        it uses a higher frequency than the \(\LOn\) tuning, it needs the
+        greatest \(C_{c}\) and the performance is better than the non-kinetic
+        case for all values of \(\pi\). Finally, if you want the best of the
+        best (mostly when the losses practically non-existent, and
+        you need a sliver of improvement), and you can afford a higher frequency
+        and a small \(C_{c}\), \(\LOff\) tuning is the best.
+\end{itemize}
+Due to the biggest improvements being around \(\pi = 1\), I believe that
+the value of these finding lies in that the improvements of a kinetic inductance
+allow for bigger losses, and limit the circuit design a lot less.
+
 \end{document}

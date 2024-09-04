@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: ../TFM.bib
+Warning--entry type for "zhaoPhysicsSuperconductingTravellingWave2022" isn't style-file defined
+--line 93 of file ../TFM.bib
+Warning--entry type for "ibbersonDispersivereadout" isn't style-file defined
+--line 105 of file ../TFM.bib
+Too many commas in name 2 of "Gonzalez-Zalba, M. F. and family=Franceschi, given=S., prefix=de, useprefix=true and Charbon, E. and Meunier, T. and Vinet, M. and Dzurak, A. S." for entry gonzalez-zalbaScalingSiliconbasedQuantum2021
+while executing---line 1049 of file plain.bst
+Warning--empty journal in burkardSemiconductorSpinQubits2023
+Warning--empty year in burkardSemiconductorSpinQubits2023
+Warning--empty journal in divincenzoUniversalQuantumComputation2000
+Warning--empty year in divincenzoUniversalQuantumComputation2000
+Too many commas in name 2 of "Gonzalez-Zalba, M. F. and family=Franceschi, given=S., prefix=de, useprefix=true and Charbon, E. and Meunier, T. and Vinet, M. and Dzurak, A. S." for entry gonzalez-zalbaScalingSiliconbasedQuantum2021
+while executing---line 1090 of file plain.bst
+Warning--empty journal in gonzalez-zalbaScalingSiliconbasedQuantum2021
+Warning--empty year in gonzalez-zalbaScalingSiliconbasedQuantum2021
+Warning--empty year in hansonFundamentalsNanoelectronics2008
+Warning--empty journal in levyUniversalQuantumComputation2002
+Warning--empty year in levyUniversalQuantumComputation2002
+Warning--empty journal in lossQuantumComputationQuantum1998
+Warning--empty year in lossQuantumComputationQuantum1998
+Warning--empty year in nazarovQuantumTransportIntroduction2009
+Warning--empty journal in vigneauProbingQuantumDevices2023
+Warning--empty year in vigneauProbingQuantumDevices2023
+You've used 10 entries,
+            2118 wiz_defined-function locations,
+            554 strings with 6018 characters,
+and the built_in function-call counts, 3268 in all, are:
+= -- 283
+> -- 186
+< -- 0
++ -- 74
+- -- 64
+* -- 262
+:= -- 555
+add.period$ -- 28
+call.type$ -- 10
+change.case$ -- 60
+chr.to.int$ -- 0
+cite$ -- 24
+duplicate$ -- 104
+empty$ -- 248
+format.name$ -- 64
+if$ -- 639
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 10
+newline$ -- 51
+num.names$ -- 20
+pop$ -- 94
+preamble$ -- 1
+purify$ -- 52
+quote$ -- 0
+skip$ -- 67
+stack$ -- 0
+substring$ -- 179
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 14
+while$ -- 29
+width$ -- 12
+write$ -- 88
+(There were 2 error messages)

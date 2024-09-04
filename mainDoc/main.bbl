@@ -1,0 +1,51 @@
+\begin{thebibliography}{10}
+
+\bibitem{burkardSemiconductorSpinQubits2023}
+Guido Burkard, Thaddeus~D. Ladd, John~M. Nichol, Andrew Pan, and Jason~R. Petta.
+\newblock Semiconductor {{Spin Qubits}}.
+\newblock 95(2):025003.
+
+\bibitem{divincenzoUniversalQuantumComputation2000}
+D.~P. DiVincenzo, D.~Bacon, J.~Kempe, G.~Burkard, and K.~B. Whaley.
+\newblock Universal quantum computation with the exchange interaction.
+\newblock 408(6810):339--342.
+
+\bibitem{gonzalez-zalbaScalingSiliconbasedQuantum2021}
+M.~F. Gonzalez-Zalba, prefix=de~useprefix=true family=Franceschi, given=S., E.~Charbon, T.~Meunier, M.~Vinet, and A.~S. Dzurak.
+\newblock Scaling silicon-based quantum computing using {{CMOS}} technology.
+\newblock 4(12):872--884.
+
+\bibitem{hansonFundamentalsNanoelectronics2008}
+George~W. Hanson.
+\newblock {\em Fundamentals of Nanoelectronics}.
+\newblock Pearson/Prentice Hall.
+
+\bibitem{ibbersonDispersivereadout}
+David J.~Ibberson.
+\newblock Dispersive readout of industrially-fabricated silicon quantum dots.
+
+\bibitem{levyUniversalQuantumComputation2002}
+Jeremy Levy.
+\newblock Universal {{Quantum Computation}} with {{Spin-}} 1 / 2 {{Pairs}} and {{Heisenberg Exchange}}.
+\newblock 89(14):147902.
+
+\bibitem{lossQuantumComputationQuantum1998}
+Daniel Loss and David~P. DiVincenzo.
+\newblock Quantum computation with quantum dots.
+\newblock 57(1):120--126.
+
+\bibitem{nazarovQuantumTransportIntroduction2009}
+Yuli~V. Nazarov and Yaroslav~M. Blanter.
+\newblock {\em Quantum Transport: Introduction to Nanoscience}.
+\newblock Cambridge University Press.
+
+\bibitem{vigneauProbingQuantumDevices2023}
+Florian Vigneau, Federico Fedele, Anasua Chatterjee, David Reilly, Ferdinand Kuemmeth, Fernando Gonzalez-Zalba, Edward Laird, and Natalia Ares.
+\newblock Probing quantum devices with radio-frequency reflectometry.
+\newblock 10(2):021305.
+
+\bibitem{zhaoPhysicsSuperconductingTravellingWave2022}
+Songyuan Zhao.
+\newblock Physics of {{Superconducting Travelling-Wave Parametric Amplifiers}}.
+
+\end{thebibliography}

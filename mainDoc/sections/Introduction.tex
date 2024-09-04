@@ -1,5 +1,35 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-% \lipsum[1-1]
+Silicon-based quantum computing is a quantum computing paradigm that uses
+trapped electrons in silicon quantum dots to build the qubits. The 3 main
+qubit architectures using QD are\cite{burkardSemiconductorSpinQubits2023}:
+
+\begin{itemize}
+    \item \textbf{Loss-DiVincenzo qubits:} Thought up by Loss and DiVincenzo\cite{lossQuantumComputationQuantum1998}
+        in their original paper, it defines the qubits as the spins of the
+        trapped electrons themselves, and for their control uses a combination
+        of an external magnetic field and the control of tunnel barriers
+        between the QD.
+    \item \textbf{Singlet-triplet qubits:} Proposed by Levy\cite{levyUniversalQuantumComputation2002}, instead
+        of using single spins, it uses as basis the singlet and triplet state
+        of a pair of spins. The main benefit with respect to the Loss-DiVincenzo
+        is that the qubit lives in a decoherence-free subspace with respect
+        to global magnetic fields that couple to the spin of the electron.
+    \item \textbf{Exchange-only qubits:} Created by DiVincenzo \textit{et al.}\cite{divincenzoUniversalQuantumComputation2000},
+        it uses
+        the spin of 3 QD to create a qubit fully controllable using voltages
+        through the tunnel barriers that separate them.
+\end{itemize}
+
+The main advantage of silicon-based quantum computing is scalability, since
+it can leverage the decades in advancements of the CMOS industry. The objective
+with silicon-based quantum computing is then to build a quantum computer with
+an enormous amount of high fidelity qubits, instead of a quantum computer
+with a great amount of extremely high fidelity qubits, and to use the bigger
+number of qubits to run error correction algorithms. For this to be implemented,
+we need high fidelity and high speed readout techniques. At the moment there are
+multiple measuring schemes showing promising results\cite{gonzalez-zalbaScalingSiliconbasedQuantum2021}, such as RF reflectometry
+of a SET. In this master's thesis, we will explore the use of a kinetic inductor
+in this measuring scheme with the objective of improving the performance.
 \end{document}

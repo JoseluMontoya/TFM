@@ -45,6 +45,7 @@
     linkcolor=cerulean,
     filecolor=magenta,
     urlcolor=cyan,
+    citecolor=magenta,
     % pdftitle={Overleaf Example},
     % pdfpagemode=FullScreen,
     }
@@ -76,19 +77,32 @@
 \date{}
 
 \begin{document}
+\newgeometry{top=2cm}
 \maketitle
 \begin{abstract}
-\lipsum[1-1]
+    In this thesis we will make a proof of concept of a new type of charge sensor for quantum computation,
+    using an SET, RF reflectometry and a kinetic inductance, which is the novel
+    part of the sensor. First we will optimize the sensor analytically using a non-kinetic inductance,
+    and then we will simulate the kinetic version to see if we can improve the fidelity.
+    The results show that, for a non-kinetic sensor, the optimum tuning is done to
+    the geometric mean of the two resistances we want to distinguish between, and
+    that the use of a kinetic inductor with a proper calibration increases greatly
+    the fidelity of the sensor, specially with parasitic resistances of the order
+    of the smallest resistance.
 \end{abstract}
 
 
-\newpage
 \tableofcontents{}
+\restoregeometry{}
 
 \newpage
-\section{Introduction (talk about different types of spin qubits)}
+\section{Introduction}
 \label{sec:Intro}
 \subfile{sections/Introduction.tex}
+
+\section{Aims and objectives}
+\label{sec:Objectives}
+\subfile{sections/Objectives.tex}
 
 \newpage
 \section{Theoretical background}
@@ -96,13 +110,72 @@
 \subfile{sections/Theory.tex}
 
 \newpage
-\section{The parallel RLC resonator}
-\label{sec:ParallelRLC}
+\section{Results}
+\label{sec:Results}
+As we said in section \ref{subsec:RFRef}, in RF reflectometry we use
+the reflection coefficient \(\Gamma\) (\ref{eq:ReflecCoeff}) to measure an
+impedance \(Z(\omega)\), and if said impedance can have two possible values,
+the relevant parameter to determine the distinguishability of those measures
+is the signal-to-noise ratio SNR (\ref{eq:SNR}).
+
+Since \(Z(\omega)\) can't be modified (it defeats the purpose of measuring it),
+and \(Z_{0}\) depends on the transmission line (it usually is
+\(50\unit{\ohm}\)), the standard procedure is to add a matching network
+(essentially, extra circuitry around \(Z(\omega)\)) and instead measure the
+impedance of said network plus \(Z(\omega)\). The idea is that with the
+matching network we bring the impedance of the ensemble closer to \(Z_{0}\),
+increasing the variation of \(\Gamma\) with respect to the impedance we want
+to measure, and with it improving our SNR via the contrast.
+
+\begin{figure}
+\centering
+\begin{circuitikz}[scale=0.9]
+    \draw (-0.5,0) to[short]
+          (0,0) to[generic, l=\(Z_0\)]
+          (1.5,0) to[capacitor, l=\(C_c\)]
+          (3,0) to[short]
+          (6,0);
+    \draw (3,0) to[L, l=\(L\)]
+          (3,-2);
+    \draw (4.5,0) to[capacitor, l=\(C_p\)]
+          (4.5,-2);
+    \draw (6,0) to[vR, l=\({R = R_{SET} \parallel R_p}\)]
+          (6,-2);
+    \draw (3,-2) to[short]
+          (6,-2) node[ground]{};
+\end{circuitikz}
+\caption{Topology of our measuring circuit. Since during most of our
+analysis we will ignore \(R_{p}\), it is already couplet to \(R_{SET}\).}
+\label{fig:RLC}
+\end{figure}
+
+In our case, the impedance to measure is the resistance of the SET (\(R_{SET}\)),
+which has 2 states: \(\ROn^{SET} = 50\unit{\kilo\ohm}\)\footnote{I know that in
+    section \ref{subsec:SET} we saw that it must be a lot greater than
+\(51.6\unit{\kilo\ohm}\), but we're going to work in a worst case scenario} and
+\(\ROff^{SET} = \infty\unit{\ohm}\) (zero current passes). For our matching network,
+since \(R_{SET} \gg Z_{0}\) we will use the appropriate version of what is
+known as a high pass L matching network. It consists of a coupling capacitance
+\(C_{c}\) connected in series with \(Z_{0}\) and \(R_{SET}\), and an inductance
+\(L\) in series with \(R_{SET}\). In figure \ref{fig:RLC} we can see this
+arrangement with the addition of a parasitic capacitance and resistance,
+\(C_{p}\) and \(R_{p}\), which are used to model the losses in the circuit.
+Due to its shape, we will refer to it as the parallel RLC resonator, or the
+resonator for short.
+
+The objectives of this section are to first study our measuring circuit,
+find the optimal values of its parameters, and see what that ideal
+measurement would look like, while along the way keep doing simulations
+to ensure that our results work. Next, we will check if with a kinetic inductor
+the performance can be improved, and under what circumstances said improvement
+occurs.
+
+\subsection{The parallel RLC resonator}
+\label{subsec:ParallelRLC}
 \subfile{sections/RLC.tex}
 
-\newpage
-\section{The parallel kinetic RLC resonator}
-\label{sec:KineticRLC}
+\subsection{The parallel kinetic RLC resonator}
+\label{subsec:KineticRLC}
 \subfile{sections/KineticRLC.tex}
 
 \newpage
@@ -110,10 +183,13 @@
 \label{sec:Conclusions}
 \subfile{sections/Conclusions.tex}
 
-\newpage
-\section{Outlook} %Vistas de futuro: que hacer despues
-\label{sec:Outlook}
-% \subfile{sections/Outlook.tex}
+\section{Next steps and closing remarks} %Vistas de futuro: que hacer despues
+\label{sec:NextSteps}
+\subfile{sections/NextSteps.tex}
+
+\nocite{zhaoPhysicsSuperconductingTravellingWave2022}
+\bibliographystyle{plain}
+\bibliography{../TFM}
 
 % \newpage
 % \appendix \appendixpage \addappheadtotoc

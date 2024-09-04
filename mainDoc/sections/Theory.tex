@@ -3,12 +3,13 @@
 \begin{document}
 Before delving into the design and optimization of our measuring circuit,
 we need some theoretical context. First we will do a light overview of the
-operating principles of an SET and how to use it to measure spin, then we'll
-pick a couple of concepts form RF reflectometry, and finally we'll see that
+operating principles of an SET and how to use it to measure spin, then we will
+pick a couple of concepts from RF reflectometry, and finally we will see that
 in the superconducting regime a new kind of inductance appears that depends on
 current.
 
 \subsection{The SET for spin sensing}
+\label{subsec:SET}
 Let's imagine a neutral conducting isolated island with capacitance \(C\).
 If we want to stuff \(N\) electrons into it, the energy required would be
 \begin{equation*}
@@ -30,9 +31,7 @@ inside (or in other words, enough energy to overcome that
 gap\footnote{Technically speaking the electron also needs energy to overcome
 the energy gap due to quantum mechanical effects of the bulk, but since for a
 big enough island this gap is negligible in comparison with \(2E_{C}\)
-\hl{ADD REFERENCE TO QUANTUM TRANSPORT BY NAZAROV AND YAROSLAV}
-, we're going to ignore it
-}).
+\cite{nazarovQuantumTransportIntroduction2009}, we are going to ignore it}).
 
 A single electron transistor (SET for short) is a device that uses Coulomb
 blockade to, well, do what it says in the name: turning on or off a single
@@ -70,7 +69,7 @@ electron current.
     \draw (TJd) ++(0,0.4) node[above right]{\(C_{R}\)};
 \end{circuitikz}
 \caption{Circuit diagram of a SET. From left to right we have: the source
-voltage (\(V_{g}\)), the resistance and capacitance of the left tunnel junction
+voltage (\(V_{s}\)), the resistance and capacitance of the left tunnel junction
 (\(R_{L}\), \(C_{L}\)), the capacitance of the central capacitor (\(C_{C}\)), the
 gate voltage (\(V_{g}\)), the resistance and capacitance of the right tunnel
 junction (\(R_{R}\), \(C_{R}\)) and the drain voltage (\(V_{d}\))}
@@ -79,7 +78,7 @@ junction (\(R_{R}\), \(C_{R}\)) and the drain voltage (\(V_{d}\))}
 
 It consists of a conducting island connected to two voltage sources (\(V_{s}\)
 and \(V_{d}\)) via tunnel barriers (the common nomenclature is tunnel junctions,
-so from now on is how we're going to call them) and to a third voltage
+so from now on is how we are going to call them) and to a third voltage
 (\(V_{g}\)) via a capacitor \(C_{C}\) (figure \ref{fig:SETSchematic}). Each
 tunnel junction is modeled like a capacitor in parallel with a resistance, to
 model both the accumulation of charge at the walls and the current due to
@@ -90,8 +89,8 @@ To estimate the threshold for the resistance we can use the energy-time
 Heisenberg uncertainty principle
 \[\Delta E \Delta t \geq \hbar/2\]
 With the \(\Delta E\) and \(\Delta t\) of the tunneling event. For \(\Delta E\)
-we'll use \(E_{C}\), since it is the smallest variation in energy permitted in
-the island due to Coulomb blockade, and for \(\Delta t\) we'll use the classical
+we will use \(E_{C}\), since it is the smallest variation in energy permitted in
+the island due to Coulomb blockade, and for \(\Delta t\) we will use the classical
 discharge time of a parallel RC circuit \(\tau = RC\), which should be of the
 order of the time there is between tunneling events:
 \begin{equation*}
@@ -103,8 +102,7 @@ distinguishable, the resistance of the tunnel junction must be much bigger
 that \(\hbar/e^2\)
 
 In reality, following a more rigorous analysis called orthodox theory one can
-arrive at a more restrictive condition for \(R\) \hl{ADD REFERENCE TO CALCULATION OR
-FUNDAMENTALS OF NANOELECTRONICS BY HANSON}
+arrive at a more restrictive condition for \(R\)\cite{hansonFundamentalsNanoelectronics2008}
 
 \begin{equation*}
 \label{eq:RTunnelCond}
@@ -192,23 +190,22 @@ source/first empty energy level on the island) minus the energy of origin
     \Delta E_{IR}(N) &= E_{N + 1} - (-eV_{d})\\
     \Delta E_{OR}(N) &= (-eV_{d}) - E_{N}
 \end{align*}
-With IL/OL meaning in/out left and IR/OR meaning in/out right. Using
-\begin{align}
-\ref{eq:NElecESET}
+With IL/OL meaning in/out left and IR/OR meaning in/out right. Using \ref{eq:NElecESET}
+\begin{align*}
     \Delta E_{IL}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{s}\\
     \Delta E_{OL}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{s}\\
     \Delta E_{IR}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{d}\\
     \Delta E_{OR}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{d}
-\end{align}
+\end{align*}
 And with the simplifications \(V_{s} =  V\) and \(V_{d} = 0\), a little
 bit of massaging, and using the definition of \(q\), they turn into
 
-\begin{align}
+\begin{align*}
     \Delta E_{IL}(N) &= \phantom{-}\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N + \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
     \Delta E_{OL}(N) &= -\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N - \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
     \Delta E_{IR}(N) &= \phantom{-}\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N + \frac{1}{2}\right) - V + \frac{C_{C}}{C_{L}}V_{g}\right)\\
     \Delta E_{OR}(N) &= -\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N - \frac{1}{2}\right) - V + \frac{C_{C}}{C_{L}}V_{g}\right)
-\end{align}
+\end{align*}
 
 \begin{figure}[t]
 \centering
@@ -255,7 +252,7 @@ bit of massaging, and using the definition of \(q\), they turn into
     % Axis
     \draw[thick] (0,-1.1) node[above right]{\(V\)} -- (0,1.1);
     \draw[thick] (-0.05, 0.706) -- ++(0.1,0) node[right]{\(2E_{C}/e\)};
-    \draw[thick] (-0.05, -0.706) -- ++(-0.1,0);% node[right]{\(-2E_{C}\)};
+    \draw[thick] (-0.05, -0.706) -- ++(0.1,0);% node[right]{\(-2E_{C}\)};
 
     \draw[thick] (-0.1,0) -- (4,0) node[below left]{\(V_{g}\)};
     \draw[thick] (0.5, 0.05) -- ++(0,-0.1) node[below]{\(\frac{e}{2C_{C}}\)};
@@ -294,14 +291,14 @@ which means \(\Delta E_{IL}, \Delta E_{OR} < 0\) or
 \(\Delta E_{IR}, \Delta E_{OL} < 0\). In figure \ref{fig:CoulombDiamonds}
 we can see a plot of this in the \(V-V_{g}\) plane, with the white
 diamonds being where no condition is met, and darker diamonds
-being we're specifically \(\Delta E_{IL}(N), \Delta E_{OR}(N+1) < 0\) and
+being we are specifically \(\Delta E_{IL}(N), \Delta E_{OR}(N+1) < 0\) and
 \(\Delta E_{IR}(N), \Delta E_{OL}(N+1) < 0\).
 
 With this we have enough information to have a basic understanding of how a
 SET works:
 \begin{itemize}
     \item For the SET to operate as it should, \(V\) needs to be lower than
-        \(2E_{C}/e\). If not, the current can't be turned off, and we can't
+        \(2E_{C}/e\). If not, the current can not be turned off, and we cannot
         ensure that it is a one electron current. Picturing this scenario
         with the energy levels inside the conducting island it makes perfect
         sense. If \(|V| > 2E_{C}/e\), the energy drop from one terminal to the
@@ -313,13 +310,13 @@ SET works:
         not increasing the required energy to move, giving effectively
         extra voltage to the system.
     \item The activation window for \(V_{g}\) is inversely proportional to
-        \(V\), and it occurs when, thanks to \(V_{g}\) an energy level
+        \(V\), and it occurs when thanks to \(V_{g}\), an energy level
         is placed between \(0\) and \(V\).
 \end{itemize}
 
 If we want to use a SET for spin sensing in a quantum dot, first we need to
 use it for charge sensing. This is done by connecting via a capacitor the
-conducting island of the SET. When a charge is placed in the quantum dot, it
+conducting island of the SET with the QD. When a charge is placed in the QD, it
 will influence the SET by, effectively, adding a bias to \(V_{g}\). Choosing
 \(V\) and \(V_{g}\) appropriately for the bias that the charge introduces, we
 can tune the SET to make it let the current flow when a charge is present
@@ -331,12 +328,12 @@ spin to charge conversion, and there are mainly 2 ways of doing it:
 
 \begin{itemize}
     \item \textbf{Elzerman readout:} After inducing a Zeeman splitting in the
-        QD, we can connect to it with a capacitor a reservoir,
+        QD, we can connect to it with a tunnel junction a reservoir,
          with a Fermi energy in between both spin states in the
         QD. If we detect a fluctuation in charge, it means the electron
         decayed through the reservoir to the lowest energy spin state. If
         not, it means it already was in the lowest energy spin state.
-    \item \textbf{Pauli Spin Blockade:} By connecting to our QD another QD
+    \item \textbf{Pauli Spin Blockade:} By connecting to our QD another QD via a tunnel junction
         with lower energy and an electron with known spin, we can infer the
         spin in the first QD based on if a tunneling event occurred, thanks
         to the Pauli exclusion principle.
@@ -345,7 +342,7 @@ spin to charge conversion, and there are mainly 2 ways of doing it:
 To summarize, a SET is a transistor that thanks to Coulomb blockade,
 a discretization on the energy spectrum of conducting islands due to
 Coulomb repulsion, is able to let a single electron current through and
-control it. It's main operation conditions are \(e^2/C_{\Sigma} \gg V\)
+control it. It is main operation conditions are \(e^2/C_{\Sigma} \gg V\)
 and \(e^2/2C_{\Sigma} \gg k_{b}T\), with \(V\) the voltage applied,
 \(C_{\Sigma}\) the capacitance of the conducting island of the SET, \(k_{b}\)
 the Boltzmann constant and \(T\) the temperature of the SET, and when current
@@ -357,12 +354,13 @@ the spin of said charge.
 
 \newpage
 \subsection{RF reflectometry}
+\label{subsec:RFRef}
 Radio frequency reflectometry is a method to measure change in an impedance
 connected to a transmission line via the reflection of a radio signal.
 
 Usual lumped element treatment of AC circuits assumes that the size of the
 circuit is small with respect to the wavelength of the voltage,
-but with radio frequency voltages we can't do that. The main consequences for
+but with radio frequency voltages we cannot do that. The main consequences for
 us are:
 \begin{itemize}
     \item Now voltage and current are dependent on how far along the circuit
@@ -404,11 +402,11 @@ ground.
 \label{fig:LumpedTransmisionLine}
 \end{figure}
 
-Even though a transmission line minimizes that radiation of power, it doesn't
+Even though a transmission line minimizes that radiation of power, it does not
 erase it, and we need to take it into account in our calculations. To model this
 inductance and capacitance per unit length (\(L_{l}\) and \(C_{l}\) respectively),
 we will discretize it via a lumped element representation like in figure
-\ref{fig:LumpedTransmisionLine}, ignoring the lossess by not including any
+\ref{fig:LumpedTransmisionLine}, ignoring the losses by not including any
 resistance  in our circuit.
 Each pair inductor-capacitor will occur along a length \(\Delta x\) of the
 transmission line, so their inductance and capacitance in that stretch will be
@@ -439,7 +437,7 @@ With solutions
 Where \(v_{p} = \frac{1}{\sqrt{L_{l}C_{l}}}\) is the phase velocity of the wave,
 \(Z_{0} = \sqrt{\frac{L_{l}}{C_{l}}}\) is the characteristic impedance of the
 line and \(V_{+}\) and \(V_{-}\) are generic functions that describe a right
-and left traveling wave respectively. Since we'll be choosing our reference
+and left traveling wave respectively. Since we will be choosing our reference
 frame such that our signal will be always traveling from left to right, the
 appearance of \(V_{-}\) in our calculations will mean a reflection.
 
@@ -477,7 +475,7 @@ the power and the phase reflected and obtain \(Z(\omega)\).
 If we want to measure 2 distinct impedances, and we want to maximize the
 reliability of our measure, the obvious way to do it would be to make the values
 of \(\Gamma\) be as separated as possible. A more formal way to express this
-idea is through the signal-to-noise ratio (SNR) of the measurement
+idea is through the signal-to-noise ratio (SNR)\cite{vigneauProbingQuantumDevices2023} of the measurement
 
 \begin{equation}
 \label{eq:SNR}
@@ -492,6 +490,7 @@ increase our SNR.
 
 \newpage
 \subsection{Kinetic inductance and his nonlinearity}
+\label{subsec:KineticInductance}
 Due to the high mobility of the charge carriers in a super conductor, a phenomenon
 known as kinetic inductance emerges. This name comes from the fact that as opposed
 to a usual inductor, which functions by storing energy in the magnetic field
@@ -553,7 +552,7 @@ the system can withstand and can be calculated by obtaining the maximum of
 \end{equation*}
 
 With this we can not only see that the kinetic inductance has a quadratic
-dependence with the current, but that the sensibility of that dependence it's
+dependence with the current, but that the sensibility of that dependence it is
 given by the critical current of the material.
 
 But, the applications of inductors are usually with AC voltages, and in that

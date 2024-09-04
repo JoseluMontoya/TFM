@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  2 SEP 2024 06:48
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  3 SEP 2024 03:43
  system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -861,7 +861,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip68
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 50.
+Package hyperref Info: Option `colorlinks' set `true' on input line 51.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2020/11/14 v2.2 Multi-file projects (package)
  (/usr/local/texlive/2023/texmf-dist/tex/latex/import/import.sty
@@ -879,30 +879,30 @@ File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (./main.aux)
 \openout1 = main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 79.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 79.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
  (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count354
@@ -959,74 +959,128 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 78.
+Package hyperref Info: Link coloring ON on input line 79.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 
 \openout4 = main.out
- (/usr/local/texlive/2023/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-la.tex UTF-8 Latin hyphenation patterns (/usr/local/texlive/2023/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-la.tex)) [1
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(56.9055pt, 686.7347pt, 101.40665pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=686.7347pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.toc)
+ (./main.toc)
 \tf@toc=\write5
 
 \openout5 = main.toc
- [2] (./sections/Introduction.tex) [3] (./sections/Theory.tex [4] [5] [6] [7] [8] [9] [10] [11]) [12] (./sections/RLC.tex [13] [14]
-Package svg Info: Last page of `./svg-inkscape/ReflecCoeff_svg-tex.pdf' is 1 on input line 150.
+ [1
+
+
+{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./sections/Introduction.tex) (./sections/Objectives.tex) [2
+
+] (./sections/Theory.tex [3] [4] [5] [6] [7] [8] [9] [10]) [11] (./sections/RLC.tex [12] [13]
+Package svg Info: Last page of `./svg-inkscape/ReflecCoeff_svg-tex.pdf' is 1 on input line 108.
  (./svg-inkscape/ReflecCoeff_svg-tex.pdf_tex
-<./svg-inkscape/ReflecCoeff_svg-tex.pdf, id=212, page=1, 462.52798pt x 359.24153pt>
+<./svg-inkscape/ReflecCoeff_svg-tex.pdf, id=221, page=1, 462.52798pt x 359.24153pt>
 File: ./svg-inkscape/ReflecCoeff_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/ReflecCoeff_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/ReflecCoeff_svg-tex.pdf , page1 used on input line 56.
 (luatex.def)             Requested size: 209.12683pt x 162.43008pt.
 )
-Package svg Info: Last page of `./svg-inkscape/ReflecPhase_svg-tex.pdf' is 1 on input line 154.
+Package svg Info: Last page of `./svg-inkscape/ReflecPhase_svg-tex.pdf' is 1 on input line 112.
  (./svg-inkscape/ReflecPhase_svg-tex.pdf_tex
-<./svg-inkscape/ReflecPhase_svg-tex.pdf, id=214, page=1, 462.52798pt x 346.89601pt>
+<./svg-inkscape/ReflecPhase_svg-tex.pdf, id=223, page=1, 462.52798pt x 346.89601pt>
 File: ./svg-inkscape/ReflecPhase_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/ReflecPhase_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/ReflecPhase_svg-tex.pdf , page1 used on input line 56.
 (luatex.def)             Requested size: 209.12683pt x 156.8481pt.
-) [15<./svg-inkscape/ReflecCoeff_svg-tex.pdf><./svg-inkscape/ReflecPhase_svg-tex.pdf>] [16] [17] [18] [19]
-<./../code/img/RLCParallel/OptContrComparison.png, id=319, 658.3797pt x 231.9867pt>
-File: ./../code/img/RLCParallel/OptContrComparison.png Graphic file (type png)
-<use ./../code/img/RLCParallel/OptContrComparison.png>
-Package luatex.def Info: ./../code/img/RLCParallel/OptContrComparison.png  used on input line 454.
-(luatex.def)             Requested size: 418.25368pt x 147.37361pt.
-) [20<./../code/img/RLCParallel/OptContrComparison.png>] (./sections/KineticRLC.tex [21] [22]
-<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png, id=346, 925.056pt x 388.0899pt>
-File: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png Graphic file (type png)
-<use ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>
-Package luatex.def Info: ./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png  used on input line 155.
-(luatex.def)             Requested size: 418.25368pt x 175.4738pt.
- [23<./../code/img/RLCKinetic/IdealContrastOfRp&Lf&Cc.png>]
-<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png, id=355, 925.056pt x 307.8702pt>
-File: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png Graphic file (type png)
-<use ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>
-Package luatex.def Info: ./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png  used on input line 224.
-(luatex.def)             Requested size: 418.25368pt x 139.20267pt.
-) [24<./../code/img/RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png>] (./sections/Conclusions.tex) [25] [26] (./main.aux)
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 118.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [14<./svg-inkscape/ReflecCoeff_svg-tex.pdf><./svg-inkscape/ReflecPhase_svg-tex.pdf>] [15] [16] [17] [18]
+Package svg Info: Last page of `./svg-inkscape/OptContrComparison_svg-tex.pdf' is 1 on input line 402.
+ (./svg-inkscape/OptContrComparison_svg-tex.pdf_tex
+<./svg-inkscape/OptContrComparison_svg-tex.pdf, id=317, page=1, 819.54178pt x 288.3573pt>
+File: ./svg-inkscape/OptContrComparison_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/OptContrComparison_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/OptContrComparison_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 418.25368pt x 147.16147pt.
+)) (./sections/KineticRLC.tex [19<./svg-inkscape/OptContrComparison_svg-tex.pdf>] [20]
+Package svg Info: Last page of `./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf' is 1 on input line 158.
+ (./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf_tex
+<./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf, id=354, page=1, 925.05597pt x 311.4837pt>
+File: ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 418.25368pt x 140.83652pt.
+)
+Package svg Info: Last page of `./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf' is 1 on input line 170.
+ (./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf_tex
+<./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf, id=356, page=1, 925.05597pt x 407.60278pt>
+File: ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 418.25368pt x 184.2965pt.
+)
+Package svg Info: Last page of `./svg-inkscape/ImprovementsOfRp_svg-tex.pdf' is 1 on input line 182.
+ (./svg-inkscape/ImprovementsOfRp_svg-tex.pdf_tex
+<./svg-inkscape/ImprovementsOfRp_svg-tex.pdf, id=358, page=1, 544.19307pt x 286.9119pt>
+File: ./svg-inkscape/ImprovementsOfRp_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/ImprovementsOfRp_svg-tex.pdf, page 1>
+Package luatex.def Info: ./svg-inkscape/ImprovementsOfRp_svg-tex.pdf , page1 used on input line 56.
+(luatex.def)             Requested size: 334.60422pt x 176.41254pt.
+) [21<./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf>] [22<./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf>]) [23<./svg-inkscape/ImprovementsOfRp_svg-tex.pdf>] (./sections/Conclusions.tex) (./sections/NextSteps.tex) (./main.bbl [24]) [25] (./main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-11-01>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A0F1D44A131BAB1EA0187A8606AB9559;2959.
+(rerunfilecheck)             Checksum: 1FB1AD8F1DF9AA7B401F6EF55BBB5341;2708.
 )
 
 Here is how much of LuaTeX's memory you used:
- 50356 strings out of 476603
+ 50671 strings out of 476603
  125027,2373549 words of node,token memory allocated
- 13137 words of node memory still in use:
-   420 hlist, 68 vlist, 31 rule, 100 math, 279 glue, 118 kern, 362 glyph, 731 attribute, 65 glue_spec, 367 attribute_list, 2 write, 24 pdf_colorstack nodes
-   avail lists: 2:4662,3:1840,4:131,5:465,6:41,7:6816,8:90,9:1275,10:18,11:327
- 71100 multiletter control sequences out of 65536+600000
- 73 fonts using 4636111 bytes
- 102i,29n,101p,564b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb>
-Output written on main.pdf (26 pages, 735272 bytes).
+ 13091 words of node memory still in use:
+   420 hlist, 68 vlist, 31 rule, 100 math, 281 glue, 118 kern, 362 glyph, 711 attribute, 65 glue_spec, 357 attribute_list, 2 write, 24 pdf_colorstack nodes
+   avail lists: 2:4698,3:1846,4:144,5:458,6:71,7:6814,8:90,9:1249,10:10,11:18
+ 71204 multiletter control sequences out of 65536+600000
+ 75 fonts using 4800191 bytes
+ 102i,29n,101p,576b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2023/t
+exmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (25 pages, 805682 bytes).
 
-PDF statistics: 460 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 95 named destinations out of 1000 (max. 131072)
- 120 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 864 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
+ 88 named destinations out of 1000 (max. 131072)
+ 128 words of extra memory for PDF output out of 10000 (max. 100000000)
 

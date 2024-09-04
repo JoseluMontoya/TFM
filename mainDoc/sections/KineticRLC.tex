@@ -3,8 +3,8 @@
 \begin{document}
 Now that we have familiarized ourselves with the way a parallel RLC resonator
 behaves and how we can optimize it for the best possible contrast, we are going
-to analyze how the inclusion of a variable \(L\) via a kinetic inductor
-will affect the contrast of our circuit.
+check with simulations if the introduction of a kinetic inductor can bring
+us any improvement in the measurement performance.
 
 % \begin{figure}
 % \centering
@@ -33,23 +33,27 @@ will affect the contrast of our circuit.
 % \label{fig:KineticRLC}
 % \end{figure}
 
-Like with the resistance, the measure of the qubit in the state \(1\) will be
+Like with the resistance, the SET letting current flow will be
 linked with an inductance \(\LOn\), and an inductance
-\(\LOff\) with the state \(0\). Taking a page out of the previous
+\(\LOff\) with the blocking of current. Taking a page out of the previous
 section, we are going to introduce a parameter \(\lambda\) defined as
-\begin{equation}
+\begin{equation*}
 \label{eq:LambdaDef}
-    \lambda = \frac{\LOff}{\LOn}
-\end{equation}
-It's important to denato that \(0 < \lambda \leq 1\), unlike \(\rho\). This is due to
-\(\ROn < \ROff\) and that the voltage is constant, so
-\(I_{\text{On}} > I_{\text{Off}}\).
+    \lambda = \frac{\LOff}{\LOn} \leq 1
+\end{equation*}
+The reason that \(\lambda \leq 1\) is that, since
+\(\ROn < \ROff\) and the voltage is constant, it means that
+\(I_{\text{On}} > I_{\text{Off}}\), which with expression
+\ref{eq:KineticNonLineality} we arrive that \(\LOn \leq \LOff\).
 
-One more thing we need to cover before trying to get a usable expression for
-the optimum contrast is a new problem that comes with a variable inductance:
-which one do we use? Since we don't know which one is best, we'll introduce
-the parameter \(1 \leq \lambda_{t} \leq \lambda\) such that
-\(\omega = \frac{1}{\sqrt{\lambda_{t}\LOn(C_{c} + C_{p})}}\).
+Since this part of the thesis is just to test the idea of using
+a kinetic inductance to improve the readout, we will have the variation
+of \(R_{SET}\) and \(L\) decoupled for simplicity's sake.
+
+The next thing we need to cover is a new problem that comes with a variable
+inductance: which one do we use for the frequency? Since we don't know which
+one is best, we'll introduce the parameter \(1 \leq \lambda_{t} \leq \lambda\)
+such that \(\omega = \frac{1}{\sqrt{\lambda_{t}\LOn(C_{c} + C_{p})}}\).
 This parameter will determine the tuning we will be using, which will boil
 down to 3:
 
@@ -62,12 +66,16 @@ down to 3:
 We won't consider the outside of this interval of frequencies because as we
 shall see it's objectively worse than any of these 3 options.
 
-\subsection{Analysis of the effect on kinetic inductance on the contrast}
-We start in the same way as in \ref{eq:ImpParallelResonant}: with the most generic
-expression for the inductance and little by little we start to specify more
-and more (for example, with an expression for \(\omega\)).
+Before we begin with the simulations, I would like to briefly disclose why
+we did not try to obtain an analytical expression like in the previous
+subsection.
 
-\begin{align}
+The reasoning can be easily seen by reproducing the first step in subsubsection
+\ref{subsubsec:OptParallel}, but with \(\omega(\lambda_{t})\) instead of
+\(\omega\) and by using \(\lambda L\) instead of \(L\) in the expression
+for the impedance\footnote{This allows us to get \(Z_{\text{On}}\) with
+\(\lambda = 1\) or \(Z_{\text{Off}}\) with \(\lambda = \lambda\).}:
+\begin{align*}
 \label{eq:ImpKineticResonant}
 \begin{split}
     Z &= \frac{1}{j \omega(\lambda_{t}) C_{p} + \frac{1}{j \omega(\lambda_{t}) \lambda\LOn} + \frac{1}{R}}
@@ -92,24 +100,19 @@ and more (for example, with an expression for \(\omega\)).
           \left(\frac{\lambda_{t}}{\lambda}(C_{c} + C_{p}) - C_{p}\right)
           + j } + \frac{1}{j \omega(\lambda_{t})C_{c}}\\
 \end{split}
-\end{align}
+\end{align*}
 
-As you can see, since the inductance of \(Z\) interacts with the one inside
-\(\omega\), I've written directly \(\lambda\LOn\) instead of \(L\) to then
-swap it, like with \(R\). So to get \(Z_{\text{On}}\) the substitutions needed
-are \(R = \ROn\) and \(\lambda = 1\), and for \(Z_{\text{Off}}\) is
-just \(\ROff\).
-
-With that detail out of the way we can see that, as opposed to the previous section,
+We can see that, as opposed to the previous section,
 we can't wrap neatly \(C_{c}\), \(C_{p}\) and \(L\) in a parameter like \(S\).
-Due to this, I believe that to obtain an expression like the one for the non-kinetic resonator it would be necessary to do an analysis on a case by case bases
-with more context about the application to better choose the correct approximations,
-if arriving at a nice and practical expression is even possible that is. Since
-the objective of this master's thesis is a theoretical proof of concept for the
-use of kinetic inductors to improve readout for silicon spin qubits, simulations
-and their analysis will be the methodology used.
+Due to this, I believe that to obtain an expression like the one for the
+non-kinetic resonator it would be necessary to do an analysis on a case by
+case basis with more context about the application to better choose the correct
+approximations, if arriving at a nice and practical expression is even possible
+that is. Since one of the objectives of this master's thesis is just to explore
+the viability of the use of a kinetic inductor, simulations
+and their analysis will suffice.
 
-\subsection{Simulation of the effect on kinetic inductance on the contrast}
+\subsubsection{Simulation of the effect on kinetic inductance on the contrast}
 In a simulation you have supreme control over what is simulated, how is
 simulated and what and how results are shown. A great deal of time was spent
 deciding these things, and the final decisions and their reasoning are the following:
@@ -152,11 +155,34 @@ the best way to plot it that I could think of can be seen in figure
 
 \begin{figure}[t]
 \centering
-  \includegraphics[width=\linewidth]{RLCKinetic/IdealContrastOfRp&Lf&Cc.png}
+  \includesvg[width=\linewidth]{RLCKinetic/IdealContrastOfRp&Lf&Cc.svg}
   \caption{Multiple representations of the contrast with sliders to control
   their parameters. Right: \(|\Delta\Gamma_{\text{Opt}}(\lambda)|\).
-  Center \(|\Delta\Gamma_{\text{Opt}}(\pi)|\). Left: \(|\Delta\Gamma(C_{c})|\)}
+  Center \(|\Delta\Gamma_{\text{Opt}}(\pi)|\). Left: \(|\Delta\Gamma(C_{c})|\).
+  The script generating these images can be found in the companion Github
+  repository with the name \texttt{IdealContrastOfRp\&Lf\&Cc.py}
+}
 \label{fig:IdealContrast}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+  \includesvg[width=\linewidth]{RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.svg}
+  \caption{Multiple representations of the contrast with sliders to control
+  their parameters. Right: \(\Delta\Gamma_{\text{Opt}}(\lambda)\).
+  Center \(\Delta\Gamma_{\text{Opt}}(\pi)\). Left: \(\Delta\Gamma(C_{c})\).
+  The script generating these images can be found in the companion Github
+  repository with the name \texttt{IdealContrastOfRp\&Lf\&CcComplexPlane.py}
+}
+\label{fig:IdealComplexContrast}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+  \includesvg[width=0.8\linewidth]{RLCKinetic/ImprovementsOfRp.svg}
+  \caption{Improvement with respect to the non-kinetic case. The script generating these
+  images can be found in the companion Github repository with the name \texttt{ImprovementsOfRp.py}}
+\label{fig:KineticImprovement}
 \end{figure}
 
 In the left and central plot we have the modulus of \(\Delta\Gamma_{\text{Opt}}\),
@@ -180,6 +206,8 @@ The range of the \(\lambda\) and \(\pi\) sliders is the same as the domain
 of the respective plots (\(\lambda \in [0.1, 1]\), \(\pi \in [10^{-7}, 10^{7}]\)),
 and the range of the \(\lambda_{t}\) slider is \(\lambda_{t} \in [\lambda, 1]\)
 (the edges were included, so it could be seen how it morphs into the other two plots).
+The starting values of each slider are \(\pi = 1\), \(\lambda = 0.1\) and
+\(\lambda_{t} = \sqrt\lambda\).
 The domain of the right plot is \(C_{c} \in [10^{-18}, 10^{-3}]\unit{\fF}\), and it
 was chosen such that for any combination of \(\lambda\) and \(\pi\) the maxima
 was in it, since it is also the range in which the simulation search for the
@@ -219,15 +247,6 @@ high enough values of \(\pi\). These oddities are, from left to right
         previous global maximum
 \end{itemize}
 
-\begin{figure}[t]
-\centering
-  \includegraphics[width=\linewidth]{RLCKinetic/IdealComplexContrastOfRp&Lf&Cc.png}
-  \caption{Multiple representations of the contrast with sliders to control
-  their parameters. Right: \(\Delta\Gamma_{\text{Opt}}(\lambda)\).
-  Center \(\Delta\Gamma_{\text{Opt}}(\pi)\). Left: \(\Delta\Gamma(C_{c})\)}
-\label{fig:IdealComplexContrast}
-\end{figure}
-
 We can easily find an explanation by looking at \(\Delta\Gamma\) instead of
 \(|\Delta\Gamma|\). When increasing \(\pi\), the origin of the lines in the
 left plot of figure \ref{fig:IdealComplexContrast} shifts to the left, while
@@ -236,5 +255,13 @@ complex plane. Similarly, the closed path with \(\lambda_{t} = \lambda\)
 in the right plot crosser over itself at \(\pi \approx 66\), causing the
 second maximum to appear and at \(\pi \approx 1526\), it surpasses the previous
 and causes the sudden rise in \(|\Delta\Gamma(\pi)|\).
+
+Finally, we can also see in figure \ref{fig:KineticImprovement} the improvement
+in each case, with the most being generally in between \(\pi = 0.01\) and
+\(\pi = 1\) and nearing a value of \(2\).
+
+You can find all the scripts used for these simulations and the ones from
+section \ref{subsec:ParallelRLC} in the Github repository for this project:
+\href{https://github.com/JoseluMontoya/TFM}{JoseluMontoya/TFM}.
 
 \end{document}
