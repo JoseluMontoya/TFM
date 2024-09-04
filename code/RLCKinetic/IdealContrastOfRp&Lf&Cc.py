@@ -5,6 +5,11 @@ from numba import njit, prange
 from time import process_time, sleep
 from IdealContrastDGamma import maxdGammaOfLambda, maxdGammaOfPi, dGammaOfCc
 
+plt.rcParams.update({
+    "text.usetex": True,
+    "text.latex.preamble" : r'\usepackage{siunitx}',
+    "font.family": "Computer Modern Serif"
+})
 
 z0 = 50.0 # Ohm
 cp = 0.5e-12 # Farad
@@ -28,6 +33,7 @@ piV = np.geomspace(1e-7, 1e7, npi)
 lambdaV = np.log10(np.linspace(10**lamb, 10, nlambda))
 # ccV = np.geomspace(1e-18, 5e-4, ncc)
 ccV = np.geomspace(1e-18, 1e-3, ncc)
+# ccV = np.geomspace(1e-18, 1e3, ncc)
 
 
 #Max |dGamma(Lambda)| = dGL{case}
@@ -89,36 +95,37 @@ piline = ax[1].axvline(piV[piI], c='k', linestyle='dotted', zorder=-1)
 contrLi1, = ax[1].plot(piV, dGPLiF(lambdaV[lambdaI]), zorder=1)
 contrLf1, = ax[1].plot(piV, dGPLfF(lambdaV[lambdaI]), zorder=2)
 contrMid1, = ax[1].plot(piV, dGPMidF(lambdaV[lambdaI], lambdaTI), zorder=3)
-contrRef1, = ax[1].plot(piV, dGPRef, zorder=0)
+# contrRef1, = ax[1].plot(piV, dGPRef, zorder=0)
+contrRef1, = ax[1].plot(piV, 2*np.abs((1-np.sqrt(1+piV))/(1+np.sqrt(1+piV))), zorder=0)
 
-contrLi2, = ax[2].plot(ccV, dGCcLiF(piV[piI], lambdaV[lambdaI]), label="λt=1")
-contrLf2, = ax[2].plot(ccV, dGCcLfF(piV[piI], lambdaV[lambdaI]), label="λt=λ")
-contrMid2, = ax[2].plot(ccV, dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI), label="λ<λt<1")
-contrRef2, = ax[2].plot(ccV, dGCcRefF(piV[piI]), zorder=0, label="λ=1")
+contrLi2, = ax[2].plot(ccV*1e12, dGCcLiF(piV[piI], lambdaV[lambdaI]), label=r'\(\lambda_t=1\)')
+contrLf2, = ax[2].plot(ccV*1e12, dGCcLfF(piV[piI], lambdaV[lambdaI]), label=r'\(\lambda_t=\lambda\)')
+contrMid2, = ax[2].plot(ccV*1e12, dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI), label=r'\(\lambda<\lambda_t<1\)')
+contrRef2, = ax[2].plot(ccV*1e12, dGCcRefF(piV[piI]), zorder=0, label=r'\(\lambda=1\)')
 
-maxCcLi2 = ax[2].axvline(ccV[np.argmax(dGCcLiF(piV[piI], lambdaV[lambdaI]))], ymax=np.max(dGCcLiF(piV[piI], lambdaV[lambdaI]))/2, c='C0', zorder=1, linestyle='dotted')
-maxCcLf2 = ax[2].axvline(ccV[np.argmax(dGCcLfF(piV[piI], lambdaV[lambdaI]))], ymax=np.max(dGCcLfF(piV[piI], lambdaV[lambdaI]))/2, c='C1', zorder=2, linestyle='dotted')
-maxCcMid2 = ax[2].axvline(ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))], ymax=np.max(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))/2, c='C2', zorder=3, linestyle='dotted')
-maxCcRef2 = ax[2].axvline(ccV[np.argmax(dGCcRefF(piV[piI]))], ymax=np.max(dGCcRefF(piV[piI]))/2, c='C3', zorder=0, linestyle='dotted')
+maxCcLi2 = ax[2].axvline(1e12*ccV[np.argmax(dGCcLiF(piV[piI], lambdaV[lambdaI]))], ymax=np.max(dGCcLiF(piV[piI], lambdaV[lambdaI]))/2, c='C0', zorder=1, linestyle='dotted')
+maxCcLf2 = ax[2].axvline(1e12*ccV[np.argmax(dGCcLfF(piV[piI], lambdaV[lambdaI]))], ymax=np.max(dGCcLfF(piV[piI], lambdaV[lambdaI]))/2, c='C1', zorder=2, linestyle='dotted')
+maxCcMid2 = ax[2].axvline(1e12*ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))], ymax=np.max(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))/2, c='C2', zorder=3, linestyle='dotted')
+maxCcRef2 = ax[2].axvline(1e12*ccV[np.argmax(dGCcRefF(piV[piI]))], ymax=np.max(dGCcRefF(piV[piI]))/2, c='C3', zorder=0, linestyle='dotted')
 
 
 ax[0].grid(axis='y')
 ax[1].grid(axis='y')
 ax[2].grid(axis='y')
-ax[0].set_title("|ΔΓ|(λ)")
-ax[1].set_title("|ΔΓ|(π)")
-ax[2].set_title("|ΔΓ|(Cc)")
+ax[0].set_title(r'\(|\Delta\Gamma|(\lambda)\)')
+ax[1].set_title(r'\(|\Delta\Gamma|(\pi)\)')
+ax[2].set_title(r'\(|\Delta\Gamma|(C_c)\)')
 ax[0].set_ylim(0, 2)
 ax[1].set_ylim(0, 2)
 ax[2].set_ylim(0, 2)
-ax[0].set_ylabel("Max |ΔΓ|")
-ax[2].set_ylabel("|ΔΓ|")
-# ax[0].set_xscale("log")
-ax[1].set_xscale("log")
-ax[2].set_xscale("log")
-ax[0].set_xlabel("λ")
-ax[1].set_xlabel("π")
-ax[2].set_xlabel("Cc(F)")
+ax[0].set_ylabel(r'Max \(|\Delta\Gamma|\)')
+ax[2].set_ylabel(r'\(|\Delta\Gamma|\)')
+# ax[0].set_xscale('log')
+ax[1].set_xscale('log')
+ax[2].set_xscale('log')
+ax[0].set_xlabel(r'\(\lambda\)')
+ax[1].set_xlabel(r'\(\pi\)')
+ax[2].set_xlabel(r'\(C_c(\unit{\pico\farad})\)')
 ax[2].legend(loc='upper right')
 
 fig.subplots_adjust(right=0.979, left=0.049, bottom=0.193, top=0.956, wspace=0)
@@ -127,7 +134,7 @@ axPi = fig.add_axes((0.17, 0.075, 0.65, 0.03))
 pi_slider = Slider(
     ax=axPi,
     # label=r'\(\rho\)',
-    label='π',
+    label=r'\(\pi\)',
     valmin=0,
     valmax=npi-1,
     valinit=piI,
@@ -139,7 +146,7 @@ axLambda = fig.add_axes((0.17, 0.045, 0.65, 0.03))
 lambda_slider = Slider(
     ax=axLambda,
     # label=r'\(\rho\)',
-    label='λ',
+    label=r'\(\lambda\)',
     valmin=0,
     valmax=nlambda-1,
     valinit=lambdaI,
@@ -152,7 +159,7 @@ axLambdaT= fig.add_axes((0.17, 0.015, 0.65, 0.03))
 lambdaT_slider = Slider(
     ax=axLambdaT,
     # label=r'\(\rho\)',
-    label='λt',
+    label=r'\(\lambda_t\)',
     valmin=-1,
     valmax=1,
     valinit=lambdaTI,
@@ -186,10 +193,10 @@ def update(val):
     contrMid2.set_ydata(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))
     contrRef2.set_ydata(dGCcRefF(piV[piI]))
 
-    maxCcLi2.set_xdata([ccV[np.argmax(dGCcLiF(piV[piI], lambdaV[lambdaI]))]])
-    maxCcLf2.set_xdata([ccV[np.argmax(dGCcLfF(piV[piI], lambdaV[lambdaI]))]])
-    maxCcMid2.set_xdata([ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))]])
-    maxCcRef2.set_xdata([ccV[np.argmax(dGCcRefF(piV[piI]))]])
+    maxCcLi2.set_xdata([1e12*ccV[np.argmax(dGCcLiF(piV[piI], lambdaV[lambdaI]))]])
+    maxCcLf2.set_xdata([1e12*ccV[np.argmax(dGCcLfF(piV[piI], lambdaV[lambdaI]))]])
+    maxCcMid2.set_xdata([1e12*ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))]])
+    maxCcRef2.set_xdata([1e12*ccV[np.argmax(dGCcRefF(piV[piI]))]])
     maxCcLi2.set_ydata([0, np.max(dGCcLiF(piV[piI], lambdaV[lambdaI]))/2])
     maxCcLf2.set_ydata([0, np.max(dGCcLfF(piV[piI], lambdaV[lambdaI]))/2])
     maxCcMid2.set_ydata([0, np.max(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))/2])
@@ -211,7 +218,7 @@ def updateW(val):
     contrMid1.set_ydata(dGPMidF(lambdaV[lambdaI], lambdaTI))
     contrMid2.set_ydata(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))
 
-    maxCcMid2.set_xdata([ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))]])
+    maxCcMid2.set_xdata([1e12*ccV[np.argmax(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))]])
     maxCcMid2.set_ydata([0, np.max(dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI))/2])
 
 

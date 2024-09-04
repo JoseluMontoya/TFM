@@ -37,10 +37,10 @@ w = np.concatenate((
 
 
 frec = w/(2*np.pi*1e9)
-plt.plot(frec, np.abs(Gamma(w, ROn)), 'k')
-plt.plot(frec, np.abs(Gamma(w, ROff)), '--r')
-plt.plot(frec, np.abs(Gamma(w, RUnderCoupled)), ':g')
-plt.plot(frec, np.abs(Gamma(w, ROn, L=0.99*L)), 'b', linestyle='dashdot')
+plt.plot(frec, np.abs(Gamma(w, ROn)))
+plt.plot(frec, np.abs(Gamma(w, ROff)))
+plt.plot(frec, np.abs(Gamma(w, RUnderCoupled)))
+plt.plot(frec, np.abs(Gamma(w, ROn, L=0.99*L)))
 plt.xticks(list(np.around(plt.xticks()[0], 2)) + [frec[np.argmin(np.abs(Gamma(w, ROn)))]])
 plt.xlabel(r'\(\omega (\unit{\giga\hertz})\)')
 plt.ylabel(r'\(|\Gamma|\)')
@@ -51,7 +51,8 @@ plt.legend([r'\(Z (R = 50\unit{\kilo\ohm}\text{, }L = L_0)\)',
             r'\(Z_{\text{under}} (R = 25\unit{\kilo\ohm}\text{, }L = L_0)\)',
             r'\(Z_{\lambda} (R = 50\unit{\kilo\ohm}\text{, }L = \lambda L_0)\)'])
 # plt.title('Reflection coefficient modulus vs frequency')
-plt.savefig('code/img/RLCParallel/ReflecCoeff.png', bbox_inches='tight', dpi=600)
+# plt.savefig('code/img/RLCParallel/ReflecCoeff.png', bbox_inches='tight', dpi=600)
+plt.savefig('code/img/RLCParallel/ReflecCoeff.svg')
 plt.show()
 
 # Graph the phase of the reflection coefficient in the interval -π to π
@@ -67,23 +68,23 @@ plt.yticks(np.arange(-2*np.pi, 2*np.pi+np.pi/2, step=(np.pi/2)), [r'\(-2\pi\)',
                                                                   r'\(2\pi\)'])
 
 theta = np.angle(Gamma(w, ROn))
-plt.plot(frec, theta, 'k')
+plt.plot(frec, theta)
 
 thetaP = np.angle(Gamma(w, ROff))
 # This is done to plot the discontinutity
 pos = np.where(np.abs(np.diff(thetaP)) >= np.pi/2)[0]+1
 x = np.insert(frec, pos, np.nan)
 y = np.insert(thetaP, pos, np.nan)
-plt.plot(x, y, 'r--')
+plt.plot(x, y)
 
 thetaPP = np.angle(Gamma(w, RUnderCoupled))
-plt.plot(frec, thetaPP, 'g:')
+plt.plot(frec, thetaPP)
 
 thetaL = np.angle(Gamma(w, ROn, L=0.99*L))
 pos = np.where(np.abs(np.diff(thetaL)) >= np.pi/2)[0]+1
 x = np.insert(frec, pos, np.nan)
 y = np.insert(thetaL, pos, np.nan)
-plt.plot(x, y, 'b', linestyle='dashdot')
+plt.plot(x, y)
 
 plt.legend([r'\(Z (R = 50\unit{\kilo\ohm}\text{, }L = L_0)\)',
             r'\(Z_{\text{over}} (R = 100\unit{\kilo\ohm}\text{, }L = L_0)\)',
@@ -92,5 +93,6 @@ plt.legend([r'\(Z (R = 50\unit{\kilo\ohm}\text{, }L = L_0)\)',
 plt.xlabel(r'\(\omega (\unit{\kilo\hertz})\)')
 plt.ylabel(r'\(\phi (\unit{\radian})\)')
 plt.ylim(-np.pi, np.pi)
-plt.savefig('code/img/RLCParallel/ReflecPhase.png', bbox_inches='tight', dpi=600)
+# plt.savefig('code/img/RLCParallel/ReflecPhase.png', bbox_inches='tight', dpi=600)
+# plt.savefig('code/img/RLCParallel/ReflecPhase.svg')
 plt.show()

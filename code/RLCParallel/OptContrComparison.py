@@ -2,6 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from functools import partial
 
+plt.rcParams.update({
+    "text.usetex": True,
+    "text.latex.preamble" : r'\usepackage{siunitx}',
+    "font.family": "Computer Modern Serif"
+})
+
 def dGammaNum(L, Cp, z0, ron, rhoi, piV, cc):
     dGamma = []
     for pi in piV:
@@ -44,15 +50,16 @@ ax[0].plot(piV, dGNum, label='Numeric Contrast')
 ax[0].plot(piV, dGApprox, label='Approx Contrast')
 ax[0].set_xscale('log')
 ax[0].legend(loc='upper left')
-ax[0].set_xlabel("π")
-ax[0].set_ylabel("|ΔΓ|")
+ax[0].set_xlabel(r'\(\pi\)')
+ax[0].set_ylabel(r'\(|\Delta\Gamma|\)')
 # ax[0].set_aspect(1)
 
 ax[1].plot(piV, np.abs(dGNum-dGApprox))
 ax[1].set_xscale('log')
 # ax[1].set_yscale('log')
-ax[1].set_xlabel("π")
-ax[1].set_ylabel("||ΔΓ|Aprox - |ΔΓ|Num|")
+ax[1].set_xlabel(r'\(\pi\)')
+ax[1].set_ylabel(r'\(|\Delta\Gamma|_\text{Aprox}-|\Delta\Gamma|_{\text{Num}}\)')
+# ax[1].set_ylabel("||ΔΓ|Aprox - |ΔΓ|Num|")
 # ax[1].set_aspect(1)
 
 # ax.set_title("Contrast variation with L and Cc")

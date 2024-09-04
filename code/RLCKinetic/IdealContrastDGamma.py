@@ -9,6 +9,7 @@ def dGamma(z0, cp, ron, li, rhoi, lambt, lamb, pi, cc):
     ri = (pi/(pi+1)*ron)
     wr = 1/sqrt(lambt*li*(cp + cc))
     zi = 1/( 1/(1j*wr*li) + 1j*wr*cp + 1/ri ) + 1/(1j*wr*cc)
+    # zi = 1/( 1/100e3 + 1j*wr*cp + 1/ri ) + 1/(1j*wr*cc)
     zf = 1/( 1/(1j*wr*(lamb*li)) + 1j*wr*cp + 1/(rho*ri) ) + 1/(1j*wr*cc)
     return ((zf-z0)/(zf+z0)) - ((zi-z0)/(zi+z0))
 

@@ -5,8 +5,14 @@ from numba import njit, prange
 from time import process_time, sleep
 from IdealContrastDGamma import maxComplexdGammaOfLambda, maxComplexdGammaOfPi, complexdGammaOfCc
 
-# plotType = "polar"
-plotType = "cartesian"
+plt.rcParams.update({
+    "text.usetex": True,
+    "text.latex.preamble" : r'\usepackage{siunitx}',
+    "font.family": "Computer Modern Serif"
+})
+
+plotType = "polar"
+# plotType = "cartesian"
 
 z0 = 50.0 # Ohm
 cp = 0.5e-12 # Farad
@@ -51,7 +57,7 @@ dGCcLfF = lambda pi, lamb: complexdGammaOfCc(z0, cp, ri, li, rho, lamb, 2, pi, c
 
 piI = npi//2
 lambdaI = 0
-wContrlI = 0.0
+lambdaTI = 0.0
 
 if plotType == "cartesian":
     fig, ax = plt.subplots(1, 3)
@@ -73,16 +79,16 @@ start = process_time()
 
 dGLLi = dGLLiF(piV[piI])
 dGLLf = dGLLfF(piV[piI])
-dGLMid = dGLMidF(piV[piI], wContrlI)
+dGLMid = dGLMidF(piV[piI], lambdaTI)
 
 dGPLi = dGPLiF(lambdaV[lambdaI])
 dGPLf = dGPLfF(lambdaV[lambdaI])
-dGPMid = dGPMidF(lambdaV[lambdaI], wContrlI)
+dGPMid = dGPMidF(lambdaV[lambdaI], lambdaTI)
 
 print(process_time() - start)
 dGCcLi = dGCcLiF(piV[piI], lambdaV[lambdaI])
 dGCcLf = dGCcLfF(piV[piI], lambdaV[lambdaI])
-dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], wContrlI)
+dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI)
 dGCcRef = dGCcRefF(piV[piI])
 
 if plotType == "cartesian":
@@ -95,10 +101,10 @@ if plotType == "cartesian":
     contrMid1, = ax[1].plot(np.real(dGPMid), np.imag(dGPMid), zorder=3)
     contrRef1, = ax[1].plot(np.real(dGPRef), np.imag(dGPRef), zorder=0)
 
-    contrLi2, = ax[2].plot(np.real(dGCcLi), np.imag(dGCcLi), label="Li")
-    contrLf2, = ax[2].plot(np.real(dGCcLf), np.imag(dGCcLf), label="Lf")
-    contrMid2, = ax[2].plot(np.real(dGCcMid), np.imag(dGCcMid), label="Mid")
-    contrRef2, = ax[2].plot(np.real(dGCcRef), np.imag(dGCcRef), zorder=0, label="Non k")
+    contrLi2, = ax[2].plot(np.real(dGCcLi), np.imag(dGCcLi), label=r'\(\lambda_t=1\)')
+    contrLf2, = ax[2].plot(np.real(dGCcLf), np.imag(dGCcLf), label=r'\(\lambda_t=\lambda\)')
+    contrMid2, = ax[2].plot(np.real(dGCcMid), np.imag(dGCcMid), label=r'\(\lambda<\lambda_t<1\)')
+    contrRef2, = ax[2].plot(np.real(dGCcRef), np.imag(dGCcRef), zorder=0, label=r'\(\lambda=1\)')
 elif plotType == "polar":
     contrLi0, = ax[0].plot(np.angle(dGLLi), np.abs(dGLLi))
     contrLf0, = ax[0].plot(np.angle(dGLLf), np.abs(dGLLf))
@@ -109,10 +115,10 @@ elif plotType == "polar":
     contrMid1, = ax[1].plot(np.angle(dGPMid), np.abs(dGPMid), zorder=3)
     contrRef1, = ax[1].plot(np.angle(dGPRef), np.abs(dGPRef), zorder=0)
 
-    contrLi2, = ax[2].plot(np.angle(dGCcLi), np.abs(dGCcLi), label="Li")
-    contrLf2, = ax[2].plot(np.angle(dGCcLf), np.abs(dGCcLf), label="Lf")
-    contrMid2, = ax[2].plot(np.angle(dGCcMid), np.abs(dGCcMid), label="Mid")
-    contrRef2, = ax[2].plot(np.angle(dGCcRef), np.abs(dGCcRef), zorder=0, label="Non k")
+    contrLi2, = ax[2].plot(np.angle(dGCcLi), np.abs(dGCcLi), label=r'\(\lambda_t=1\)')
+    contrLf2, = ax[2].plot(np.angle(dGCcLf), np.abs(dGCcLf), label=r'\(\lambda_t=\lambda\)')
+    contrMid2, = ax[2].plot(np.angle(dGCcMid), np.abs(dGCcMid), label=r'\(\lambda<\lambda_t<1\)')
+    contrRef2, = ax[2].plot(np.angle(dGCcRef), np.abs(dGCcRef), zorder=0, label=r'\(\lambda=1\)')
 else:
     contrLi0, = ax[0].plot(np.angle(dGLLi), np.abs(dGLLi))
     contrLf0, = ax[0].plot(np.angle(dGLLf), np.abs(dGLLf))
@@ -123,10 +129,10 @@ else:
     contrMid1, = ax[1].plot(np.angle(dGPMid), np.abs(dGPMid), zorder=3)
     contrRef1, = ax[1].plot(np.angle(dGPRef), np.abs(dGPRef), zorder=0)
 
-    contrLi2, = ax[2].plot(np.angle(dGCcLi), np.abs(dGCcLi), label="Li")
-    contrLf2, = ax[2].plot(np.angle(dGCcLf), np.abs(dGCcLf), label="Lf")
-    contrMid2, = ax[2].plot(np.angle(dGCcMid), np.abs(dGCcMid), label="Mid")
-    contrRef2, = ax[2].plot(np.angle(dGCcRef), np.abs(dGCcRef), zorder=0, label="Non k")
+    contrLi2, = ax[2].plot(np.angle(dGCcLi), np.abs(dGCcLi), label=r'\(\lambda_t=1\)')
+    contrLf2, = ax[2].plot(np.angle(dGCcLf), np.abs(dGCcLf), label=r'\(\lambda_t=\lambda\)')
+    contrMid2, = ax[2].plot(np.angle(dGCcMid), np.abs(dGCcMid), label=r'\(\lambda<\lambda_t<1\)')
+    contrRef2, = ax[2].plot(np.angle(dGCcRef), np.abs(dGCcRef), zorder=0, label=r'\(\lambda=1\)')
 
 
 
@@ -148,9 +154,9 @@ else:
         axe.set_rmax(2)
         axe.set_rticks([0.5, 1, 1.5])
         axe.set_rlabel_position(135)
-ax[0].set_title("ΔΓ(λ)")
-ax[1].set_title("ΔΓ(π)")
-ax[2].set_title("ΔΓ(Cc)")
+ax[0].set_title(r'\(\Delta\Gamma(\lambda)\)')
+ax[1].set_title(r'\(\Delta\Gamma(\pi)\)')
+ax[2].set_title(r'\(\Delta\Gamma(C_c)\)')
 # ax[0].set_ylabel("Max |ΔΓ|")
 # ax[2].set_ylabel("|ΔΓ|")
 # ax[0].set_xscale("log")
@@ -168,7 +174,7 @@ axPi = fig.add_axes((0.17, 0.075, 0.65, 0.03))
 pi_slider = Slider(
     ax=axPi,
     # label=r'\(\rho\)',
-    label='π',
+    label=r'\(\pi\)',
     valmin=0,
     valmax=npi-1,
     valinit=piI,
@@ -180,7 +186,7 @@ axLambda = fig.add_axes((0.17, 0.045, 0.65, 0.03))
 lambda_slider = Slider(
     ax=axLambda,
     # label=r'\(\rho\)',
-    label='λ',
+    label=r'\(\lambda\)',
     valmin=0,
     valmax=nlambda-1,
     valinit=lambdaI,
@@ -189,38 +195,40 @@ lambda_slider = Slider(
 lambda_slider.valtext.set_text('{:.2e}'.format(lambdaV[lambdaI]))
 
 
-axWContrl= fig.add_axes((0.17, 0.015, 0.65, 0.03))
-wContrl_slider = Slider(
-    ax=axWContrl,
+axLambdaT= fig.add_axes((0.17, 0.015, 0.65, 0.03))
+lambdaT_slider = Slider(
+    ax=axLambdaT,
     # label=r'\(\rho\)',
-    label='⍵',
-    valmin=-2,
-    valmax=2,
-    valinit=wContrlI,
-    valstep=0.01,
+    label=r'\(\lambda_t\)',
+    valmin=-1,
+    valmax=1,
+    valinit=lambdaTI,
+    valstep=0.001,
     )
+lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1 - lambdaTI)))
 
 
 def update(val):
-    wContrlI = wContrl_slider.val
+    lambdaTI = lambdaT_slider.val
     piI = int(pi_slider.val)
     lambdaI = int(lambda_slider.val)
 
     pi_slider.valtext.set_text('{:.2e}'.format(piV[piI]))
     lambda_slider.valtext.set_text('{:.2e}'.format(lambdaV[lambdaI]))
+    lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1-lambdaTI)))
 
 
     dGLLi = dGLLiF(piV[piI])
     dGLLf = dGLLfF(piV[piI])
-    dGLMid = dGLMidF(piV[piI], wContrlI)
+    dGLMid = dGLMidF(piV[piI], lambdaTI)
 
     dGPLi = dGPLiF(lambdaV[lambdaI])
     dGPLf = dGPLfF(lambdaV[lambdaI])
-    dGPMid = dGPMidF(lambdaV[lambdaI], wContrlI)
+    dGPMid = dGPMidF(lambdaV[lambdaI], lambdaTI)
 
     dGCcLi = dGCcLiF(piV[piI], lambdaV[lambdaI])
     dGCcLf = dGCcLfF(piV[piI], lambdaV[lambdaI])
-    dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], wContrlI)
+    dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI)
     dGCcRef = dGCcRefF(piV[piI])
 
     if plotType == 'cartesian':
@@ -301,11 +309,13 @@ def update(val):
 def updateW(val):
     piI = int(pi_slider.val)
     lambdaI = int(lambda_slider.val)
-    wContrlI = wContrl_slider.val
+    lambdaTI = lambdaT_slider.val
 
-    dGLMid = dGLMidF(piV[piI], wContrlI)
-    dGPMid = dGPMidF(lambdaV[lambdaI], wContrlI)
-    dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], wContrlI)
+    lambdaT_slider.valtext.set_text('{:.2e}'.format(np.sqrt(lambdaV[lambdaI])**(1-lambdaTI)))
+
+    dGLMid = dGLMidF(piV[piI], lambdaTI)
+    dGPMid = dGPMidF(lambdaV[lambdaI], lambdaTI)
+    dGCcMid = dGCcMidF(piV[piI], lambdaV[lambdaI], lambdaTI)
 
     if plotType == 'cartesian':
         contrMid0.set_xdata(np.real(dGLMid))
@@ -342,7 +352,7 @@ def updateW(val):
 
 lambda_slider.on_changed(update)
 pi_slider.on_changed(update)
-wContrl_slider.on_changed(updateW)
+lambdaT_slider.on_changed(updateW)
 # #
 
 resetax = fig.add_axes((0.02, 0.04, 0.1, 0.04))
@@ -350,7 +360,7 @@ button = Button(resetax, 'Reset', hovercolor='0.975')
 def reset(event):
     pi_slider.reset()
     lambda_slider.reset()
-    wContrl_slider.reset()
+    lambdaT_slider.reset()
     return
 button.on_clicked(reset)
 # plt.savefig('code/img/KineticContr/DoubleContrastPlot.png'.format(lamb), bbox_inches='tight', dpi=600)
