@@ -55,13 +55,13 @@ electron current.
 % \end{circuitikz}
 \begin{circuitikz}[]
     \draw (0,0) node[circ, scale=4]{};
-    \draw (0,0) -- ++(0,-0.75) to[capacitor=\(C_C\)] ++(0,-0.3) to[american voltage source, l=\(V_g\)] ++(0,-2) node[tlground]{};
-    \draw (0,0) -- ++(-0.7,0)  ++(-2.4,0) to[american voltage source, l=\(V_s\)] ++(2,0) ++(-2,0) node[tlground, rotate=-90]{};% node[circ]{} node[left]{\(V_s\)};
+    \draw (0,0) -- ++(0,-0.75) to[capacitor=\(C_C\)] ++(0,-0.3) ++(0,-2) to[american voltage source, l=\(V_g\)] ++(0,2) ++(0,-2) node[tlground]{};
+    \draw (0,0) -- ++(-0.7,0)  ++(-0.4,0) to[american voltage source, l=\(V_s\)] ++(-2,0) node[tlground, rotate=-90]{};% node[circ]{} node[left]{\(V_s\)};
     \draw (0,0) ++(-0.9,0)  node[name=TJs]{};
     \draw[thick] (TJs) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
     \draw (TJs) ++(0,0.4) node[above left]{\(R_{L}\)};
     \draw (TJs) ++(0,0.4) node[above right]{\(C_{L}\)};
-    \draw (0,0) -- ++(0.7,0)  ++(0.4,0) to[american voltage source, l=\(V_d\)] ++(2,0) node[tlground, rotate=90]{};% node[circ]{} node[left]{\(V_s\)};
+    \draw (0,0) -- ++(0.7,0)  ++(2.4,0) to[american voltage source, l=\(V_d\)] ++(-2,0) ++(2,0) node[tlground, rotate=90]{};% node[circ]{} node[left]{\(V_s\)};
     % \draw (0,0) -- ++(0.7,0)  ++(0.4,0) -- ++(0.5,0) node[circ]{} node[right]{\(V_d\)};
     \draw (0,0) ++(0.9,0)  node[name=TJd]{};
     \draw[thick] (TJd) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
@@ -149,19 +149,19 @@ applications of Kirchhoff's voltage law
 And the fact that the charge on the island is discrete
 \begin{align*}
 \begin{split}
-    eN &= q_{L} - q_{C} - q_{R}\\
-       &= C_{L}V_{L} - C_{C}V_{C} - C_{R}V_{R}
+    eN &= q_{C} + q_{R} - q_{L}\\
+       &= C_{C}V_{C} + C_{R}V_{R} - C_{L}V_{L}
 \end{split}
 \end{align*}
 Which gives us the equality
 \begin{align*}
-    V_{L} - V_{s} = -(V_{C} - V_{g})
-                  = -(V_{R} - V_{d})
-                  = \frac{eN - (C_{L}V_{s} - C_{C}V_{g} - C_{R}V_{d})}{C_{L} + C_{C} + C_{R}}
+    V_{s} - V_{L} = V_{g} - V_{C}
+                  = V_{d} - V_{R}
+                  = \frac{eN - (C_{C}V_{g} + C_{R}V_{d} - C_{L}V_{s})}{C_{L} + C_{C} + C_{R}}
 \end{align*}
 
 Naming \(C_{\Sigma} = C_{L} + C_{C} + C_{R}\) the total capacitance of the
-island and \(q = C_{L}V_{s} - C_{C}V_{g} - C_{R}V_{d}\) as the induced charge
+island and \(q = C_{C}V_{g} + C_{R}V_{d} - C_{L}V_{s}\) as the induced charge
 in the quantum dot, we arrive at the expression of the electrostatic energy
 for the island in the SET
 \begin{equation*}
@@ -185,26 +185,26 @@ electrons on the island is simply the energy of destination (voltage
 source/first empty energy level on the island) minus the energy of origin
 (voltage source/last full energy level on the island):
 \begin{align*}
-    \Delta E_{IL}(N) &= E_{N+1} - (-eV_{s})\\
-    \Delta E_{OL}(N) &= (-eV_{s}) - E_{N}\\
-    \Delta E_{IR}(N) &= E_{N + 1} - (-eV_{d})\\
-    \Delta E_{OR}(N) &= (-eV_{d}) - E_{N}
+    \Delta E_{IL}(N) &= E_{N+1} - eV_{s}\\
+    \Delta E_{OL}(N) &= eV_{s} - E_{N}\\
+    \Delta E_{IR}(N) &= E_{N + 1} - eV_{d}\\
+    \Delta E_{OR}(N) &= eV_{d} - E_{N}
 \end{align*}
 With IL/OL meaning in/out left and IR/OR meaning in/out right. Using \ref{eq:NElecESET}
 \begin{align*}
-    \Delta E_{IL}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{s}\\
-    \Delta E_{OL}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{s}\\
-    \Delta E_{IR}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{d}\\
-    \Delta E_{OR}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{d}
+    \Delta E_{IL}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) - eV_{s}\\
+    \Delta E_{OL}(N) &= -2E_{C}(N - 1/2 - q/e) + eV_{s}\\
+    \Delta E_{IR}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) - eV_{d}\\
+    \Delta E_{OR}(N) &= -2E_{C}(N - 1/2 - q/e) + eV_{d}
 \end{align*}
 And with the simplifications \(V_{s} =  V\) and \(V_{d} = 0\), a little
 bit of massaging, and using the definition of \(q\), they turn into
 
 \begin{align*}
-    \Delta E_{IL}(N) &= \phantom{-}\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N + \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
-    \Delta E_{OL}(N) &= -\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N - \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
-    \Delta E_{IR}(N) &= \phantom{-}\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N + \frac{1}{2}\right) - V + \frac{C_{C}}{C_{L}}V_{g}\right)\\
-    \Delta E_{OR}(N) &= -\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N - \frac{1}{2}\right) - V + \frac{C_{C}}{C_{L}}V_{g}\right)
+    \Delta E_{IL}(N) &= \phantom{-}\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N + \frac{1}{2}\right) - V - \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
+    \Delta E_{OL}(N) &= -\frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N - \frac{1}{2}\right) - V - \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
+    \Delta E_{IR}(N) &= \phantom{-}\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N + \frac{1}{2}\right) + V - \frac{C_{C}}{C_{L}}V_{g}\right)\\
+    \Delta E_{OR}(N) &= -\frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N - \frac{1}{2}\right) + V - \frac{C_{C}}{C_{L}}V_{g}\right)
 \end{align*}
 
 \begin{figure}[t]
@@ -297,7 +297,7 @@ being we are specifically \(\Delta E_{IL}(N), \Delta E_{OR}(N+1) < 0\) and
 With this we have enough information to have a basic understanding of how a
 SET works:
 \begin{itemize}
-    \item For the SET to operate as it should, \(V\) needs to be lower than
+    \item For the SET to operate as it should, \(|V|\) needs to be lower than
         \(2E_{C}/e\). If not, the current can not be turned off, and we cannot
         ensure that it is a one electron current. Picturing this scenario
         with the energy levels inside the conducting island it makes perfect
@@ -516,7 +516,7 @@ So, in the case of the kinetic inductance of length \(l\) and cross-section \(S\
 \end{equation*}
 
 With \(n\), \(m\) and \(v\) the volumetric density, the mass and the speed of
-the charge carriers. By solving for \(L_{k}\) and defining the volumetric
+the charge carriers. By solving for \(L_{k}\) and defining the
 current density as \(j=nqv\) with \(q\) the charge of the charge carriers
 we arrive at the following expression
 

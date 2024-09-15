@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  3 SEP 2024 03:43
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2023.11.8)  14 SEP 2024 16:12
  system commands enabled.
  file:line:error style messages enabled.
 **main.tex
@@ -1034,21 +1034,25 @@ File: ./svg-inkscape/OptContrComparison_svg-tex.pdf Graphic file (type pdf)
 Package luatex.def Info: ./svg-inkscape/OptContrComparison_svg-tex.pdf , page1 used on input line 56.
 (luatex.def)             Requested size: 418.25368pt x 147.16147pt.
 )) (./sections/KineticRLC.tex [19<./svg-inkscape/OptContrComparison_svg-tex.pdf>] [20]
+Overfull \hbox (8.3877pt too wide) in paragraph at lines 120--122
+[]\T1/lmr/m/n/10 The main value we are going to calculate and graph is $\OT1/cmr/m/n/10 ^^@(\OML/cmm/m/it/10 Z[]; []; R[]; C[]; L[]; []; ; C[]; \OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 . 
+ []
+
 Package svg Info: Last page of `./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf' is 1 on input line 158.
- (./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf_tex
-<./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf, id=354, page=1, 925.05597pt x 311.4837pt>
+(./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf_tex
+<./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf, id=354, page=1, 925.05597pt x 367.1316pt>
 File: ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/IdealContrastOfRp&Lf&Cc_svg-tex.pdf , page1 used on input line 56.
-(luatex.def)             Requested size: 418.25368pt x 140.83652pt.
+(luatex.def)             Requested size: 418.25368pt x 165.99756pt.
 )
 Package svg Info: Last page of `./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf' is 1 on input line 170.
  (./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf_tex
-<./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf, id=356, page=1, 925.05597pt x 407.60278pt>
+<./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf, id=356, page=1, 925.05597pt x 373.6359pt>
 File: ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf, page 1>
 Package luatex.def Info: ./svg-inkscape/IdealComplexContrastOfRp&Lf&Cc_svg-tex.pdf , page1 used on input line 56.
-(luatex.def)             Requested size: 418.25368pt x 184.2965pt.
+(luatex.def)             Requested size: 418.25368pt x 168.93846pt.
 )
 Package svg Info: Last page of `./svg-inkscape/ImprovementsOfRp_svg-tex.pdf' is 1 on input line 182.
  (./svg-inkscape/ImprovementsOfRp_svg-tex.pdf_tex
@@ -1067,17 +1071,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 50671 strings out of 476603
+ 50672 strings out of 476603
  125027,2373549 words of node,token memory allocated
  13091 words of node memory still in use:
    420 hlist, 68 vlist, 31 rule, 100 math, 281 glue, 118 kern, 362 glyph, 711 attribute, 65 glue_spec, 357 attribute_list, 2 write, 24 pdf_colorstack nodes
    avail lists: 2:4698,3:1846,4:144,5:458,6:71,7:6814,8:90,9:1249,10:10,11:18
- 71204 multiletter control sequences out of 65536+600000
+ 71205 multiletter control sequences out of 65536+600000
  75 fonts using 4800191 bytes
- 102i,29n,101p,576b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,29n,101p,583b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2023/t
 exmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (25 pages, 805682 bytes).
+Output written on main.pdf (25 pages, 808066 bytes).
 
 PDF statistics: 864 PDF objects out of 1000 (max. 8388607)
  652 compressed objects within 7 object streams

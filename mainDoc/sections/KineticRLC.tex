@@ -52,7 +52,7 @@ of \(R_{SET}\) and \(L\) decoupled for simplicity's sake.
 
 The next thing we need to cover is a new problem that comes with a variable
 inductance: which one do we use for the frequency? Since we don't know which
-one is best, we'll introduce the parameter \(1 \leq \lambda_{t} \leq \lambda\)
+one is best, we'll introduce the parameter \(\lambda \leq \lambda_{t} \leq 1\)
 such that \(\omega = \frac{1}{\sqrt{\lambda_{t}\LOn(C_{c} + C_{p})}}\).
 This parameter will determine the tuning we will be using, which will boil
 down to 3:
@@ -60,7 +60,7 @@ down to 3:
 \begin{itemize}[]
     \item \(\LOn\) tuning (\(\lambda_{t} = 1\))
     \item \(\LOff\) tuning (\(\lambda_{t} = \lambda\))
-    \item Middle tuning (\(1 < \lambda_{t} < \lambda\))
+    \item Middle tuning (\(\lambda < \lambda_{t} < 1\))
 \end{itemize}
 
 We won't consider the outside of this interval of frequencies because as we
@@ -118,7 +118,7 @@ simulated and what and how results are shown. A great deal of time was spent
 deciding these things, and the final decisions and their reasoning are the following:
 
 The main value we are going to calculate and graph is
-\(\Delta\Gamma(Z_{0}, \rho, \ROn, C_{p}, \LOn, \lambda_{t}, \pi, C_{c}, \lambda)\).
+\(\Delta\Gamma(Z_{0}, \rho_{SET}, \ROn^{SET}, C_{p}, \LOn, \lambda_{t}, \pi, C_{c}, \lambda)\).
 
 Due to the high number of inputs, we need to fix some of them in order to analyze
 in the best way possible how does \(\Delta\Gamma\) behave. Taking inspiration
@@ -141,7 +141,7 @@ variable with the following values
 \begin{table}[H]
     \centering
     \begin{tabular}{c|c|c|c|c}
-        \(Z_{0}\) & \(\rho\) & \(\ROn\) & \(C_{p}\) & \(\LOn\) \\\hline
+        \(Z_{0}\) & \(\rho_{SET}\) & \(\ROn^{SET}\) & \(C_{p}\) & \(\LOn\) \\\hline
         \(50\unit{\ohm}\) & \(2\cdot10^{6}\) & \(50\unit{\kilo\ohm}\) & \(500\unit{\femto\farad}\) & \(180\unit{\nano\henry}\)
     \end{tabular}
 \end{table}
@@ -217,7 +217,7 @@ The main observations, both in relevance and notoriety, can be seen directly
 with figure \ref{fig:IdealContrast}
 \begin{itemize}
     \item A smaller \(\lambda\) is always better in order to improve the contrast
-    \item \(\lambda_{t}\) and \(\lambda < \lambda_{t} < 1\) are objectively better
+    \item \(\lambda_{t} = \lambda\) and \(\lambda < \lambda_{t} < 1\) are objectively better
         than the non-kinetic case, with the main difference being that with an
         intermediate \(\lambda_{t}\) the optimum \(C_{c}\) is greater
     \item \(\lambda_{t} = 1\) hits a ceiling that causes that, for a high enough
@@ -225,8 +225,8 @@ with figure \ref{fig:IdealContrast}
         than a non-kinetic one. With the \(\pi\) slider can be seen that this
         ceiling depends on \(\lambda\), but modifying the non-variable parameters
         shows that it also depends on them. To be more specific,
-        \(|\Delta\Gamma(\lambda_{t} = 1)|\propto \ROn, C_{p}, 1/\LOn\),
-        with \(\ROn\) being the more sensible of the 3 by a margin.
+        \(|\Delta\Gamma(\lambda_{t} = 1)|\propto \ROn^{SET}, C_{p}, 1/\LOn\),
+        with \(\ROn^{SET}\) being the more sensible of the 3 by a margin.
 \end{itemize}
 
 Thanks to the sliders a more thorough analysis of the simulation can be made,
