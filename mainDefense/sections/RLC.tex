@@ -1,0 +1,485 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+% \subsubsection{Resonant frequency and effective impedance}
+
+\begin{frame}{Effective frequency and impedance}
+\begin{gather*}
+    Z(\omega) = \frac{1}{j \omega C_{p} + \frac{1}{j \omega L} + \frac{1}{R}}
+        + \frac{1}{j \omega C_{c}}\\
+    \Downarrow\\
+    \omega_{r} = \frac{1}{\sqrt{L(C_{c} + C_{p})}} \text{ with } \frac{C_{c}}{C_{p}}, \frac{L}{R^2 C_{p}} \ll 1 \\
+    Z_{eff} = \frac{L(C_{c}+C_{p})}{R C_{c}^2} \text{ with } \frac{L}{R^2 C_{p}} \ll \left(\frac{C_{c}}{C_{p}}\right)^2
+\end{gather*}
+\end{frame}
+
+% \begin{frame}{Checking with a simulation}
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{c|c|c|c|c}
+%         \(Z_{0}\) & \(R\) & \(C_{p}\) & \(C_{c}\) & \(L\) \\\hline
+%         \(50\unit{\ohm}\) & \(50\unit{\kilo\ohm}\) & \(500\unit{\femto\farad}\) & \(100\unit{\femto\farad}\) & \(41.67\unit{\nano\henry}\)
+%     \end{tabular}
+% \end{table}
+% \[
+%     \omega_{r}  = 1.00654\unit{\giga\hertz}
+% \]
+% Also with \(R = 100\unit{\kilo\ohm}\), \(R = 25\unit{\kilo\ohm}\) and \(L = 41.25\unit{\nano\henry}\)
+% \end{frame}
+
+% \begin{frame}{Checking with a simulation}
+% \begin{figure}[t]
+% \centering
+% \includesvg[width=0.84\linewidth]{RLCParallel/ReflecCoeff.svg}
+% \end{figure}
+% \end{frame}
+
+% \begin{frame}{Checking with a simulation}
+% \begin{figure}[t]
+% \centering
+% \includesvg[width=0.87\linewidth]{RLCParallel/ReflecPhase.svg}
+% \end{figure}
+% \end{frame}
+
+
+\subsubsection{Contrast and optimization}
+
+\begin{frame}{What variable to optimize for?}
+\begin{align*}
+    \omega = \frac{1}{\sqrt{L(C_{c} + C_{p})}}
+\end{align*}
+% \begin{align*}
+%     L \gg C_{c}
+% \end{align*}
+\begin{center}
+    \(L\) to select a suitable frequency, \(C_{c}\) as the optimization
+    variable
+\end{center}
+\end{frame}
+
+\begin{frame}{Optimum \(C_{c}\)}
+\begin{align*}
+    \omega = \frac{1}{\sqrt{L(C_{c} + C_{p})}}
+\end{align*}
+\begin{align*}
+    Z(\omega) &= \frac{1}{j \omega C_{p} + \frac{1}{j \omega L} + \frac{1}{R}} + \frac{1}{j \omega C_{c}}\\
+              &= \frac{1}{RS^2 + jS}
+       \text{ with } S = \frac{C_{c}}{\sqrt{L(C_{c} + C_{p})}} = \omega C_{c}
+\end{align*}
+\end{frame}
+
+%
+% Using this expression to obtain the reflection coefficient,
+% but using the admittance of the transmission line instead of the impedance
+% (\(Y_{0} = 1/Z_{0}\)) yields
+% \begin{align*}
+% \begin{split}
+%     \Gamma &= \frac{Z(\omega) - Z_{0}}{Z(\omega) + Z_{0}}
+%             = \frac{Y_{0} - 1/Z(\omega)}{Y_{0} + 1/Z(\omega)}\\
+%            &= \frac{2Y_{0}}{Y_{0} + 1/Z(\omega)} - 1 = \frac{2 Y_{0}}{RS^2 + Y_{0} + jS} - 1\\
+%            &= 2 Y_{0}\frac{RS^2 + Y_{0} - jS}{(RS^2 + Y_{0})^2 + S^2} - 1
+% \end{split}
+% \end{align*}
+%
+% Since \(\omega \approx \omega_{r}\) then
+% \(\Im Z(\omega) \approx 0\) and by extension \(\Im \Gamma \approx 0\), so
+% \begin{equation*}
+%     \Gamma \approx 2 Y_{0}\frac{RS^2 + Y_{0}}{(RS^2 + Y_{0})^2 + S^2} - 1
+% \end{equation*}
+%
+% Next, using the parameters utilized for figure \ref{fig:ReflexCoeffAndPhase}
+% to get a sense of the scale, it is safe to assume that the following
+% approximation is correct
+% \begin{equation}
+% \label{eq:ParallelContrAprox}
+%     (RS^2 + Y_{0})^2 \gg S^2
+% \end{equation}
+%
+% Which leaves us with the following expression for the reflection coefficient
+% \begin{equation*}
+% \label{eq:ApproxReflecCoeff}
+%     \Gamma \approx \frac{2Y_{0}}{RS^2 + Y_{0}} - 1
+% \end{equation*}
+
+\begin{frame}{Optimum \(C_{c}\)}
+\begin{align*}
+\begin{split}
+    \Gamma &= \frac{Z(\omega) - Z_{0}}{Z(\omega) + Z_{0}}\\
+           %  = \frac{Y_{0} - 1/Z(\omega)}{Y_{0} + 1/Z(\omega)}\\
+           % &= \frac{2Y_{0}}{Y_{0} + 1/Z(\omega)} - 1 = \frac{2 Y_{0}}{RS^2 + Y_{0} + jS} - 1\\
+           % &= 2 Y_{0}\frac{RS^2 + Y_{0} - jS}{(RS^2 + Y_{0})^2 + S^2} - 1\\
+           % &\approx 2 Y_{0}\frac{RS^2 + Y_{0}}{(RS^2 + Y_{0})^2 + S^2} - 1
+           % \text{ because } \omega \approx \omega_{r}\\
+           % &\approx \frac{2 Y_{0}}{RS^2 + Y_{0}} - 1
+           % \text{ because } (RS^2 + Y_{0})^2 \gg S^2
+           &\approx \frac{2 Y_{0}}{RS^2 + Y_{0}} - 1
+           \text{ with } \omega \approx \omega_{r}
+           \text{ and } (RS^2 + Y_{0})^2 \gg S^2\\
+           \\
+    |\Delta\Gamma| &= |\Gamma(R=\ROff) - \Gamma(R=\ROn)|\\
+                   &\approx 2Y_{0}\left|\frac{1}{
+                   \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
+               }\right|
+\end{split}
+\end{align*}
+\end{frame}
+
+%
+% And this one for the contrast
+% \begin{equation*}
+% \label{eq:ParallelContr}
+%     |\Delta\Gamma| = |\Gamma(R=\ROff) - \Gamma(R=\ROn)|
+%                    \approx 2Y_{0}\left|\frac{1}{
+%                    \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
+%                }\right|
+% \end{equation*}
+
+% \begin{frame}{Optimized contrast}
+% \begin{align*}
+%     |\Delta\Gamma| &= |\Gamma(R=\ROff) - \Gamma(R=\ROn)|\\
+%                    &\approx 2Y_{0}\left|\frac{1}{
+%                    \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
+%                }\right|
+% \end{align*}
+% \end{frame}
+
+%
+% Now, thanks to this simplified form of the contrast, to obtain the optimum
+% value for \(C_{c}\) we don't need any fancy tricks, just to derive with respect
+% to \(C_{c}\) and equate to \(0\). Doing this we arrive at the equation
+% \begin{equation}
+% \label{eq:ParallelContrOptS2NonRho}
+%     S^2 = \frac{Y_{0}}{\sqrt{\ROff\ROn}}
+% \end{equation}
+%
+% And solving it for \(C_{c}\), we get the single solution
+% (for \(\ROn, \ROff, Y_{0}, L, C_{p}, C_{c} \geq 0\))
+%
+% \begin{equation}
+% \label{eq:ParallelContrOptCcNonRho}
+% C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\ROff\ROn}}
+% \left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\ROff\ROn}}{LY_{0}}}\right)
+% \end{equation}
+
+\begin{frame}{Optimum \(C_{c}\)}
+\begin{gather*}
+    \partial_{C_{c}} |\Delta\Gamma| = 0\\
+    \Downarrow\\
+    S^2 = \frac{Y_{0}}{\sqrt{\ROff\ROn}}\\
+    \Downarrow\\
+    C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\ROff\ROn}}
+    \left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\ROff\ROn}}{LY_{0}}}\right)
+\end{gather*}
+\end{frame}
+
+%
+% We could simply plug this result into a simulation and call it a day, but with
+% a little bit more digging we can extract some interesting results.
+%
+% First off, by the way the resistances appear in \ref{eq:ParallelContrOptS2NonRho}
+% and \ref{eq:ParallelContrOptCcNonRho} it leads really naturally to defining
+% a ratio parameter
+%
+% \begin{equation*}
+% \label{eq:RhoDef}
+%     \rho = \frac{\ROff}{\ROn} \geq 1
+% \end{equation*}
+%
+% With it our expressions \ref{eq:ParallelContrOptS2NonRho} and
+% \ref{eq:ParallelContrOptCcNonRho} turn to
+%
+% \begin{equation}
+% \label{eq:ParallelContrOptS2}
+%     S^2 = \frac{Y_{0}}{\sqrt{\rho}\ROn}
+% \end{equation}
+%
+% \begin{equation*}
+% \label{eq:ParallelContrOptCc}
+% C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\rho}\ROn}
+% \left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\rho}\ROn}{LY_{0}}}\right)
+% \end{equation*}
+
+\begin{frame}{Introduction of \(\rho\)}
+\begin{gather*}
+    \rho = \frac{\ROff}{\ROn} \geq 1\\
+    S^2 = \frac{Y_{0}}{\sqrt{\rho}\ROn}\\
+    C_{c\text{Max}} = \frac{L Y_{0}}{2\sqrt{\rho}\ROn}
+    \left(1 + \sqrt{1 + 4C_{p}\frac{\sqrt{\rho}\ROn}{LY_{0}}}\right)
+\end{gather*}
+\end{frame}
+
+%
+% Then, by using the definition of \(S\) from \ref{eq:ImpParallelResonant} and
+% using impedance, we can rearrange \ref{eq:ParallelContrOptS2} to
+%
+% \begin{equation*}
+% \label{eq:ParallelTunning}
+% Z_{0} = \frac{L(C_{c}+C_{p})}{\sqrt{\rho}\ROn C_{c}^2}
+% \end{equation*}
+%
+% Which is what we saw in figure \ref{eq:ReflecCoeff} with the
+% variations in resistance: When tuning the resonator to the geometric mean of
+% the resistances of the two states, the reflection coefficients end up in
+% opposing sides of 0 within the real line. What this result shows is that
+% this is the optimum arrangement.
+%
+% In addition to this insight, we can also use \ref{eq:ParallelContrOptS2} in
+% our approximation for the contrast (\ref{eq:ParallelContrAprox}) to see
+% that, when optimized, it only depends on the ratio of the resistances
+% (or the ration between the resistances and the
+% tuning resistance), and that it has a maximum value of 2, which is expected:
+% \begin{equation}
+% \label{eq:OptimumParallelContr}
+%     |\Delta\Gamma| \approx 2Y_{0}\left|\frac{1}{
+%                    \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
+%                }\right|
+%                    = 2\left|
+%                    \frac{1}{\sqrt\rho + 1} - \frac{\sqrt\rho}{1 + \sqrt\rho}
+%                    \right|
+%                    = 2\left|
+%                    \frac{1 - \sqrt\rho}{1 + \sqrt\rho}
+%                    \right|
+% \end{equation}
+
+\begin{frame}{Optimized contrast}
+\begin{gather*}
+    Z_{0} = \frac{L(C_{c}+C_{p})}{\sqrt{\rho}\ROn C_{c}^2}\\
+\begin{split}
+    |\Delta\Gamma| &\approx 2Y_{0}\left|\frac{1}{
+                   \ROff S^2 + Y_{0}} - \frac{1}{\ROn S^2 + Y_{0}
+               }\right|\\
+                   &= 2\left|
+                   \frac{1}{\sqrt\rho + 1} - \frac{\sqrt\rho}{1 + \sqrt\rho}
+                   \right|
+                   = 2\left|
+                   \frac{1 - \sqrt\rho}{1 + \sqrt\rho}
+                   \right|
+\end{split}
+\end{gather*}
+\end{frame}
+
+%
+% After these results it seems appropriate to analyze with more detail the
+% approximations used, so we can contextualize the regime in which this works.
+% The first approximation done was \(\omega \approx \omega_{r}\), which boils
+% down to \ref{eq:ApproxLWr} and \ref{eq:ApproxCcWr}. The second approximation
+% was \ref{eq:ParallelContrAprox}, so let's see if with the optimum \(C_{c}\) it
+% holds. Using \ref{eq:ParallelContrOptS2} we have
+% \begin{equation*}
+%     (RS^2 + Y_{0})^2 \gg S^2 \rightarrow
+%     \left(\frac{R Y_{0}}{\sqrt\rho \ROn} + Y_{0}\right)^2 \gg
+%     \frac{Y_{0}}{\sqrt\rho \ROn}
+% \end{equation*}
+%
+% Now, considering \(R = \ROn\) since it's the worst case scenario and
+% returning to the use of impedance instead of admittance, the condition turns to
+% \begin{equation*}
+% \label{eq:ProtoOptParallelContrApprox}
+%     \left(\frac{1}{\sqrt\rho} + 1\right)^2 \gg
+%     \frac{Z_{0}}{\sqrt\rho \ROn}
+% \end{equation*}
+%
+% Finally, we can use the worst possible value of \(\rho\) on each side
+% (\(\rho = 1\) for the right side and \(\pi = \infty\) for the left) and
+% arrive at
+% \begin{equation}
+% \label{eq:OptParallelContrApprox}
+%     \ROn \gg Z_{0}
+% \end{equation}
+
+% \begin{frame}{Optimized contrast}
+% \begin{gather*}
+%     (RS^2 + Y_{0})^2 \gg S^2\\
+%     \Downarrow\\
+%     \left(\frac{R Y_{0}}{\sqrt\rho \ROn} + Y_{0}\right)^2 \gg
+%     \frac{Y_{0}}{\sqrt\rho \ROn}\\
+%     \Downarrow\\
+%     \left(\frac{1}{\sqrt\rho} + 1\right)^2 \gg
+%     \frac{Z_{0}}{\sqrt\rho \ROn}\\
+%     \Downarrow\\
+%     \ROn \gg Z_{0}
+% \end{gather*}
+% \end{frame}
+
+%
+% Now that we have finished our calculations, it is time to introduce the
+% parasitic resistance. This is important because it depends on the design of
+% the circuit, and plotting \(|\Delta\Gamma|(R_{p})\) will tell us with want
+% amount of losses we can get our results.
+%
+% To introduce it we will give it the same treatment to \(R_{p}\) as to
+% \(\ROff\) by introducing a ratio parameter
+% \begin{equation*}
+% \label{eq:PiDef}
+%     \pi = \frac{R_{p}}{\ROn^{SET}}
+% \end{equation*}
+
+\begin{frame}{Introducing the parasitic resistance}
+\begin{gather*}
+    \pi = \frac{R_{p}}{\ROn^{SET}} \text{ with } 0 < \pi < \infty\\
+    \\
+\begin{split}
+    R_{\text{On}}
+    &= \frac{\pi}{1 + \pi} \ROn^{SET}\\
+    \\
+    R_{\text{Off}}
+    &= \frac{\rho_{SET}\pi}{\rho_{SET} + \pi}\ROn^{SET}\\
+    \\
+    \rho
+    &= \frac{\rho_{SET}(1 + \pi)}{\rho_{SET} + \pi}
+\end{split}
+\end{gather*}
+\end{frame}
+
+%
+% With the important distinction that, as opposed to \(\rho\), \(0\leq\pi\leq\infty\),
+% with \(\pi = 0\) being a short circuit and \(\pi = \infty\)
+% being a lossless circuit.
+%
+% The substituions are then
+%
+% \begin{align*}
+%     R_{\text{On}}
+%     &= \frac{\pi}{1 + \pi} \ROn^{SET}\\
+%     R_{\text{Off}}
+%     &= \frac{\rho_{SET}\pi}{\rho_{SET} + \pi}\ROn^{SET}\\
+%     \rho
+%     &= \frac{\rho_{SET}(1 + \pi)}{\rho_{SET} + \pi}
+% \end{align*}
+
+% \begin{frame}{Introducing the parasitic resistance}
+% \begin{align*}
+%     R_{\text{On}}
+%     &= \frac{\pi}{1 + \pi} \ROn^{SET}\\
+%     R_{\text{Off}}
+%     &= \frac{\rho_{SET}\pi}{\rho_{SET} + \pi}\ROn^{SET}\\
+%     \rho
+%     &= \frac{\rho_{SET}(1 + \pi)}{\rho_{SET} + \pi}
+% \end{align*}
+% \end{frame}
+
+%
+% With \(\rho_{SET} = \ROff^{SET}/\ROn^{SET}\). Taking this even further beyond
+% with the fact that in an SET \(\rho_{SET} \approx \infty\)
+% (in the off state, no electrons are travelling through), the substitutions are
+%
+% \begin{align*}
+%     \ROn
+%     &= \frac{\pi}{1 + \pi} \ROn^{SET}\\
+%     \ROff
+%     &= \pi \ROn^{SET}\\
+%     \rho
+%     &= 1 + \pi
+% \end{align*}
+%
+
+\begin{frame}{Introducing the parasitic resistance}
+With \(\rho_{SET} \approx \infty\)
+\begin{align*}
+    \ROn
+    &= \frac{\pi}{1 + \pi} \ROn^{SET}\\
+    \\
+    \ROff
+    &= \pi \ROn^{SET}\\
+    \\
+    \rho
+    &= 1 + \pi\\
+    \\
+    |\Delta\Gamma| &\approx
+                   2\left|
+                   \frac{1 - \sqrt{1 + \pi}}{1 + \sqrt{1 + \pi}}
+                   \right|\\
+\end{align*}
+\end{frame}
+
+% The introduction of the parasitic resistance and an infinite \(\ROff^{SET}\)
+% doesn't change much, in the sense that for most of the expressions is better
+% to simply use \(\rho\) and \(\ROn\) for clarity. Most. Because for two results
+% in specific it helps: in \ref{eq:OptimumParallelContr}
+%
+% \begin{equation}
+% \label{eq:OptimumParallelContrOfPi}
+%     |\Delta\Gamma| \approx
+%                    2\left|
+%                    \frac{1 - \sqrt{1 + \pi}}{1 + \sqrt{1 + \pi}}
+%                    \right|
+% \end{equation}
+%
+% And in \ref{eq:OptParallelContrApprox}
+%
+% \begin{equation}
+% \label{eq:OptParallelContrApproxOfPi}
+% \frac{\pi}{1 + \pi}\ROn^{SET} \gg Z_{0} \rightarrow
+% \pi \gg \frac{Z_{0}}{\ROn^{SET} - Z_{0}}
+% \end{equation}
+
+% \begin{frame}{Introducing the parasitic resistance}
+% \begin{gather*}
+%     |\Delta\Gamma| \approx
+%                    2\left|
+%                    \frac{1 - \sqrt{1 + \pi}}{1 + \sqrt{1 + \pi}}
+%                    \right|\\
+%     % \frac{\pi}{1 + \pi}\ROn^{SET} \gg Z_{0} \rightarrow
+%     % \pi \gg \frac{Z_{0}}{\ROn^{SET} - Z_{0}}\\
+%     % \pi \gg \frac{50\unit{\ohm}}{50\unit{\kilo\ohm} + 50\unit{\ohm}} \approx 10^{-3}\\
+%     % \\
+%     % \text{If }\pi =  0.1\text{, }|\Delta\Gamma| \approx 0.0477
+% \end{gather*}
+% \end{frame}
+
+%
+% Using the values of \(Z_{0}\) and \(\ROn^{SET}\) that we have been considering
+% up until now (\(50\unit{\ohm}\) and \(50\unit{\kilo\ohm}\) respectively) we can
+% see that for \ref{eq:OptParallelContrApprox} to work in a worse case scenario,
+% \(\pi\) must be a lot greater than \(10^{-3}\). It probably would
+% be, given that for a \(\pi\) 100 times greater,
+% \(|\Delta\Gamma| \approx 0.0477\), which isn't a good contrast to
+% aim for.
+%
+% Finally, we check our results by comparing them against the numerically
+% calculated optimum contrast via a simulation that searches the optimum
+% value of \(C_{c}\) for a given value of \(\pi\).
+%
+% \begin{figure}[t]
+% \centering
+%   \includesvg[width=\linewidth]{RLCParallel/OptContrComparison.svg}
+%   \caption{Numerical optimum contrast and our formula (\ref{eq:OptimumParallelContrOfPi})
+%   with the difference between them.
+% \(L = 180\unit{\nano\henry}\), \(C_{p} = 500\unit{\femto\farad}\),
+% \(Z_{0} = 50\unit{\ohm}\), \(\ROn^{SET} = 50\unit{\kilo\ohm}\),
+% \(\rho = 2\cdot10^{6}\). The script generating these images can be found
+% in the companion Github repository with the name \texttt{OptContrComparison.py}}
+% \label{fig:ParallelContrComparison}
+% \end{figure}
+
+\begin{frame}{Checking with a simulation}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        \(Z_{0}\) & \(\ROn^{SET}\) & \(\rho_{SET}\) & \(C_{p}\) & \(L\) \\\hline
+        \(50\unit{\ohm}\) & \(50\unit{\kilo\ohm}\) & \(2\cdot10^{6}\) & \(500\unit{\femto\farad}\) & \(180\unit{\nano\henry}\)
+    \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Checking with simulations}
+\begin{figure}[t]
+\centering
+  \includesvg[width=\linewidth]{RLCParallel/OptContrComparisonDefense.svg}
+\end{figure}
+\end{frame}
+
+% As we can see in figure \ref{fig:ParallelContrComparison}, our
+% estimations for what values of \(\pi\) were completely off, but in a good way.
+% That is because even though the approximation gets worse for greater \(\pi\),
+% it caps off at \(0.0175\), which is negligible in comparison to the values of
+% \(|\Delta\Gamma|\) that we are aiming to.
+%
+% To summarize, we have found the expression for the value of \(C_{c}\) that
+% optimizes the contrast. This value effectively tunes the resonator to the
+% geometric mean of the 2 possible resistances of the circuit, and makes
+% the contrast depend on only in their ratio. All of this was found with
+% the constraints \ref{eq:ApproxLWr}, \ref{eq:ApproxCcWr} and
+% \ref{eq:ApproxReflecCoeff}.
+
+\end{document}

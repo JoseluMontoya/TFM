@@ -1,0 +1,77 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Kinetic inductance and his nonlinearity}
+
+
+% \begin{frame}{Kinetic inductance nonlinearity}
+% \begin{gather*}
+%     E_{k} = \frac{1}{2}L_{k}I^2 = \frac{1}{2}m(nlS)v^2\\
+%     \phantom{j=nqv} \Downarrow j=nqv\\
+%     L_{k} = \frac{mlj^2}{nq^2Sj^2} = \frac{ml}{q^2S}\frac{1}{n}
+% \end{gather*}
+% \end{frame}
+
+
+\begin{frame}{Kinetic inductance nonlinearity}
+\begin{gather*}
+    % L_{k} = \frac{ml}{q^2S}\frac{1}{n}\\
+    % +\\
+    % n(v) = |\Psi|^2 = \frac{1}{\beta}\left[|\alpha| - \frac{1}{2}m v^2\right]\\
+    % \phantom{\text{ with } v \approx 0}\Downarrow\text{ with } v \approx 0\\
+    L_{k} = L_{k0}\left(1 + \frac{j^2}{j_{*}^2} + \dots\right)\\
+    % \text{With } L_{k0} = \frac{ml}{q^2 S n(v=0)}\text{, }
+    % j_{*} = \frac{2p^2|\alpha|^{3}m}{\beta^2} = \sqrt{\frac{27}{4}}j_{c}\text{,}\\
+    % \text{ and } j_c = \max j(v)
+\end{gather*}
+\end{frame}
+
+% With \(L_{k0} = \frac{ml}{q^2Sn(v=0)}\) and \(j_{*}^2 =
+% \frac{2q^2|\alpha|^3}{m\beta^2}\). If we compare \(j_{*}\)
+% to the critical current \(j_{c}\), which is the maximum current that
+% the system can withstand and can be calculated by obtaining the maximum of
+% \(j\) with respect to \(v\), we get that
+%
+% \begin{equation*}
+%     j_{*} = \sqrt{\frac{27}{4}}j_{c}
+% \end{equation*}
+
+% With this we can not only see that the kinetic inductance has a quadratic
+% dependence with the current, but that the sensibility of that dependence it is
+% given by the critical current of the material.
+%
+% But, the applications of inductors are usually with AC voltages, and in that
+% case our kinetic inductance would be varying constantly. How can we use the
+% kinetic inductor then?
+%
+% The solution is to introduce a DC bias to the circuit, with an intensity much
+% greater than the maximum of the AC current, but still small enough to not break
+% superconductivity and to use an AC current much smaller than the critical current.
+% With it, we can have an inductor that changes inductance along with the resistance
+% of the SET, since the effects of the AC current can be ignored.
+%
+% \begin{align*}
+% \begin{split}
+% L_{k} &= L_{k0}\left(1 + \frac{(j_{AC} + j_{DC})^2}{j_{*}^2} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \frac{j_{DC}j_{AC}}{j_{*}^2} + 
+%       \frac{j_{AC}^2}{j_{*}^2} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + (\frac{j_{DC}}{j_{*}} + 
+%       \frac{j_{AC}}{j_{*}})\frac{j_{AC}}{j_{*}} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \dots\right)
+%       \text{ since \(j_{DC} < j_{c}\) and \(j_{AC} \ll j_{c}\)}
+% \end{split}
+% \end{align*}
+
+% \begin{frame}{Kinetic inductance nonlinearity}
+% \begin{align*}
+% L_{k} &= L_{k0}\left(1 + \frac{(j_{AC} + j_{DC})^2}{j_{*}^2} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \frac{j_{DC}j_{AC}}{j_{*}^2} + 
+%       \frac{j_{AC}^2}{j_{*}^2} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + (\frac{j_{DC}}{j_{*}} + 
+%       \frac{j_{AC}}{j_{*}})\frac{j_{AC}}{j_{*}} + \dots\right)\\
+%       &= L_{k0}\left(1 + \frac{j_{DC}^2}{j_{*}^2} + \dots\right)
+%       \text{ since \(j_{DC} < j_{c}\) and \(j_{AC} \ll j_{c}\)}
+% \end{align*}
+% \end{frame}
+
+\end{document}

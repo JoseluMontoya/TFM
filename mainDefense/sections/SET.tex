@@ -1,0 +1,462 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{The SET for spin sensing}
+% \label{subsec:SET}
+% Let's imagine a neutral conducting isolated island with capacitance \(C\).
+% If we want to stuff \(N\) electrons into it, the energy required would be
+
+\begin{frame}{Coulomb blockade}
+    \begin{equation*}
+    \label{eq:EnergyIsland}
+        E = \frac{Q^2}{2C} = \frac{e^2}{2C}N^2 = E_{C}N^2
+    \end{equation*}
+    \begin{equation*}
+    \label{eq:NthEnergyIsland}
+        E_{N} = E_{C}N^2 - E_{C}(N-1)^2 = E_{C}(2N - 1)
+    \end{equation*}
+    % \hl{ADD FOOTNOTE OF IGNORING QUANTUM SPECTRUM}
+\end{frame}
+
+% With the energy that the last electron needs being
+
+
+% So, due to Coulomb repulsion, a discrete energy spectrum appears with
+% a gap \(2E_{C}\). This separation of the energy levels is known as Coulomb
+% blockade, because it blocks an electron (or charge in general, but we are
+% interested in electron transport) from entering the island, unless it has
+% enough energy to overcome the Coulomb repulsion due to the charges already
+% inside (or in other words, enough energy to overcome that
+% gap\footnote{Technically speaking the electron also needs energy to overcome
+% the energy gap due to quantum mechanical effects of the bulk, but since for a
+% big enough island this gap is negligible in comparison with \(2E_{C}\)
+% \cite{nazarovQuantumTransportIntroduction2009}, we are going to ignore it}).
+%
+% A single electron transistor (SET for short) is a device that uses Coulomb
+% blockade to, well, do what it says in the name: turning on or off a single
+% electron current.
+
+\begin{frame}{SET Circuit}
+\begin{figure}[t]
+\centering
+% \begin{circuitikz}[]
+%     \draw (0,0) node[circ, scale=4]{};
+%     \draw (0,0) -- ++(0,-0.75) to[capacitor=\(C_C\)] ++(0,-0.3) -- ++(0,-0.5) node[circ]{} node[below]{\(V_g\)};
+%     \draw (0,0) -- ++(-0.7,0)  ++(-0.4,0) -- ++(-0.5,0) node[circ]{} node[left]{\(V_s\)};
+%     \draw (0,0) ++(-0.9,0)  node[name=TJs]{};
+%     \draw[thick] (TJs) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
+%     \draw (TJs) ++(0,0.4) node[above left]{\(R_{L}\)};
+%     \draw (TJs) ++(0,0.4) node[above right]{\(C_{L}\)};
+%     \draw (0,0) -- ++(0.7,0)  ++(0.4,0) -- ++(0.5,0) node[circ]{} node[right]{\(V_d\)};
+%     \draw (0,0) ++(0.9,0)  node[name=TJd]{};
+%     \draw[thick] (TJd) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
+%     \draw (TJd) ++(0,0.4) node[above left]{\(R_{R}\)};
+%     \draw (TJd) ++(0,0.4) node[above right]{\(C_{R}\)};
+% \end{circuitikz}
+\begin{circuitikz}[]
+    \draw (0,0) node[circ, scale=4]{};
+    \draw (0,0) -- ++(0,-0.75) to[capacitor=\(C_C\)] ++(0,-0.3) ++(0,-2) to[american voltage source, l=\(V_g\)] ++(0,2) ++(0,-2) node[tlground]{};
+    \draw (0,0) -- ++(-0.7,0)  ++(-0.4,0) to[american voltage source, l=\(V_s\)] ++(-2,0) node[tlground, rotate=-90]{};% node[circ]{} node[left]{\(V_s\)};
+    \draw (0,0) ++(-0.9,0)  node[name=TJs]{};
+    \draw[thick] (TJs) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
+    \draw (TJs) ++(0,0.4) node[above left]{\(R_{L}\)};
+    \draw (TJs) ++(0,0.4) node[above right]{\(C_{L}\)};
+    \draw (0,0) -- ++(0.7,0)  ++(2.4,0) to[american voltage source, l=\(V_d\)] ++(-2,0) ++(2,0) node[tlground, rotate=90]{};% node[circ]{} node[left]{\(V_s\)};
+    % \draw (0,0) -- ++(0.7,0)  ++(0.4,0) -- ++(0.5,0) node[circ]{} node[right]{\(V_d\)};
+    \draw (0,0) ++(0.9,0)  node[name=TJd]{};
+    \draw[thick] (TJd) ++(0.2,-0.4) -- ++(0,0.8) -- ++(-0.4,0) -- ++(0,-0.8) -- ++(0.4,0) -- ++(0,0.8) ++(-0.2,0) -- ++(0,-0.8);
+    \draw (TJd) ++(0,0.4) node[above left]{\(R_{R}\)};
+    \draw (TJd) ++(0,0.4) node[above right]{\(C_{R}\)};
+\end{circuitikz}
+% \caption{Circuit diagram of a SET. From left to right we have: the source
+% voltage (\(V_{s}\)), the resistance and capacitance of the left tunnel junction
+% (\(R_{L}\), \(C_{L}\)), the capacitance of the central capacitor (\(C_{C}\)), the
+% gate voltage (\(V_{g}\)), the resistance and capacitance of the right tunnel
+% junction (\(R_{R}\), \(C_{R}\)) and the drain voltage (\(V_{d}\))}
+\label{fig:SETSchematic}
+\end{figure}
+\end{frame}
+
+% It consists of a conducting island connected to two voltage sources (\(V_{s}\)
+% and \(V_{d}\)) via tunnel barriers (the common nomenclature is tunnel junctions,
+% so from now on is how we are going to call them) and to a third voltage
+% (\(V_{g}\)) via a capacitor \(C_{C}\) (figure \ref{fig:SETSchematic}). Each
+% tunnel junction is modeled like a capacitor in parallel with a resistance, to
+% model both the accumulation of charge at the walls and the current due to
+% tunneling events respectively. Due to this function, the resistance needs to be
+% high enough for each tunneling event to be well-defined in time.
+%
+% To estimate the threshold for the resistance we can use the energy-time
+% Heisenberg uncertainty principle
+
+% With the \(\Delta E\) and \(\Delta t\) of the tunneling event. For \(\Delta E\)
+% we will use \(E_{C}\), since it is the smallest variation in energy permitted in
+% the island due to Coulomb blockade, and for \(\Delta t\) we will use the classical
+% discharge time of a parallel RC circuit \(\tau = RC\), which should be of the
+% order of the time there is between tunneling events:
+
+% \begin{frame}{Minimum resistance of tunnel junction}
+% \begin{equation*}
+%     \begin{rcases}
+%         \Delta E \Delta t \geq \hbar/2\\
+%         \Delta E = E_{C}\\
+%         \Delta t = \tau = RC
+%     \end{rcases}\Rightarrow
+%     R \geq \frac{\hbar}{e^2}
+% \end{equation*}
+% \begin{center}
+%     With more careful analysis, \(R \geq \frac{h}{e^2} = 25.8\unit{\kilo\ohm}\)
+% \end{center}
+% \end{frame}
+
+% So, for the tunnel events occur with enough separation in time to be
+% distinguishable, the resistance of the tunnel junction must be much bigger
+% that \(\hbar/e^2\)
+%
+% In reality, following a more rigorous analysis called orthodox theory one can
+% arrive at a more restrictive condition for \(R\)\cite{hansonFundamentalsNanoelectronics2008}
+%
+% \begin{equation*}
+% \label{eq:RTunnelCond}
+%     R \gg \frac{h}{e^2} \approx 25.8\unit{\kilo\ohm}
+% \end{equation*}
+%
+% With that out of the way we can begin to piece how does the SET manage to turn
+% on and off a single electron current.
+%
+% We begin with the electrostatic energy on the island, which is a combination
+% of the charging energies of the capacitors and the work that the voltages have
+% done to charge them
+
+% \begin{frame}{Operating principles of a SET}
+% \centering
+% \begin{gather*}
+% \begin{split}
+% E_{el} = \frac{1}{2}&\left(\frac{q^{2}_{L}}{C_{L}} +
+%                            \frac{q^{2}_{C}}{C_{C}} +
+%                            \frac{q^{2}_{R}}{C_{R}}\right)\\
+%         - &(q_{L}V_{s}
+%           + q_{C}V_{g}
+%           + q_{R}V_{d})\\
+% \end{split}\\
+% \Downarrow\\
+% \begin{split}
+%     E_{el}  = \frac{1}{2}(&C_{L}((V_{L} - V_{s})^2 + V_{s}^2)\\
+%     + &C_{C}((V_{C} - V_{g})^2 + V_{g}^2)\\
+%     + &C_{R}((V_{R} - V_{d})^2 + V_{d}^2)
+% \end{split}
+% \end{gather*}
+% \end{frame}
+
+%
+% The next step is to obtain the values of \(V_{L}\), \(V_{C}\) and \(V_{R}\).
+% For this, we just need to solve the system of equations comprised of two
+% applications of Kirchhoff's voltage law
+% \begin{align*}
+%     V_{L} + V_{C} = V_{s} + V_{g}\\
+%     V_{L} + V_{R} = V_{s} + V_{d}
+% \end{align*}
+% And the fact that the charge on the island is discrete
+% \begin{align*}
+% \begin{split}
+%     eN &= q_{L} - q_{C} - q_{R}\\
+%        &= C_{L}V_{L} - C_{C}V_{C} - C_{R}V_{R}
+% \end{split}
+% \end{align*}
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+%     V_{L}& + V_{C} = V_{s} + V_{g}\\
+%     V_{L}& + V_{R} = V_{s} + V_{d}\\
+%     eN &= q_{C} + q_{R} - q_{L}\\
+%        &= C_{C}V_{C} + C_{R}V_{R} - C_{L}V_{L}
+% \end{align*}
+% \end{frame}
+
+% Which gives us the equality
+
+% \begin{align*}
+%     V_{L} - V_{s} = -(V_{C} - V_{g})
+%                   = -(V_{R} - V_{d})
+%                   = \frac{eN - (C_{L}V_{s} - C_{C}V_{g} - C_{R}V_{d})}{C_{L} + C_{C} + C_{R}}
+% \end{align*}
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+%     V_{s} - V_{L} &= V_{g} - V_{C}
+%                    = V_{d} - V_{R}\\
+%                   &= \frac{eN - (C_{C}V_{g} + C_{R}V_{d} - C_{L}V_{s})}{C_{L} + C_{C} + C_{R}}\\
+%                   &= \frac{e}{C_{\Sigma}}(N - q/e)
+% \end{align*}
+% \end{frame}
+
+% Naming \(C_{\Sigma} = C_{L} + C_{C} + C_{R}\) the total capacitance of the
+% island and \(q = C_{L}V_{s} - C_{C}V_{g} - C_{R}V_{d}\) as the induced charge
+% in the quantum dot, we arrive at the expression of the electrostatic energy
+% for the island in the SET
+
+% \begin{equation*}
+% \label{eq:ElecESET}
+%     E(N) = E_{C}(N - q/e)^2
+%              - \frac{1}{2}\left(C_{L}V_{s}^2 + C_{C}V_{g}^2 + C_{R}V_{d}^2\right)
+%              \text{ with } E_{C} = \frac{e^2}{2 C_{\Sigma}}
+% \end{equation*}
+
+% The energy of the \(N\)th electron in the island being then
+% \begin{equation}
+% \label{eq:NElecESET}
+%     E_{N} = 2E_{C}(N - 1/2 - q/e)
+% \end{equation}
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+% E(N) = &E_{C}(N - q/e)^2\\
+%              &- \frac{1}{2}\left(C_{L}V_{s}^2 + C_{C}V_{g}^2 + C_{R}V_{d}^2\right)
+%              \text{ with } E_{C} = \frac{e^2}{2 C_{\Sigma}}\\
+% E_{N} = &2E_{C}(N - 1/2 - q/e)
+% \end{align*}
+% \end{frame}
+
+% In order to analyze the behavior of the SET with \(N\) electrons inside, we
+% need to know the energy variation of each possible single electron process,
+% of which there are four: an electron gets out of the island through the
+% left tunnel junction or through the right, or it gets into the tunnel junction
+% through the left or through the right. The variation in energy with \(N\)
+% electrons on the island is simply the energy of destination (voltage
+% source/first empty energy level on the island) minus the energy of origin
+% (voltage source/last full energy level on the island):
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+%     \Delta E_{IL}(N) &= E_{N+1} - eV_{s}\\
+%     \Delta E_{OL}(N) &= eV_{s} - E_{N}\\
+%     \Delta E_{IR}(N) &= E_{N + 1} - eV_{d}\\
+%     \Delta E_{OR}(N) &= eV_{d} - E_{N}
+% \end{align*}
+% \end{frame}
+
+% With IL/OL meaning in/out left and IR/OR meaning in/out right. Using \ref{eq:NElecESET}
+% \begin{align*}
+%     \Delta E_{IL}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{s}\\
+%     \Delta E_{OL}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{s}\\
+%     \Delta E_{IR}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) + eV_{d}\\
+%     \Delta E_{OR}(N) &= -2E_{C}(N - 1/2 - q/e) - eV_{d}
+% \end{align*}
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+%     \Delta E_{IL}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) - eV_{s}\\
+%     \Delta E_{OL}(N) &= -2E_{C}(N - 1/2 - q/e) + eV_{s}\\
+%     \Delta E_{IR}(N) &= \phantom{-}2E_{C}(N + 1/2 - q/e) - eV_{d}\\
+%     \Delta E_{OR}(N) &= -2E_{C}(N - 1/2 - q/e) + eV_{d}
+% \end{align*}
+% \end{frame}
+
+% And with the simplifications \(V_{s} =  V\) and \(V_{d} = 0\), a little
+% bit of massaging, and using the definition of \(q\), they turn into
+
+% \begin{frame}{Operating principles of SET}
+% \begin{align*}
+%     % \Delta E_{IL}(N) &= \frac{2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N + \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
+%     % \Delta E_{OL}(N) &= \frac{-2E_{C}}{e(C_{C} + C_{R})}\left(\frac{e}{C_{C} + C_{R}}\left(N - \frac{1}{2}\right) + V + \frac{C_{C}}{C_{C} + C_{R}}V_{g}\right)\\
+%     \Delta E_{IL}(N) &= \frac{2E_{C}}{e}\left(e\left(N + \frac{1}{2}\right) - (C_{C} + C_{R})V - C_{C}V_{g}\right)\\
+%     \Delta E_{OL}(N) &= \frac{-2E_{C}}{e}\left(e\left(N - \frac{1}{2}\right) - (C_{C} + C_{R})V - C_{C}V_{g}\right)\\
+%     \Delta E_{IR}(N) &= \frac{2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N + \frac{1}{2}\right) + V - \frac{C_{C}}{C_{L}}V_{g}\right)\\
+%     \Delta E_{OR}(N) &= \frac{-2E_{C}}{eC_{L}}               \left(\frac{e}{C_{L}}\left(N - \frac{1}{2}\right) + V - \frac{C_{C}}{C_{L}}V_{g}\right)
+% \end{align*}
+% \end{frame}
+
+% \begin{frame}{Coulomb diamonds}
+% \begin{figure}[t]
+% \centering
+% \begin{tikzpicture}[scale=2.5]
+%     \clip (-0.1,-1.2) rectangle (4,1.2);
+%     %
+%     % White diamonds
+%     \fill[white] (-0.5,0) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[white]  (0.5,0) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[white]  (1.5,0) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[white]  (2.5,0) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[white]  (3.5,0) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     \fill[lightgray] (-0.5,0) ++(60:-0.815) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (0.5,0) ++(60:-0.815) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (1.5,0) ++(60:-0.815) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (2.5,0) ++(60:-0.815) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (3.5,0) ++(60:-0.815) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     \fill[lightgray]  (0.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (1.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (2.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (3.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (4.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     \fill[lightgray!60] (-0.5,0) ++(60:-0.815) ++(-50:0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (0.5,0) ++(60:-0.815) ++(-50:0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (1.5,0) ++(60:-0.815) ++(-50:0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (2.5,0) ++(60:-0.815) ++(-50:0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (3.5,0) ++(60:-0.815) ++(-50:0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     \fill[lightgray]  (0.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (1.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (2.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (3.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray]  (4.5,0) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     \fill[lightgray!60]  (0.5,0) ++(-50:-0.922) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (1.5,0) ++(-50:-0.922) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (2.5,0) ++(-50:-0.922) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (3.5,0) ++(-50:-0.922) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     \fill[lightgray!60]  (4.5,0) ++(-50:-0.922) ++(-50:-0.922) -- ++(60:0.815) -- ++(-50:0.922) -- ++(60:-0.815) -- ++(-50:-0.922);
+%     %
+%     % Axis
+%     \draw[thick] (0,-1.1) node[above right]{\(V\)} -- (0,1.1);
+%     \draw[thick] (-0.05, 0.706) -- ++(0.1,0) node[right]{\(2E_{C}/e\)};
+%     \draw[thick] (-0.05, -0.706) -- ++(0.1,0);% node[right]{\(-2E_{C}\)};
+%     %
+%     \draw[thick] (-0.1,0) -- (4,0) node[below left]{\(V_{g}\)};
+%     \draw[thick] (0.5, 0.05) -- ++(0,-0.1) node[below]{\(\frac{e}{2C_{C}}\)};
+%     \draw[thick] (1.5, 0.05) -- ++(0,-0.1) node[below]{\(\frac{3e}{2C_{C}}\)};
+%     \draw[thick] (2.5, 0.05) -- ++(0,-0.1) node[below]{\(\frac{5e}{2C_{C}}\)};
+%     \draw[thick] (3.5, 0.05) -- ++(0,-0.1) node[below]{\(\frac{7e}{2C_{C}}\)};
+%     \draw[thick] (0,0) node[below right]{\(0\)};
+%     %
+%     \draw[thick] (0.955,0.2) node[]{\(N = 1\)};
+%     \draw[thick] (1.955,0.2) node[]{\(N = 2\)};
+%     \draw[thick] (2.955,0.2) node[]{\(N = 3\)};
+%     %
+%     % Diamond edges
+%     \draw[dashed] (-0.5,0) ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (0.5,0)  ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (1.5,0)  ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (2.5,0)  ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (3.5,0)  ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (4.5,0)  ++( 60:-2) -- ++( 60:4);
+%     \draw[dashed] (-0.5,0) ++(-50:-2) -- ++(-50:4);
+%     \draw[dashed] (0.5,0)  ++(-50:-2) -- ++(-50:4);
+%     \draw[dashed] (1.5,0)  ++(-50:-2) -- ++(-50:4);
+%     \draw[dashed] (2.5,0)  ++(-50:-2) -- ++(-50:4);
+%     \draw[dashed] (3.5,0)  ++(-50:-2) -- ++(-50:4);
+%     \draw[dashed] (4.5,0)  ++(-50:-2) -- ++(-50:4);
+% \end{tikzpicture}
+% % \caption{Coulomb diamonds in an SET due to Coulomb blockade. As we move
+% % towards the left, more charges are stored into the conducting island.}
+% \label{fig:CoulombDiamonds}
+% \end{figure}
+% \end{frame}
+
+% For a process to occur, the variation in energy of that process needs to be
+% less than \(0\). Since we are interested in the transportation of charge
+% through the SET, we want electrons flowing through one side to the other,
+% which means \(\Delta E_{IL}, \Delta E_{OR} < 0\) or
+% \(\Delta E_{IR}, \Delta E_{OL} < 0\). In figure \ref{fig:CoulombDiamonds}
+% we can see a plot of this in the \(V-V_{g}\) plane, with the white
+% diamonds being where no condition is met, and darker diamonds
+% being we are specifically \(\Delta E_{IL}(N), \Delta E_{OR}(N+1) < 0\) and
+% \(\Delta E_{IR}(N), \Delta E_{OL}(N+1) < 0\).
+%
+% With this we have enough information to have a basic understanding of how a
+% SET works:
+
+% \begin{itemize}
+%     \item For the SET to operate as it should, \(V\) needs to be lower than
+%         \(2E_{C}/e\). If not, the current can not be turned off, and we cannot
+%         ensure that it is a one electron current. Picturing this scenario
+%         with the energy levels inside the conducting island it makes perfect
+%         sense. If \(|V| > 2E_{C}/e\), the energy drop from one terminal to the
+%         other will be greater than the spacing between levels, ensuring
+%         that there is always an empty level to fill or a full level to empty.
+%     \item Using the same logic as the previous point, the thermal energy of
+%         the leads and the island must be smaller than \(E_{C}\), since
+%         the thermal energy raises the available energy to mobilize while
+%         not increasing the required energy to move, giving effectively
+%         extra voltage to the system.
+%     \item The activation window for \(V_{g}\) is inversely proportional to
+%         \(V\), and it occurs when thanks to \(V_{g}\), an energy level
+%         is placed between \(0\) and \(V\).
+% \end{itemize}
+
+% \begin{frame}{How does it work?}
+%     % \hl{ADD ENERGY LEVELS DIAGRAM}
+%     \begin{figure}[!ht]
+%     \centering
+%     \begin{tikzpicture}
+%     \tikzstyle{every node}=[font=\large]
+%     \draw  (3.75,12.75) -- (3.75,6.5);
+%     \draw  (1.5,11.25) -- (3.75,11.25);
+%     \draw [dashed] (1.5,9.25) -- (3.75,9.25);
+%     \draw  (7.75,12.75) -- (7.75,6.5);
+%     \draw  (7.75,9.25) -- (10,9.25);
+%     \draw  (3.75,10.25) -- (7.75,10.25);
+%     \draw [ fill={rgb,255:red,0; green,0; blue,0} ] (5.75,10.25) circle (0.25cm);
+%     \draw [ fill={rgb,255:red,0; green,0; blue,0} ] (5.75,7.75) circle (0.25cm);
+%     \draw  (3.75,7.75) -- (7.75,7.75);
+%     \draw  (5.75,12.5) circle (0.25cm);
+%     \draw  (3.75,12.5) -- (5.5,12.5);
+%     \draw  (6,12.5) -- (7.75,12.5);
+%     \draw [<->, >=Stealth, dashed] (7.5,10.25) -- (7.5,7.75);
+%     \draw [<->, >=Stealth, dashed] (1.75,11.25) -- (1.75,9.25);
+%     \end{tikzpicture}
+%     \end{figure}
+% \end{frame}
+
+\begin{frame}{Conditions for SET operation}
+\begin{itemize}
+    \item \(R \gg 50\unit{\kilo\ohm}\)
+    \item \(2E_{C}/e > |V|\)
+    \item \(E_{C} > k_{B}T\)
+    % \item The activation window for \(V_{g}\) is inversely proportional to
+    %     \(|V|\), and it occurs when thanks to \(V_{g}\), an energy level
+    %     is placed between \(0\) and \(V\).
+\end{itemize}
+\end{frame}
+
+% \begin{frame}{Conditions for SET operation}
+%     \hl{ADD DIAGRAMS OF VOLAGE AND THERMAL CONDITIONS}
+% \end{frame}
+
+% If we want to use a SET for spin sensing in a quantum dot, first we need to
+% use it for charge sensing. This is done by connecting via a capacitor the
+% conducting island of the SET with the QD. When a charge is placed in the QD, it
+% will influence the SET by, effectively, adding a bias to \(V_{g}\). Choosing
+% \(V\) and \(V_{g}\) appropriately for the bias that the charge introduces, we
+% can tune the SET to make it let the current flow when a charge is present
+% and stop it when it is absent (or the opposite).
+%
+% For spin sensing, what we do is set up our system in such a way that the charge
+% in the QD and the spin of that charge are correlated. This process is called
+% spin to charge conversion, and there are mainly 2 ways of doing it:
+
+% \begin{itemize}
+%     \item \textbf{Elzerman readout:} After inducing a Zeeman splitting in the
+%         QD, we can connect to it with a tunnel junction a reservoir,
+%          with a Fermi energy in between both spin states in the
+%         QD. If we detect a fluctuation in charge, it means the electron
+%         decayed through the reservoir to the lowest energy spin state. If
+%         not, it means it already was in the lowest energy spin state.
+%     \item \textbf{Pauli Spin Blockade:} By connecting to our QD another QD via a tunnel junction
+%         with lower energy and an electron with known spin, we can infer the
+%         spin in the first QD based on if a tunneling event occurred, thanks
+%         to the Pauli exclusion principle.
+% \end{itemize}
+
+\begin{frame}{Spin to charge conversion for SET}
+\begin{itemize}
+    \item \textbf{Elzerman readout:} Hopping to charge reservoir depends on spin
+    \item \textbf{Pauli Spin Blockade:}  Hopping to QD with spin inside depends on spin
+\end{itemize}
+\end{frame}
+
+% To summarize, a SET is a transistor that thanks to Coulomb blockade,
+% a discretization on the energy spectrum of conducting islands due to
+% Coulomb repulsion, is able to let a single electron current through and
+% control it. It is main operation conditions are \(e^2/C_{\Sigma} \gg V\)
+% and \(e^2/2C_{\Sigma} \gg k_{b}T\), with \(V\) the voltage applied,
+% \(C_{\Sigma}\) the capacitance of the conducting island of the SET, \(k_{b}\)
+% the Boltzmann constant and \(T\) the temperature of the SET, and when current
+% flows, its resistance must be such that \(R \gg 51.6\unit{\kilo\ohm}\).
+%
+% By connecting a quantum dot to we can measure the charge inside it, and
+% by implementing a spin to charge conversion scheme we can also measure
+% the spin of said charge.
+\end{document}

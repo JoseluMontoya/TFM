@@ -1,0 +1,213 @@
+\documentclass{beamer}
+
+\usetheme{Antibes}
+% \usefonttheme[onlymath]{serif}
+\usefonttheme{serif}
+% %Basics
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+% \usepackage{enumitem}
+% \usepackage[spanish, es-noquoting]{babel}
+\usepackage[]{babel}
+
+% % Visual flare and structure
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{graphicx}
+\usepackage[]{geometry}
+% \usepackage[pagestyles, explicit]{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{soul}
+% \usepackage{multicol}
+% \usepackage{abstract}
+\usepackage{appendix}
+\usepackage{lipsum}
+\usepackage{svg}
+
+% % Math
+\usepackage{bm}
+\usepackage{amsmath}
+\numberwithin{equation}{section}
+\usepackage[makeroom]{cancel}
+\usepackage{empheq}
+\usepackage{physics}
+\usepackage{siunitx}
+
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+
+% % Links
+\usepackage[]{hyperref}
+\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=cerulean,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=magenta,
+    % pdftitle={Overleaf Example},
+    % pdfpagemode=FullScreen,
+    }
+
+% % Subfiles
+\usepackage{subfiles}
+
+% % Tikz libraries
+\usetikzlibrary{babel}
+\usetikzlibrary{calc}
+\usetikzlibrary{math}
+\usetikzlibrary{backgrounds}
+
+\renewcommand{\CancelColor}{\color{red}}
+
+\parskip=1em
+
+\newcommand{\ROn}{R_{\text{On}}}
+\newcommand{\ROff}{R_{\text{Off}}}
+\newcommand{\LOn}{L_{\text{On}}}
+\newcommand{\LOff}{L_{\text{Off}}}
+
+\graphicspath{{./../code/img/}}
+
+\title{
+\textbf{SET readout using RF reflectometry and kinetic inductance nonlinearity}
+}
+\author{Jose Luis Montoya Agull\'o}
+\date{}
+
+\AtBeginSection[]
+{
+\begin{frame}
+    % \frametitle{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection,sectionstyle=show/shaded,subsectionstyle=hide/hide/hide,subsubsectionstyle=hide/hide/hide]
+\end{frame}
+}
+
+\AtBeginSubsection[]
+{
+\begin{frame}
+    \tableofcontents[currentsection,currentsubsection,sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=hide/hide/hide]
+\end{frame}
+}
+
+\AtBeginSubsubsection[]
+{
+\begin{frame}
+    \tableofcontents[currentsection,currentsubsection,sectionstyle=hide/hide,subsectionstyle=show/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+}
+
+
+\begin{document}
+\begin{frame}
+    \maketitle
+\end{frame}
+
+% \newgeometry{top=2cm}
+% \maketitle
+% \begin{abstract}
+%     In this thesis we will make a proof of concept of a new type of charge sensor for quantum computation,
+%     using an SET, RF reflectometry and a kinetic inductance, which is the novel
+%     part of the sensor. First we will optimize the sensor analytically using a non-kinetic inductance,
+%     and then we will simulate the kinetic version to see if we can improve the fidelity.
+%     The results show that, for a non-kinetic sensor, the optimum tuning is done to
+%     the geometric mean of the two resistances we want to distinguish between, and
+%     that the use of a kinetic inductor with a proper calibration increases greatly
+%     the fidelity of the sensor, specially with parasitic resistances of the order
+%     of the smallest resistance.
+% \end{abstract}
+%
+%
+
+\begin{frame}{Meaning of the title}
+\begin{itemize}
+    \item \textbf{SET:} Single electron transistor
+    \item \textbf{RF reflectometry:} Measuring method for the SET
+    \item \textbf{Kinetic inductance:} Inductance using kinetic energy
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Outline of defense}
+\setcounter{tocdepth}{1}
+\tableofcontents{}
+\setcounter{tocdepth}{3}
+\end{frame}
+
+% \restoregeometry{}
+%
+% \newpage
+\section{Introduction}
+\label{sec:Intro}
+\subfile{sections/Introduction.tex}
+
+\section{Aims and objectives}
+\label{sec:Objectives}
+\subfile{sections/Objectives.tex}
+
+\newpage
+\section{Theoretical background}
+\label{sec:Theory}
+\subfile{sections/SET.tex}
+\subfile{sections/RfReflectometry.tex}
+\subfile{sections/KineticInductance.tex}
+
+\newpage
+\section{Results}
+\label{sec:Results}
+\begin{frame}{Measuring circuit}
+    \begin{figure}
+    \centering
+    \begin{circuitikz}[scale=0.9]
+        \draw (-0.5,0) to[short]
+              (0,0) to[generic, l=\(Z_0\)]
+              (1.5,0) to[capacitor, l=\(C_c\)]
+              (3,0) to[short]
+              (6,0);
+        \draw (3,0) to[L, l=\(L\)]
+              (3,-2);
+        \draw (4.5,0) to[capacitor, l=\(C_p\)]
+              (4.5,-2);
+        \draw (6,0) to[vR, l=\({R = R_{SET} \parallel R_p}\)]
+              (6,-2);
+        \draw (3,-2) to[short]
+              (6,-2) node[ground]{};
+    \end{circuitikz}
+    % \caption{Topology of our measuring circuit. Since during most of our
+    % analysis we will ignore \(R_{p}\), it is already couplet to \(R_{SET}\).}
+    \label{fig:RLC}
+    \end{figure}
+\end{frame}
+
+
+\subsection{The parallel RLC resonator}
+\label{subsec:ParallelRLC}
+\subfile{sections/RLC.tex}
+
+\subsection{The parallel kinetic RLC resonator}
+\label{subsec:KineticRLC}
+\subfile{sections/KineticRLC.tex}
+
+\section{Conclusions}
+\label{sec:Conclusions}
+\subfile{sections/Conclusions.tex}
+
+\section{Next steps and closing remarks} %Vistas de futuro: que hacer despues
+\label{sec:NextSteps}
+\subfile{sections/NextSteps.tex}
+
+% \nocite{zhaoPhysicsSuperconductingTravellingWave2022}
+% \bibliographystyle{plain}
+% \bibliography{../TFM}
+
+% \newpage
+% \appendix \appendixpage \addappheadtotoc
+%
+% \section{Cuentas}
+% \subfile{sections/Ap_1}
+
+\end{document}
+

@@ -1,0 +1,14 @@
+\babel@toc {nil}{}\relax 
+\beamer@sectionintoc {1}{Introduction}{4}{0}{1}
+\beamer@sectionintoc {2}{Aims and objectives}{6}{0}{2}
+\beamer@sectionintoc {3}{Theoretical background}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{The SET for spin sensing}{9}{0}{3}
+\beamer@subsectionintoc {3}{2}{RF reflectometry}{14}{0}{3}
+\beamer@subsectionintoc {3}{3}{Kinetic inductance and his nonlinearity}{16}{0}{3}
+\beamer@sectionintoc {4}{Results}{18}{0}{4}
+\beamer@subsectionintoc {4}{1}{The parallel RLC resonator}{20}{0}{4}
+\beamer@subsubsectionintoc {4}{1}{1}{Contrast and optimization}{22}{0}{4}
+\beamer@subsectionintoc {4}{2}{The parallel kinetic RLC resonator}{33}{0}{4}
+\beamer@subsubsectionintoc {4}{2}{1}{Simulation of the effect on kinetic inductance on the contrast}{37}{0}{4}
+\beamer@sectionintoc {5}{Conclusions}{42}{0}{5}
+\beamer@sectionintoc {6}{Next steps and closing remarks}{44}{0}{6}

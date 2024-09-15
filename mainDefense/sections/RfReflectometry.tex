@@ -1,0 +1,192 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{RF reflectometry}
+\label{subsec:RFRef}
+% Radio frequency reflectometry is a method to measure change in an impedance
+% connected to a transmission line via the reflection of a radio signal.
+%
+% Usual lumped element treatment of AC circuits assumes that the size of the
+% circuit is small with respect to the wavelength of the voltage,
+% but with radio frequency voltages we cannot do that. The main consequences for
+% us are:
+
+% \begin{itemize}
+%     \item Now voltage and current are dependent on how far along the circuit
+%     you are, due to how fast it changes with respect to the size of the circuit
+%     itself (\(V(t), I(t) \rightarrow V(x, t), I(x, t)\))
+% \item The intrinsic inductance and capacitance per unit length of a long
+%     connection cannot be ignored
+% \end{itemize}
+
+% \begin{frame}{Things to keep in mind with AC RF}
+% \begin{itemize}
+%     \item \(V(t), I(t) \rightarrow V(x, t), I(x, t)\)
+% \item Intrinsic inductance/capacitance cannot be ignored
+% \end{itemize}
+% \end{frame}
+
+% In such cases those connections are made with what is known as a
+% transmission line, which is a cable designed to minimize the radiation of
+% power via that inductance and capacitance, and includes a signal and a
+% ground connection in one package. One example of a transmission line would be a
+% coaxial cable, in which the central conductor is the signal and the outer jacket
+% ground.
+
+% \begin{frame}{Transmission line circuit}
+% \begin{figure}[t]
+% \centering
+% \begin{circuitikz}[]
+%     \newcommand{\lenghOfTransmissionLine}{4}
+%     \draw (0,0) node[ground]{};
+%     \draw (0,0) to[sV] ++(0,1.5) to[short] ++(1.5,0);
+%     \draw (1.5,0) to[capacitor] ++(0,1.5) to[L] ++(1.5,0) to[short] ++(0.5,0);
+%     \foreach \i in {2,...,\lenghOfTransmissionLine}{
+%         \draw (2*\i - 0.5,0) to[capacitor] ++(0,1.5) to[L] ++(1.5,0) to[short] ++(0.5,0);
+%     }
+%     \draw ({2*(1+\lenghOfTransmissionLine)-0.5},0) node[ground]{};
+%     \draw ({2*(1+\lenghOfTransmissionLine)-0.5},1.5) to[generic, l=\(Z\)] ++(0,-1.5);
+%     \draw (0,0) to[short] ++({2*(1+\lenghOfTransmissionLine)-0.5},0);
+%     \draw[dashed] (0.93,-0.15) rectangle ++(2,2);
+%     \draw [latexslim-latexslim] (2.93,-0.35) -- node[below] {\(\Delta x\)} ++(-2,0);
+% \end{circuitikz}
+% % \caption{Lumped element model of a lossless transmission line connected to a
+% %     generic impedance \(Z\). In order to model the relevant
+% %     impedance per unit length of the transmission line at radio frequencies,
+% %     we represent it via sections with inductors in series and capacitors
+% %     in parallel. Each periodic section like the one inside the dashed rectangle
+% %     represents a segment of length \(\Delta x\) of the transmission line.}
+% \label{fig:LumpedTransmisionLine}
+% \end{figure}
+% \end{frame}
+
+% Even though a transmission line minimizes that radiation of power, it does not
+% erase it, and we need to take it into account in our calculations. To model this
+% inductance and capacitance per unit length (\(L_{l}\) and \(C_{l}\) respectively),
+% we will discretize it via a lumped element representation like in figure
+% \ref{fig:LumpedTransmisionLine}, ignoring the losses by not including any
+% resistance  in our circuit.
+% Each pair inductor-capacitor will occur along a length \(\Delta x\) of the
+% transmission line, so their inductance and capacitance in that stretch will be
+% \(L = \Delta x \cdot L_{l}\) and \(C = \Delta x \cdot C_{l}\). Applying Kirchhoff
+% at a point \(x\) in the transmission line we get
+
+% \begin{align*}
+%     V(x+\Delta x, t) - V(x, t) &= -\Delta x L_{l} \frac{\partial I}{\partial t}\\
+%     I(x+\Delta x, t) - I(x, t) &= -\Delta x C_{l} \frac{\partial V}{\partial t}\\
+% \end{align*}
+
+
+% And doing the limit \(\Delta x \to 0\) gives us the telegraph equations for a
+% lossless transmission line
+% \begin{align}
+% \begin{split}
+% \label{eq:TelegraphEq}
+%     \frac{\partial V}{\partial x} = - L_{l}\frac{\partial I}{\partial t}\\
+%     \frac{\partial I}{\partial x} = - C_{l}\frac{\partial V}{\partial t}\\
+% \end{split}
+% \end{align}
+
+% \begin{frame}{Telegraph equations}
+% \begin{gather*}
+%     \begin{split}
+%         V(x+\Delta x, t) - V(x, t) &= -\Delta x L_{l} \frac{\partial I}{\partial t}\\
+%         I(x+\Delta x, t) - I(x, t) &= -\Delta x C_{l} \frac{\partial V}{\partial t}\\
+%     \end{split}\\
+%     \Downarrow\\
+%     \frac{\partial V}{\partial x} = - L_{l}\frac{\partial I}{\partial t}\\
+%     \frac{\partial I}{\partial x} = - C_{l}\frac{\partial V}{\partial t}\\
+% \end{gather*}
+% \end{frame}
+
+% With solutions
+% \begin{align*}
+% \begin{split}
+%     \label{eq:TelegraphSol}
+%     V(x,t) &= V_{+}(t - x/v_{p}) + V_{-}(t + x/v_{p})))\\
+%     I(x,t) &= \frac{1}{Z_{0}}(V_{+}(t - x/v_{p}) - V_{-}(t + x/v_{p}))
+% \end{split}
+% \end{align*}
+
+% \begin{frame}{Telegraph solutions}
+% \begin{align*}
+% \begin{split}
+%     \label{eq:TelegraphSol}
+%     V(x,t) &= V_{+}(t - x/v_{p}) + V_{-}(t + x/v_{p})))\\
+%     I(x,t) &= \frac{1}{Z_{0}}(V_{+}(t - x/v_{p}) - V_{-}(t + x/v_{p}))
+% \end{split}
+% \end{align*}
+% \end{frame}
+
+% Where \(v_{p} = \frac{1}{\sqrt{L_{l}C_{l}}}\) is the phase velocity of the wave,
+% \(Z_{0} = \sqrt{\frac{L_{l}}{C_{l}}}\) is the characteristic impedance of the
+% line and \(V_{+}\) and \(V_{-}\) are generic functions that describe a right
+% and left traveling wave respectively. Since we will be choosing our reference
+% frame such that our signal will be always traveling from left to right, the
+% appearance of \(V_{-}\) in our calculations will mean a reflection.
+%
+% If we add a generic impedance \(Z\) at the end of the transmission line, we
+% add the boundary condition
+% \begin{equation*}
+% \label{eq:RfBoundCond}
+%     \frac{V(x_{\text{End}},\omega)}{I(x_{\text{End}},\omega)} = Z(\omega)
+% \end{equation*}
+% With \(V(x,\omega)\) and \(I(x,\omega)\) being the time Fourier transforms of
+% \(V(x,t)\) and \(I(x,t)\) respectively. Choosing \(x=x_{\text{End}}=0\) to
+% simplify and using the time Fourier transforms of expressions
+% \ref{eq:TelegraphEq}, we get
+% \begin{equation}
+% \label{eq:TelegraphEqFourierWithBound}
+%     \frac{V(0,\omega)}{I(0,\omega)} =
+%     Z_{0}\frac{V_{+}(\omega) + V_{-}(\omega)}
+%     {V_{+}(\omega) - V_{-}(\omega)} = Z(\omega)
+% \end{equation}
+
+% \begin{frame}{Boundary condition}
+% \begin{gather*}
+%     \frac{V(x_{\text{End}},\omega)}{I(x_{\text{End}},\omega)} = Z(\omega)\\
+%     \Downarrow\\
+%     \frac{V(0,\omega)}{I(0,\omega)} =
+%     Z_{0}\frac{V_{+}(\omega) + V_{-}(\omega)}
+%     {V_{+}(\omega) - V_{-}(\omega)} = Z(\omega)
+% \end{gather*}
+% \end{frame}
+
+%
+% As we can see, the only way in which \(Z_{0} = Z(\omega)\) is if
+% \(V_{+,-}(\omega)=0\), or in other words, the only way to not get a reflection
+% is to match \(Z_{0}\) to \(Z(\omega)\). A useful parameter to define is the
+% reflection coefficient \(\Gamma = \frac{V_{-}(\omega)}{V_{+}(\omega)}\), and
+% with equality \ref{eq:TelegraphEqFourierWithBound} has the form
+% \begin{equation}
+% \label{eq:ReflecCoeff}
+%     \Gamma = \frac{Z(\omega) - Z_{0}}{Z(\omega) + Z_{0}}
+% \end{equation}
+%
+% This reflection coefficient is the key to RF reflectometry, because if we
+% know the characteristic impedance of our transmission line, we can measure
+% the power and the phase reflected and obtain \(Z(\omega)\).
+%
+% If we want to measure 2 distinct impedances, and we want to maximize the
+% reliability of our measure, the obvious way to do it would be to make the values
+% of \(\Gamma\) be as separated as possible. A more formal way to express this
+% idea is through the signal-to-noise ratio (SNR)\cite{vigneauProbingQuantumDevices2023} of the measurement
+%
+% \begin{equation}
+% \label{eq:SNR}
+% \text{SNR} = |\Delta\Gamma|^2\frac{P_{0}}{P_{N}}
+% \end{equation}
+
+\begin{frame}{Reflection coefficient and SNR}
+\begin{align*}
+    \Gamma = \frac{Z(\omega) - Z_{0}}{Z(\omega) + Z_{0}} && 
+    \text{SNR} = |\Delta\Gamma|^2\frac{P_{0}}{P_{N}}
+\end{align*}
+\end{frame}
+
+% With \(P_{0}\) and \(P_{N}\) the power of the signal and noise respectively and
+% \(\Delta\Gamma = \Gamma_{B} - \Gamma_{A}\) the difference in reflection
+% coefficients between the two states to measure, whose modulus is what is
+% called the contrast. If we want to improve our measurements, we need to
+% increase our SNR.
+\end{document}
